@@ -1,0 +1,656 @@
+{
+  "pages": [
+    {
+      "slug": "home",
+      "title": "Spring — Powering the Future of Mortgages in Africa",
+      "description": "Seamless, scalable, and accessible B2B infrastructure that delivers mortgage services into the hands of millions.",
+      "sections": [
+        {
+          "type": "hero",
+          "kicker": "Fintech Infrastructure-as-a-Service",
+          "heading": "Powering the Future of Mortgages in Africa.",
+          "subheading": "Seamless, scalable, and accessible. B2B infrastructure that delivers mortgage services into the hands of millions — faster, smarter, and without the red tape.",
+          "cta": {
+            "label": "Partner with Spring",
+            "href": "/contact"
+          },
+          "secondaryCta": {
+            "label": "Explore the Platform",
+            "href": "/products"
+          }
+        },
+        {
+          "type": "stats",
+          "items": [
+            {
+              "value": "20M+",
+              "label": "Housing deficit in Nigeria"
+            },
+            {
+              "value": "<1%",
+              "label": "Mortgage penetration today"
+            },
+            {
+              "value": "5",
+              "label": "Product pillars, one platform"
+            },
+            {
+              "value": "Weeks",
+              "label": "To launch — not years"
+            }
+          ]
+        },
+        {
+          "type": "pillars",
+          "kicker": "Five Pillars, One Platform",
+          "heading": "Every financial product. One infrastructure.",
+          "subheading": "All five product pillars carry equal strategic weight and are distributed through the same infrastructure and the same end-user experience.",
+          "items": [
+            {
+              "icon": "Home",
+              "title": "Mortgage",
+              "text": "End-to-end mortgage origination — from eligibility checks through inspection, down payment, and contract signing."
+            },
+            {
+              "icon": "Banknote",
+              "title": "Loan",
+              "text": "Personal and business loan origination, including guarantor verification and structured repayment tracking."
+            },
+            {
+              "icon": "PiggyBank",
+              "title": "Savings",
+              "text": "Flexible and locked savings products with automated contributions and transparent returns."
+            },
+            {
+              "icon": "TrendingUp",
+              "title": "Investment",
+              "text": "Investment products with transparent projected returns and defined maturity terms."
+            },
+            {
+              "icon": "Package",
+              "title": "Commodity",
+              "text": "Commodity financing and purchase products — a direct alternative to informal and crypto-based instruments."
+            }
+          ]
+        },
+        {
+          "type": "features",
+          "kicker": "Who Spring Serves",
+          "heading": "Built for every side of the market.",
+          "subheading": "Spring connects licensed institutions, distribution partners, and end users on one trusted rails.",
+          "items": [
+            {
+              "icon": "Building2",
+              "title": "For Businesses",
+              "text": "Unlock new revenue streams by offering mortgages under your brand — without becoming a licensed institution."
+            },
+            {
+              "icon": "Landmark",
+              "title": "For Banks",
+              "text": "Scale distribution without increasing operational overhead. Bring products to market faster, at lower cost."
+            },
+            {
+              "icon": "Users",
+              "title": "For Customers",
+              "text": "Access trusted, affordable mortgages where you already shop, bank, or worship — in a mobile-first experience."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "kicker": "How Spring Works",
+          "heading": "From configuration to keys-in-hand.",
+          "subheading": "A core architectural principle underpins every layer: each Spring wallet maps one-to-one to a real account held at the originating financial institution.",
+          "items": [
+            {
+              "title": "Configure on Plata",
+              "text": "A licensed financial institution configures a product on Plata, defining its terms, pricing, and eligibility rules."
+            },
+            {
+              "title": "Distribute via Spring Platform",
+              "text": "The product becomes available to business partners — fintechs, cooperatives, real estate firms, and employers — who distribute it to their own audiences."
+            },
+            {
+              "title": "Discover on the User PWA",
+              "text": "End users discover, apply for, and manage the product through a white-labelled, mobile-first PWA branded to the distributing partner."
+            },
+            {
+              "title": "Settle with Trust",
+              "text": "Every transaction is orchestrated by Spring and settled into a real account at the originating institution. Spring earns a transparent take-rate."
+            }
+          ]
+        },
+        {
+          "type": "split",
+          "kicker": "Why Spring",
+          "heading": "Trust by design. Compounding by nature.",
+          "body": "Spring is not a bank, lender, or deposit-taking institution. Every account and every transaction on Spring infrastructure is legally held and owned by a CBN-licensed financial institution.",
+          "items": [
+            {
+              "title": "Speed to market",
+              "text": "Launch products on shared infrastructure rather than building from scratch."
+            },
+            {
+              "title": "Regulatory integrity",
+              "text": "Every wallet maps to a real, licensed account — no ambiguity over ownership of customer funds."
+            },
+            {
+              "title": "Trust by design",
+              "text": "Transparent terms, real-time status tracking, and a guided, mobile-first journey."
+            },
+            {
+              "title": "Compounding distribution",
+              "text": "Each new institution and partner extends the reach of the platform for every other participant."
+            }
+          ]
+        },
+        {
+          "type": "cta",
+          "heading": "Power home ownership with us.",
+          "body": "Real estate firms, banks, fintechs, cooperatives, churches, and NGOs — Spring takes care of the infrastructure. You focus on serving your customers.",
+          "cta": {
+            "label": "Partner with Spring",
+            "href": "/contact"
+          },
+          "secondaryCta": {
+            "label": "See Pricing",
+            "href": "/pricing"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "about",
+      "title": "About Spring",
+      "description": "Spring is a fintech infrastructure company transforming mortgage banking in Nigeria, in partnership with AG Mortgage Bank.",
+      "sections": [
+        {
+          "type": "hero",
+          "kicker": "Who We Are",
+          "heading": "The infrastructure behind Africa’s mortgage revolution.",
+          "subheading": "Spring is a fintech infrastructure company transforming mortgage banking in Nigeria. In partnership with AG Mortgage Bank, we provide the backbone that lets businesses, fintechs, and real estate firms embed mortgage services seamlessly."
+        },
+        {
+          "type": "split",
+          "kicker": "Our Story",
+          "heading": "Born to break the barriers.",
+          "body": "Nigeria faces a housing deficit of over 20 million units. Yet mortgage penetration is less than 1%. Direct-to-consumer banking models are too slow and too expensive. Building compliant, licensed financial products from the ground up is slow, capital-intensive, and operationally complex for most institutions in Africa.\n\nLicensed institutions often have regulatory capacity but lack the technology, distribution reach, or customer experience layer to bring products to market at scale. Distribution partners have access to end users but no licensed capacity to originate financial products directly. End users are underserved by processes that are opaque, paper-based, and slow.\n\nSpring was born to break these barriers.",
+          "items": [
+            {
+              "title": "Company",
+              "text": "Spring TD Limited — Lagos, Nigeria"
+            },
+            {
+              "title": "Sector",
+              "text": "Financial Technology Infrastructure"
+            },
+            {
+              "title": "Licensing Partners",
+              "text": "AG Mortgage Bank, Charis MFB, Fortress Capital"
+            },
+            {
+              "title": "Regulation",
+              "text": "Operating on CBN-licensed partners’ regulatory backing"
+            }
+          ]
+        },
+        {
+          "type": "quote",
+          "kicker": "Our Mission",
+          "heading": "To unlock home ownership for millions.",
+          "body": "To unlock home ownership for millions by making mortgages accessible, fast, and part of everyday commerce — giving any institution the infrastructure to launch and scale financial products in weeks rather than years, while giving end users a single trusted, transparent, mobile-first experience."
+        },
+        {
+          "type": "quote",
+          "kicker": "Our Vision",
+          "heading": "The “Flutterwave for Mortgage”.",
+          "body": "To be the trusted infrastructure powering Africa’s mortgage revolution — the infrastructure layer that powers access to mortgage, credit, savings, investment, and commodity finance for every underserved individual and institution across Africa."
+        },
+        {
+          "type": "cards",
+          "kicker": "Regulatory Foundation",
+          "heading": "Licensed. Accountable. Transparent.",
+          "subheading": "Spring operates on AG Mortgage Bank’s Central Bank of Nigeria banking license, alongside Charis MFB and Fortress Capital.",
+          "items": [
+            {
+              "icon": "ShieldCheck",
+              "title": "Regulatory backing",
+              "text": "Every product distributed through Spring carries the compliance oversight and legal accountability of a licensed institution."
+            },
+            {
+              "icon": "Lock",
+              "title": "We never hold funds",
+              "text": "Spring’s role is strictly technology, orchestration, and distribution — we do not underwrite, lend, or hold customer funds."
+            },
+            {
+              "icon": "Scale",
+              "title": "Legal ownership",
+              "text": "The originating financial institution retains full legal ownership of the customer relationship and funds."
+            }
+          ]
+        },
+        {
+          "type": "cards",
+          "kicker": "Join the Mortgage Revolution",
+          "heading": "We’re building Africa’s most ambitious fintech for housing.",
+          "subheading": "If you’re passionate about fintech, housing, or scaling bold ideas, we want you. Send your CV to hr@spring.ng.",
+          "items": [
+            {
+              "icon": "Code2",
+              "title": "Full-stack Engineers",
+              "text": "Build the rails that move mortgages across a continent."
+            },
+            {
+              "icon": "Compass",
+              "title": "Product Managers",
+              "text": "Shape the infrastructure experience for institutions and users."
+            },
+            {
+              "icon": "ShieldCheck",
+              "title": "Compliance & Risk Officers",
+              "text": "Keep every transaction on the right side of regulation."
+            },
+            {
+              "icon": "Handshake",
+              "title": "Sales & Partnership Executives",
+              "text": "Bring the next hundred partners onto the platform."
+            }
+          ]
+        },
+        {
+          "type": "cta",
+          "heading": "Let’s build together.",
+          "body": "Partner with us. Ask questions. Together, we scale mortgages for millions.",
+          "cta": {
+            "label": "Contact Us",
+            "href": "/contact"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "products",
+      "title": "Products — Mortgage Infrastructure-as-a-Service",
+      "description": "White-label solutions, mortgage widgets, community platforms, and data-driven analytics — the MIaaS stack.",
+      "sections": [
+        {
+          "type": "hero",
+          "kicker": "Mortgage Infrastructure-as-a-Service",
+          "heading": "The MIaaS stack, ready to embed.",
+          "subheading": "Three platform layers — Plata, the Spring Platform, and the white-labelled User PWA — take products from configuration to customers in weeks."
+        },
+        {
+          "type": "cards",
+          "kicker": "Platform Layers",
+          "heading": "Three layers. One architecture.",
+          "items": [
+            {
+              "icon": "Wrench",
+              "title": "Plata",
+              "text": "A product builder used by licensed financial institutions to configure and list financial products on Spring’s infrastructure."
+            },
+            {
+              "icon": "Network",
+              "title": "Spring Platform",
+              "text": "A distribution hub used by business partners — fintechs, cooperatives, real estate firms, and employers — to access and distribute products to their own audiences."
+            },
+            {
+              "icon": "Smartphone",
+              "title": "User PWA",
+              "text": "A white-labelled, mobile-first Progressive Web App through which end users discover, apply for, and manage financial products."
+            }
+          ]
+        },
+        {
+          "type": "features",
+          "kicker": "What You Can Build",
+          "heading": "Plug in. Brand it. Launch.",
+          "items": [
+            {
+              "icon": "Palette",
+              "title": "White-label Solutions",
+              "text": "Offer mortgages under your own brand. Your customers never leave your experience."
+            },
+            {
+              "icon": "Blocks",
+              "title": "Mortgage Widgets",
+              "text": "Embed plug-and-play mortgage calculators, eligibility checks, and onboarding flows into your app."
+            },
+            {
+              "icon": "Users",
+              "title": "Community Platforms",
+              "text": "Give cooperatives, churches, and social groups the ability to create their own mortgage service hubs."
+            },
+            {
+              "icon": "BarChart3",
+              "title": "Data-Driven Analytics",
+              "text": "Understand customers’ mortgage needs with real-time insights across your portfolio."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "kicker": "Use Cases",
+          "heading": "Where Spring shows up.",
+          "items": [
+            {
+              "title": "Real Estate Firms",
+              "text": "Launch branded mortgage packages alongside your properties, boosting sales and customer trust."
+            },
+            {
+              "title": "Banks & Fintechs",
+              "text": "Add a mortgage button to your app — become a one-stop-shop for customer financial needs."
+            },
+            {
+              "title": "Churches & Cooperatives",
+              "text": "Provide mortgage access to members. Housing as a community benefit."
+            },
+            {
+              "title": "Employers",
+              "text": "Offer housing as a benefit by embedding mortgage services into your HR or payroll systems."
+            }
+          ]
+        },
+        {
+          "type": "cta",
+          "heading": "Launch your mortgage product in weeks.",
+          "body": "Contact us — integration is fast, with setup starting at $1,500.",
+          "cta": {
+            "label": "Get Started",
+            "href": "/contact"
+          },
+          "secondaryCta": {
+            "label": "See Pricing",
+            "href": "/pricing"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "pricing",
+      "title": "Pricing — Simple, Transparent, Scalable",
+      "description": "Transparent integration fees and a fair commission model on every mortgage plan processed.",
+      "sections": [
+        {
+          "type": "hero",
+          "kicker": "Pricing",
+          "heading": "Simple. Transparent. Scalable.",
+          "subheading": "A one-time integration fee, then a fair commission on every mortgage plan and subscription processed. No hidden costs, ever."
+        },
+        {
+          "type": "pricing"
+        },
+        {
+          "type": "rich",
+          "kicker": "The Commission Model",
+          "heading": "We earn when you earn.",
+          "body": "Spring earns a fair, transparent take-rate on every mortgage plan and subscription orchestrated through the infrastructure. Every fee, commission, and integration is transparent and binding — agreed up front, visible always."
+        },
+        {
+          "type": "cta",
+          "heading": "Ready to scale?",
+          "body": "Talk to us about the right structure for your institution or community.",
+          "cta": {
+            "label": "Contact Sales",
+            "href": "/contact"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "faq",
+      "title": "FAQ — Frequently Asked Questions",
+      "description": "Answers about Spring, our licensing model, data safety, and how to get started.",
+      "sections": [
+        {
+          "type": "hero",
+          "kicker": "FAQ",
+          "heading": "Questions, answered.",
+          "subheading": "Everything you need to know about Spring, our partners, and how the infrastructure works."
+        },
+        {
+          "type": "faq"
+        },
+        {
+          "type": "cta",
+          "heading": "Still curious?",
+          "body": "We’re ready to talk. Reach out and let’s build together.",
+          "cta": {
+            "label": "Contact Us",
+            "href": "/contact"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "contact",
+      "title": "Contact Spring",
+      "description": "Partner with us. Ask questions. Let’s build together.",
+      "sections": [
+        {
+          "type": "hero",
+          "kicker": "Contact Us",
+          "heading": "We’re ready to talk.",
+          "subheading": "Partner with us. Ask questions. Let’s build together."
+        },
+        {
+          "type": "contact"
+        }
+      ]
+    },
+    {
+      "slug": "privacy",
+      "title": "Privacy Policy — Spring",
+      "description": "How Spring collects, protects, and respects your data.",
+      "sections": [
+        {
+          "type": "hero",
+          "kicker": "Privacy Policy",
+          "heading": "We take your privacy seriously.",
+          "subheading": "Spring collects only the data necessary to process mortgages, onboard businesses, and improve user experience."
+        },
+        {
+          "type": "rich",
+          "heading": "Your Data, Your Control",
+          "body": "You can request, export, or delete your information at any time. Spring collects only the data necessary to process mortgages, onboard businesses, and improve the user experience — nothing more.\n\nData we collect is limited to identity and eligibility information required by our licensed partners to originate financial products, business information required to onboard partners, and anonymised usage signals that help us improve the platform."
+        },
+        {
+          "type": "rich",
+          "heading": "Security First",
+          "body": "We use bank-grade encryption across every layer of the platform and comply with the Nigeria Data Protection Regulation (NDPR).\n\nEvery Spring wallet maps one-to-one to a real account held at a CBN-licensed financial institution. Customer funds are never held by Spring."
+        },
+        {
+          "type": "rich",
+          "heading": "No Hidden Sharing",
+          "body": "We never sell your data. Partners only access what is needed to serve you better.\n\nData is shared exclusively with the licensed financial institutions originating your products and the distribution partner through whom you accessed them — always under strict contractual and regulatory obligations."
+        },
+        {
+          "type": "rich",
+          "heading": "Your Rights",
+          "body": "Under the NDPR you have the right to access your personal data, request correction of inaccurate data, request deletion of your data, and withdraw consent at any time.\n\nTo exercise any of these rights, contact us at privacy@spring.ng. We respond to all verified requests within 30 days."
+        },
+        {
+          "type": "cta",
+          "heading": "Questions about your data?",
+          "body": "Our team is ready to help with any privacy request.",
+          "cta": {
+            "label": "Contact Us",
+            "href": "/contact"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "terms",
+      "title": "Terms & Conditions — Spring",
+      "description": "The terms governing use of the Spring platform.",
+      "sections": [
+        {
+          "type": "hero",
+          "kicker": "Terms & Conditions",
+          "heading": "Clear terms. Binding trust.",
+          "subheading": "By using Spring’s platform, you agree to the following terms."
+        },
+        {
+          "type": "rich",
+          "heading": "1. Licensing & Compliance",
+          "body": "Mortgage processing on Spring is powered by AG Mortgage Bank for compliance and licensing, alongside Charis MFB and Fortress Capital — all Central Bank of Nigeria-licensed institutions.\n\nEvery account and every transaction on Spring’s infrastructure is legally held and owned by a licensed financial institution, which retains full legal ownership of the customer relationship and funds."
+        },
+        {
+          "type": "rich",
+          "heading": "2. Nature of the Service",
+          "body": "Spring provides infrastructure, not financial advice. Spring is not a bank, lender, or deposit-taking institution. Spring’s role is strictly limited to technology, orchestration, and distribution — Spring does not underwrite, lend, or hold customer funds.\n\nEligibility decisions, product terms, and regulatory obligations rest with the originating licensed institution."
+        },
+        {
+          "type": "rich",
+          "heading": "3. Fees & Commissions",
+          "body": "Fees, commissions, and integrations are transparent and binding. Integration fees are agreed before onboarding, and Spring earns a fair take-rate on transactions orchestrated through the infrastructure.\n\nNo hidden charges will ever be introduced. Any change to fees is communicated in advance and in writing."
+        },
+        {
+          "type": "rich",
+          "heading": "4. Partner Obligations",
+          "body": "All partners must comply with Nigerian mortgage and data protection laws, including the Nigeria Data Protection Regulation (NDPR).\n\nPartners are responsible for the accuracy of information they submit, for representing products fairly to their audiences, and for maintaining the confidentiality of their integration credentials."
+        },
+        {
+          "type": "rich",
+          "heading": "5. Acceptable Use",
+          "body": "You agree not to misuse the platform, attempt to reverse engineer the infrastructure, misrepresent Spring’s regulatory status, or use the platform for any unlawful purpose.\n\nSpring may suspend access for any breach of these terms, with notice and an opportunity to remedy where appropriate."
+        },
+        {
+          "type": "cta",
+          "heading": "Ready to partner on these terms?",
+          "body": "Transparent terms, binding trust — that’s how we scale.",
+          "cta": {
+            "label": "Partner with Spring",
+            "href": "/contact"
+          }
+        }
+      ]
+    }
+  ],
+  "posts": [
+    {
+      "slug": "why-nigeria-needs-mortgage-infrastructure",
+      "title": "Why Nigeria Needs Mortgage Infrastructure, Not More Banks",
+      "tag": "Infrastructure",
+      "excerpt": "Nigeria’s housing deficit exceeds 20 million units while mortgage penetration sits below 1%. The bottleneck isn’t demand — it’s the rails.",
+      "content": "Nigeria faces a housing deficit of over 20 million units. Yet mortgage penetration is less than 1%. The instinctive policy response is to call for more mortgage banks. But the direct-to-consumer banking model is precisely what has failed: it is too slow, too expensive, and too far from the customer.\n\nWhat Nigeria needs is infrastructure — shared rails that let any licensed institution originate mortgages and any trusted business distribute them. That is the layer Spring is building.\n\nWhen a real estate firm can offer mortgages under its own brand, when a cooperative can give members access to housing finance, when a bank can scale distribution without scaling overhead, the market compounds. Each new participant makes the network more valuable for everyone else.\n\nThe future of mortgages in Africa is not more banks. It is better rails.",
+      "createdAt": "2026-01-15T00:00:00.000Z"
+    },
+    {
+      "slug": "churches-cooperatives-power-home-ownership",
+      "title": "How Churches and Cooperatives Can Power Home Ownership",
+      "tag": "Community",
+      "excerpt": "The most trusted institutions in Nigerian communities are not banks. They are churches, cooperatives, and social groups — and they can become mortgage hubs.",
+      "content": "Trust is the scarcest resource in Nigerian finance. And the institutions that hold it — churches, cooperatives, and community organisations — have historically been locked out of formal financial distribution.\n\nSpring changes that. With a community subdomain, a cooperative or church can create its own mortgage service hub: branded, mobile-first, and backed by the regulatory license of AG Mortgage Bank.\n\nMembers access mortgage products through an institution they already trust. The community organisation earns a fair commission. And housing becomes a community benefit, not a distant banking product.\n\nThis is what embedded finance looks like when it meets African social structure: housing as a community benefit, powered by infrastructure that does the heavy lifting.",
+      "createdAt": "2026-01-15T00:00:00.000Z"
+    },
+    {
+      "slug": "the-flutterwave-playbook-for-mortgages",
+      "title": "The Flutterwave Playbook: What Mortgages Can Learn",
+      "tag": "Strategy",
+      "excerpt": "Payments scaled in Africa when infrastructure abstracted away complexity. Mortgages are next — and the playbook is already written.",
+      "content": "Before Flutterwave, accepting payments across Africa meant negotiating with banks, processors, and regulators one by one. Infrastructure changed everything: integrate once, reach everywhere.\n\nMortgages are where payments were a decade ago. Every institution that wants to offer housing finance faces the same wall: licensing, origination systems, compliance, distribution. Each builds alone, slowly, at enormous cost.\n\nSpring applies the same playbook to mortgages. One integration. Licensed rails. Distribution through every trusted channel — banks, fintechs, real estate firms, cooperatives, employers.\n\nOur vision is explicit: to be the Flutterwave for Mortgage — the trusted infrastructure powering Africa’s mortgage revolution.",
+      "createdAt": "2026-01-15T00:00:00.000Z"
+    },
+    {
+      "slug": "mortgage-2030-data-ai-africa-housing",
+      "title": "Mortgage 2030: Data, AI, and Africa’s Housing Revolution",
+      "tag": "Future",
+      "excerpt": "Real-time eligibility, data-driven underwriting signals, and mobile-first journeys will define the next decade of African housing finance.",
+      "content": "The mortgage process in much of Africa remains opaque, paper-based, and slow. First-time buyers, salaried professionals, and diaspora Nigerians are underserved by journeys that were never designed for them.\n\nThe next decade will be defined by three shifts. First, data: real-time insights into customer needs will let institutions design products that actually fit. Second, intelligence: eligibility checks and risk signals that today take weeks will happen in seconds. Third, experience: mobile-first, transparent, guided journeys will replace branch visits and paper files.\n\nSpring is building for that decade today — real-time status tracking, data-driven analytics for partners, and a white-labelled PWA that meets users where they already are.\n\nMortgage 2030 is not a prediction. It is a roadmap.",
+      "createdAt": "2026-01-15T00:00:00.000Z"
+    }
+  ],
+  "pricing": [
+    {
+      "id": 1,
+      "name": "Bank & Fintech Integration",
+      "audience": "For Banks & Fintechs",
+      "price": "$5,000 – $10,000",
+      "unit": "one-time integration fee",
+      "features": [
+        "Full API & widget integration",
+        "White-labelled end-user PWA",
+        "Mortgage calculators & eligibility checks",
+        "Dedicated integration engineer",
+        "Real-time analytics dashboard"
+      ],
+      "highlighted": true
+    },
+    {
+      "id": 2,
+      "name": "Custom Mortgage Services",
+      "audience": "For Real Estate Firms",
+      "price": "$5,000 – $10,000",
+      "unit": "one-time setup",
+      "features": [
+        "Branded mortgage packages alongside your properties",
+        "Custom eligibility & onboarding flows",
+        "Buyer tracking & pipeline analytics",
+        "Co-marketing support"
+      ],
+      "highlighted": false
+    },
+    {
+      "id": 3,
+      "name": "Community Subdomain",
+      "audience": "For Churches, Cooperatives & NGOs",
+      "price": "$1,500",
+      "unit": "one-time setup",
+      "features": [
+        "Your own branded mortgage hub",
+        "Member onboarding & management",
+        "Group-arranged financial products",
+        "Community analytics"
+      ],
+      "highlighted": false
+    },
+    {
+      "id": 4,
+      "name": "Commission Model",
+      "audience": "For All Partners",
+      "price": "Fair take-rate",
+      "unit": "per mortgage plan or subscription processed",
+      "features": [
+        "Transparent, agreed up front",
+        "No hidden charges",
+        "Aligned incentives — we earn when you earn",
+        "Settled on every transaction"
+      ],
+      "highlighted": false
+    }
+  ],
+  "faqs": [
+    {
+      "id": 1,
+      "question": "Is Spring a bank?",
+      "answer": "No. Spring is a fintech infrastructure provider. Mortgages are processed by licensed banks like AG Mortgage Bank, and every account is legally held and owned by a CBN-licensed financial institution."
+    },
+    {
+      "id": 2,
+      "question": "Can individuals apply directly through Spring?",
+      "answer": "No. You’ll access Spring-powered mortgages through our partner merchants, banks, and institutions — where you already shop, bank, or worship."
+    },
+    {
+      "id": 3,
+      "question": "How safe is my data?",
+      "answer": "We use bank-grade security and comply with the Nigeria Data Protection Regulation (NDPR). We never sell your data, and partners only access what’s needed to serve you better."
+    },
+    {
+      "id": 4,
+      "question": "How do businesses get started?",
+      "answer": "Contact us. Integration is fast, with setup fees starting at $1,500 for community subdomains and $5,000–$10,000 for full bank, fintech, or real estate integrations."
+    },
+    {
+      "id": 5,
+      "question": "Who owns customer funds on the platform?",
+      "answer": "The originating licensed financial institution. Every Spring wallet maps one-to-one to a real account at the institution, which retains full legal ownership of the customer relationship and funds. Spring never holds customer funds."
+    },
+    {
+      "id": 6,
+      "question": "What products can be distributed through Spring?",
+      "answer": "Five pillars carry equal strategic weight on the platform: Mortgage, Loan, Savings, Investment, and Commodity products — all distributed through the same infrastructure and the same end-user experience."
+    }
+  ]
+}
