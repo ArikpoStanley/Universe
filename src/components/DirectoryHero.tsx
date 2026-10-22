@@ -3,7 +3,7 @@
 import { useSkin } from '@/components/SkinProvider';
 import { WaveDivider } from '@/components/WaveBackdrop';
 import { LIVE_MOMENTS } from '@/components/EnergyTrails';
-import { PhotoBand } from '@/components/PhotoBand';
+import { DesignBand } from '@/components/DesignBand';
 import type { SkinId } from '@/lib/skins';
 
 export function DirectoryHero() {
@@ -12,13 +12,7 @@ export function DirectoryHero() {
 
   return (
     <>
-      <PhotoBand
-        image={skinConfig.heroImage}
-        overlay="soft"
-        waves
-        className="pb-16 pt-16 md:pb-20 md:pt-20"
-        trails
-      >
+      <DesignBand className="pb-16 pt-16 md:pb-20 md:pt-20" trails waves>
         <div className="text-center">
           <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-accent-soft">
             {skinConfig.motif} The Universe directory
@@ -27,7 +21,7 @@ export function DirectoryHero() {
             Explore institutions
           </h1>
           <p className="mx-auto mt-6 max-w-2xl leading-relaxed text-muted md:text-lg">
-            Real campuses. Live admissions. Filter by type, open a school profile, and apply with the full student + guardian form.
+            Filter by type, open a school profile, and apply with the full student + guardian form.
           </p>
 
           <div className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-2">
@@ -45,7 +39,7 @@ export function DirectoryHero() {
 
           <div className="mx-auto mt-10 h-px w-28 bg-gradient-to-r from-transparent via-accent to-transparent" />
         </div>
-      </PhotoBand>
+      </DesignBand>
       <WaveDivider />
     </>
   );

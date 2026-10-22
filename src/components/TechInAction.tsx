@@ -102,8 +102,7 @@ export function TechInAction({
         className="relative mx-auto h-full max-w-3xl px-2"
       >
         <div
-          className={`absolute -inset-2 bg-cover bg-center opacity-40 blur-[1px] ${frameRadius}`}
-          style={{ backgroundImage: `url(${skinConfig.heroImage})` }}
+          className={`absolute -inset-2 bg-gradient-to-br from-accent/25 via-accent-soft/10 to-ok/15 blur-[1px] ${frameRadius}`}
           aria-hidden
         />
         <div

@@ -116,8 +116,8 @@ export function SchoolProfile({ data }: { data: PublicInstitutionDetail }) {
           <aside>
             <div className="sticky top-24 overflow-hidden rounded-2xl border border-line bg-card/95 shadow-[0_20px_50px_-28px_rgb(var(--accent)/0.55)] backdrop-blur-xl">
               <div
-                className="h-28 bg-cover bg-center"
-                style={{ backgroundImage: `url(${skin.heroImage})` }}
+                className="h-28 bg-gradient-to-br from-accent/40 via-accent-soft/20 to-ok/15"
+                aria-hidden
               />
               <div className="p-6">
                 <h3 className="text-lg font-bold">Apply for admission</h3>

@@ -2,19 +2,12 @@
 
 import { motion } from 'framer-motion';
 import type { Section } from '@/lib/types';
-import { useSkin } from '@/components/SkinProvider';
-import { PhotoBand } from '@/components/PhotoBand';
+import { DesignBand } from '@/components/DesignBand';
 
 export function PageHero({ section }: { section: Section }) {
-  const { skinConfig } = useSkin();
   const words = (section.heading || '').split(' ');
   return (
-    <PhotoBand
-      image={skinConfig.lifeImage || skinConfig.heroImage}
-      overlay="strong"
-      waves
-      className="pb-16 pt-16 md:pb-24 md:pt-20"
-    >
+    <DesignBand className="pb-16 pt-16 md:pb-24 md:pt-20" trails waves>
       <div className="text-center">
         {section.kicker && (
           <motion.div
@@ -62,6 +55,6 @@ export function PageHero({ section }: { section: Section }) {
           transition={{ duration: 1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
         />
       </div>
-    </PhotoBand>
+    </DesignBand>
   );
 }

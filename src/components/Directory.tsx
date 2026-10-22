@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { directoryFilters, type DirectoryFilterId } from '@/lib/skins';
 import { useSkin } from '@/components/SkinProvider';
 import { SchoolCard } from '@/components/SchoolCard';
-import { PhotoBand } from '@/components/PhotoBand';
+import { DesignBand } from '@/components/DesignBand';
 import type { PublicInstitution } from '@/lib/institutions';
 
 export function Directory({ schools }: { schools: PublicInstitution[] }) {
@@ -20,7 +20,7 @@ export function Directory({ schools }: { schools: PublicInstitution[] }) {
   }, [filter, schools]);
 
   return (
-    <PhotoBand image={skinConfig.campusImage} overlay="strong" className="pb-24 pt-4" trails waves>
+    <DesignBand className="pb-24 pt-4" trails waves>
       <div className="flex flex-wrap items-center gap-2">
         {directoryFilters.map((item) => {
           const active = filter === item.id;
@@ -65,6 +65,6 @@ export function Directory({ schools }: { schools: PublicInstitution[] }) {
           ))}
         </div>
       )}
-    </PhotoBand>
+    </DesignBand>
   );
 }

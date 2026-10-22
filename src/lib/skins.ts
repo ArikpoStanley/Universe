@@ -28,17 +28,9 @@ export type WebsiteSkin = {
   ctaLabel: string;
   motif: string;
   heroGradient: string;
-  /** Full-bleed photoreal school environment for heroes / apply banners. */
+  /** Full-bleed photoreal school environment for heroes / apply banners only. */
   heroImage: string;
   applyImage: string;
-  /** Mid-page life-in-school photography (blends behind story sections). */
-  lifeImage: string;
-  /** Campus / outdoor / second academic scene. */
-  campusImage: string;
-  /** Academics × technology fusion shot. */
-  fusionImage: string;
-  /** Family / parent engagement photography. */
-  familyImage: string;
   vars: SkinVars;
   features: { title: string; body: string; icon: string }[];
 };
@@ -58,10 +50,6 @@ export const skins: Record<SkinId, WebsiteSkin> = {
     motif: '🧸',
     heroImage: '/images/modern-early-years.jpg',
     applyImage: '/images/modern-early-years.jpg',
-    lifeImage: '/images/nursery-learning-corner.jpg',
-    campusImage: '/images/nursery-classroom-hero.jpg',
-    fusionImage: '/images/academics-tech-classroom.jpg',
-    familyImage: '/images/parent-school-portal.jpg',
     heroGradient:
       'radial-gradient(1200px 600px at 12% -8%, rgba(244,114,182,0.32), transparent 60%), radial-gradient(1000px 500px at 88% 8%, rgba(251,191,36,0.22), transparent 55%), linear-gradient(165deg, #1A0E1C 0%, #241124 55%, #16090F 100%)',
     vars: {
@@ -94,10 +82,6 @@ export const skins: Record<SkinId, WebsiteSkin> = {
     motif: '🌱',
     heroImage: '/images/modern-classroom-whiteboard.jpg',
     applyImage: '/images/modern-classroom-whiteboard.jpg',
-    lifeImage: '/images/primary-outdoor-learning.jpg',
-    campusImage: '/images/primary-playground-hero.jpg',
-    fusionImage: '/images/academics-tech-classroom.jpg',
-    familyImage: '/images/parent-school-portal.jpg',
     heroGradient:
       'radial-gradient(1200px 600px at 12% -8%, rgba(34,197,94,0.30), transparent 60%), radial-gradient(1000px 500px at 88% 8%, rgba(132,204,22,0.20), transparent 55%), linear-gradient(165deg, #071510 0%, #0C1F18 55%, #06100B 100%)',
     vars: {
@@ -130,10 +114,6 @@ export const skins: Record<SkinId, WebsiteSkin> = {
     motif: '🚀',
     heroImage: '/images/modern-stem-lab.jpg',
     applyImage: '/images/modern-stem-lab.jpg',
-    lifeImage: '/images/secondary-science-tech.jpg',
-    campusImage: '/images/secondary-campus-hero.jpg',
-    fusionImage: '/images/academics-tech-classroom.jpg',
-    familyImage: '/images/parent-school-portal.jpg',
     heroGradient:
       'radial-gradient(1200px 600px at 12% -8%, rgba(59,130,246,0.32), transparent 60%), radial-gradient(1000px 500px at 88% 8%, rgba(6,182,212,0.22), transparent 55%), linear-gradient(165deg, #060D18 0%, #0A1628 55%, #040810 100%)',
     vars: {
@@ -166,10 +146,6 @@ export const skins: Record<SkinId, WebsiteSkin> = {
     motif: '🎓',
     heroImage: '/images/modern-lecture-hall.jpg',
     applyImage: '/images/modern-lecture-hall.jpg',
-    lifeImage: '/images/tertiary-study-tech.jpg',
-    campusImage: '/images/tertiary-campus-hero.jpg',
-    fusionImage: '/images/academics-tech-classroom.jpg',
-    familyImage: '/images/parent-school-portal.jpg',
     heroGradient:
       'radial-gradient(1200px 600px at 12% -8%, rgba(251,191,36,0.30), transparent 60%), radial-gradient(1000px 500px at 88% 8%, rgba(245,158,11,0.20), transparent 55%), linear-gradient(165deg, #141008 0%, #1C1608 55%, #0E0B05 100%)',
     vars: {

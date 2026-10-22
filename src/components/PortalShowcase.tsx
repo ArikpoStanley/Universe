@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { useSkin } from '@/components/SkinProvider';
 import { WaveDivider } from '@/components/WaveBackdrop';
 import { TechInAction } from '@/components/TechInAction';
-import { PhotoBand } from '@/components/PhotoBand';
+import { DesignBand } from '@/components/DesignBand';
 
 export function PortalShowcase() {
   const { skin, skinConfig } = useSkin();
@@ -16,36 +16,31 @@ export function PortalShowcase() {
       ? {
           kicker: 'Inside the early-years OS',
           title: 'The same calm tools carers already use.',
-          body: 'Pickup desk, diary, attendance, and parent messaging — soft workflows for busy nurseries, photographed in the rooms where learning happens.',
+          body: 'Pickup desk, diary, attendance, and parent messaging — soft workflows for busy nurseries.',
         }
       : skin === 'primary'
         ? {
             kicker: 'Inside the foundation OS',
             title: 'Classrooms, progress, and parents — connected.',
-            body: 'Literacy boards in the room. Fees and family updates on the tenant. One coherent primary operating system.',
+            body: 'Literacy in the room. Fees and family updates on the tenant. One coherent primary OS.',
           }
         : skin === 'secondary'
           ? {
               kicker: 'Inside the secondary OS',
               title: 'Exams, clubs, and performance — one cockpit.',
-              body: 'STEM labs stay physical. Broadsheets, messaging, and analytics stay live — so ambition has an operating system.',
+              body: 'STEM stays rigorous. Broadsheets, messaging, and analytics stay live.',
             }
           : {
               kicker: 'Inside the tertiary OS',
               title: 'Registry to graduation — governed.',
-              body: 'Lecture halls and study floors stay academic. Faculties, fees, transcripts, and GPA stay precise on Universe.',
+              body: 'Programmes stay academic. Faculties, fees, transcripts, and GPA stay precise.',
             };
 
   return (
-    <PhotoBand
-      image={skinConfig.fusionImage}
-      overlay="strong"
-      waves
-      className="border-y border-line/50 py-20 md:py-28"
-    >
+    <DesignBand className="border-y border-line/50 py-20 md:py-28" trails waves>
       <WaveDivider />
       <div
-        className={`relative grid max-w-site items-center gap-12 md:grid-cols-2 ${
+        className={`relative grid items-center gap-12 md:grid-cols-2 ${
           skin === 'tertiary' ? 'lg:gap-20' : ''
         }`}
       >
@@ -93,6 +88,6 @@ export function PortalShowcase() {
 
         <TechInAction compact showTrails={false} />
       </div>
-    </PhotoBand>
+    </DesignBand>
   );
 }

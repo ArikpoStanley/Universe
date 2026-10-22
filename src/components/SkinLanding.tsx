@@ -8,7 +8,7 @@ import { skins, type SkinId, type WebsiteSkin } from '@/lib/skins';
 import { WaveBackdrop } from '@/components/WaveBackdrop';
 import { EnergyTrails } from '@/components/EnergyTrails';
 import { TechInAction } from '@/components/TechInAction';
-import { PhotoBand, PhotoFrame } from '@/components/PhotoBand';
+import { DesignBand, IllustrationCard } from '@/components/DesignBand';
 
 function springy(reduce: boolean | null): MotionProps {
   if (reduce) return {};
@@ -77,7 +77,7 @@ function ClosingCta({
   rounded?: string;
 }) {
   return (
-    <PhotoBand image={skin.familyImage} overlay="bottom" className="px-5 py-20 md:px-10 md:py-28 lg:px-14" trails>
+    <DesignBand className="px-5 py-20 md:px-10 md:py-28 lg:px-14" trails waves>
       <motion.div
         {...slideUp(reduce)}
         className={`relative mx-auto max-w-site overflow-hidden border border-accent/35 bg-card/55 px-8 py-14 text-center backdrop-blur-2xl md:px-16 ${rounded}`}
@@ -99,7 +99,7 @@ function ClosingCta({
           </div>
         </div>
       </motion.div>
-    </PhotoBand>
+    </DesignBand>
   );
 }
 
@@ -159,7 +159,7 @@ function NurseryLanding({ skin }: { skin: WebsiteSkin }) {
         </div>
       </section>
 
-      <PhotoBand image={skin.lifeImage} overlay="soft" waves className="py-24 md:py-28">
+      <DesignBand variant="playful" className="py-24 md:py-28">
         <div className="grid items-end gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <motion.h2 {...slideUp(reduce)} className="font-display text-3xl font-bold md:text-5xl">
@@ -172,34 +172,32 @@ function NurseryLanding({ skin }: { skin: WebsiteSkin }) {
           </div>
           <div className="grid gap-4 sm:grid-cols-3 lg:col-span-7">
             {[
-              { t: 'Morning circle', d: 'Songs and stories that settle little hearts — logged as present.', img: skin.lifeImage },
-              { t: 'Discovery time', d: 'Blocks, paint, outdoor play — curiosity leads the schedule.', img: skin.campusImage },
-              { t: 'Family handoff', d: 'Verified pickup, diary notes, carers in the loop.', img: skin.familyImage },
+              { t: 'Morning circle', d: 'Songs and stories that settle little hearts — logged as present.' },
+              { t: 'Discovery time', d: 'Blocks, paint, outdoor play — curiosity leads the schedule.' },
+              { t: 'Family handoff', d: 'Verified pickup, diary notes, carers in the loop.' },
             ].map((row, i) => (
               <motion.div
                 key={row.t}
                 {...springy(reduce)}
                 transition={{ type: 'spring', stiffness: 110, damping: 14, delay: i * 0.12 }}
-                className="overflow-hidden rounded-[2rem] border border-line/70 bg-card/55 backdrop-blur-xl"
+                className="rounded-[2rem] border border-accent/25 bg-card/60 p-6 backdrop-blur-xl"
                 style={{ rotate: reduce ? 0 : i % 2 === 0 ? -1.5 : 1.5 }}
               >
-                <div className="h-28 bg-cover bg-center" style={{ backgroundImage: `url(${row.img})` }} />
-                <div className="p-5">
-                  <p className="text-xs font-bold uppercase tracking-[0.25em] text-accent-soft">Moment 0{i + 1}</p>
-                  <h3 className="mt-2 font-display text-xl font-bold">{row.t}</h3>
-                  <p className="mt-2 text-sm text-muted">{row.d}</p>
-                </div>
+                <p className="text-xs font-bold uppercase tracking-[0.25em] text-accent-soft">Moment 0{i + 1}</p>
+                <h3 className="mt-2 font-display text-xl font-bold">{row.t}</h3>
+                <p className="mt-2 text-sm text-muted">{row.d}</p>
               </motion.div>
             ))}
           </div>
         </div>
-      </PhotoBand>
+      </DesignBand>
 
-      <PhotoBand image={skin.campusImage} overlay="split-right" className="py-20 md:py-24">
+      <DesignBand variant="playful" className="py-20 md:py-24" trails={false}>
         <div className="grid items-center gap-10 md:grid-cols-2">
-          <PhotoFrame
-            image={skin.fusionImage}
-            caption="Smart boards stay gentle — the OS never interrupts circle time."
+          <IllustrationCard
+            title="Smart boards stay gentle"
+            body="The OS never interrupts circle time — carers stay present with the children."
+            motif="book"
             radius="rounded-[2rem]"
           />
           <div>
@@ -222,7 +220,7 @@ function NurseryLanding({ skin }: { skin: WebsiteSkin }) {
             </div>
           </div>
         </div>
-      </PhotoBand>
+      </DesignBand>
 
       <ClosingCta
         skin={skin}
@@ -277,12 +275,12 @@ function PrimaryLanding({ skin }: { skin: WebsiteSkin }) {
         </div>
       </section>
 
-      <PhotoBand image={skin.lifeImage} overlay="soft" waves className="py-24">
+      <DesignBand variant="mesh" className="py-24">
         <motion.h2 {...slideUp(reduce)} className="font-display text-3xl font-bold md:text-5xl">
-          Growing year by year — in the yard and on the board.
+          Growing year by year — foundations that stick.
         </motion.h2>
         <p className="mt-4 max-w-2xl text-muted md:text-lg">
-          Outdoor collaboration and interactive classrooms feed the same progress story parents see on Universe.
+          Classroom rhythm feeds the same progress story parents see on Universe.
         </p>
         <div className="mt-14 space-y-5">
           {[
@@ -293,26 +291,20 @@ function PrimaryLanding({ skin }: { skin: WebsiteSkin }) {
             <motion.div
               key={row.year}
               {...slideUp(reduce, i * 0.1)}
-              className="grid items-center gap-6 overflow-hidden rounded-3xl border border-line/70 bg-card/55 backdrop-blur-xl md:grid-cols-[9rem_1fr_12rem]"
+              className="grid items-center gap-6 rounded-3xl border border-line/70 bg-card/55 p-6 backdrop-blur-xl md:grid-cols-[9rem_1fr]"
               style={{ marginLeft: reduce ? 0 : `${i * 3}%` }}
             >
-              <div className="flex items-center justify-center bg-accent/15 px-4 py-8 md:py-10">
-                <span className="font-display text-2xl font-bold text-accent-soft">{row.year}</span>
-              </div>
-              <div className="px-6 py-6">
+              <span className="font-display text-2xl font-bold text-accent-soft">{row.year}</span>
+              <div>
                 <h3 className="font-display text-xl font-bold">{row.title}</h3>
                 <p className="mt-1 text-muted">{row.body}</p>
               </div>
-              <div
-                className="hidden h-full min-h-[6rem] bg-cover bg-center md:block"
-                style={{ backgroundImage: `url(${i === 0 ? skin.lifeImage : i === 1 ? skin.fusionImage : skin.campusImage})` }}
-              />
             </motion.div>
           ))}
         </div>
-      </PhotoBand>
+      </DesignBand>
 
-      <PhotoBand image={skin.campusImage} overlay="split-left" className="py-20">
+      <DesignBand variant="mesh" className="py-20" trails={false}>
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div>
             <motion.h2 {...slideUp(reduce)} className="font-display text-3xl font-bold md:text-4xl">
@@ -329,15 +321,19 @@ function PrimaryLanding({ skin }: { skin: WebsiteSkin }) {
               ))}
             </div>
           </div>
-          <PhotoFrame image={skin.fusionImage} caption="Interactive board for literacy. Dashboard for growth." />
+          <IllustrationCard
+            title="Interactive board for literacy"
+            body="Dashboard for growth — same child, one coherent story."
+            motif="board"
+          />
         </div>
-      </PhotoBand>
+      </DesignBand>
 
       <ClosingCta
         skin={skin}
         reduce={reduce}
         title="Find a primary that fits your child."
-        body="Modern classrooms, clear progress, and parents in sync — apply online on Universe."
+        body="Clear progress and parents in sync — apply online on Universe."
       />
     </div>
   );
@@ -396,7 +392,7 @@ function SecondaryLanding({ skin }: { skin: WebsiteSkin }) {
         />
       </section>
 
-      <PhotoBand image={skin.lifeImage} overlay="strong" className="-mt-4 py-24">
+      <DesignBand variant="grid" className="-mt-4 py-24">
         <motion.h2 {...slideX(reduce, 'right')} className="font-display text-3xl font-black md:text-5xl">
           From classroom to certificate
         </motion.h2>
@@ -404,29 +400,21 @@ function SecondaryLanding({ skin }: { skin: WebsiteSkin }) {
           Labs, lectures, and clubs stay rigorous. Marking and broadsheets move the moment scripts are done.
         </p>
         <div className="mt-12 grid gap-4 md:grid-cols-4">
-          {[
-            { label: 'Master subjects', img: skin.lifeImage },
-            { label: 'Sit board exams', img: skin.fusionImage },
-            { label: 'Lead clubs', img: skin.campusImage },
-            { label: 'Launch careers', img: skin.familyImage },
-          ].map((item, i) => (
+          {['Master subjects', 'Sit board exams', 'Lead clubs', 'Launch careers'].map((label, i) => (
             <motion.div
-              key={item.label}
+              key={label}
               {...slideX(reduce, i % 2 === 0 ? 'left' : 'right', i * 0.08)}
-              className="relative overflow-hidden rounded-2xl border border-line bg-card/55 backdrop-blur-xl"
+              className="relative overflow-hidden rounded-2xl border border-line bg-card/55 p-6 backdrop-blur-xl"
             >
-              <div className="h-32 bg-cover bg-center" style={{ backgroundImage: `url(${item.img})` }} />
-              <div className="p-5">
-                <span className="font-display text-3xl font-black text-accent/45">0{i + 1}</span>
-                <p className="mt-2 text-lg font-bold">{item.label}</p>
-              </div>
+              <span className="font-display text-4xl font-black text-accent/40">0{i + 1}</span>
+              <p className="mt-4 text-lg font-bold">{label}</p>
               <div className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-accent to-transparent" />
             </motion.div>
           ))}
         </div>
-      </PhotoBand>
+      </DesignBand>
 
-      <PhotoBand image={skin.campusImage} overlay="split-right" className="py-20">
+      <DesignBand variant="grid" className="py-20" trails={false}>
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div className="space-y-4">
             {skin.features.map((f, i) => (
@@ -440,13 +428,14 @@ function SecondaryLanding({ skin }: { skin: WebsiteSkin }) {
               </motion.div>
             ))}
           </div>
-          <PhotoFrame
-            image={skin.fusionImage}
-            caption="Science benches meet live results engines."
+          <IllustrationCard
+            title="Science benches meet live results"
+            body="STEM stays physical. Performance stays visible the moment it happens."
+            motif="lab"
             radius="rounded-xl"
           />
         </div>
-      </PhotoBand>
+      </DesignBand>
 
       <ClosingCta
         skin={skin}
@@ -504,34 +493,24 @@ function TertiaryLanding({ skin }: { skin: WebsiteSkin }) {
         </div>
       </section>
 
-      <PhotoBand image={skin.lifeImage} overlay="soft" waves className="py-28">
+      <DesignBand variant="editorial" className="py-28">
         <div className="grid gap-16 lg:grid-cols-12">
           <motion.div {...fade(reduce)} className="lg:col-span-4">
             <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-accent-soft">Pathways</p>
             <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">Research. Profession. Impact.</h2>
             <p className="mt-4 text-muted">
-              Lecture halls and study mezzanines stay scholarly. Registry and transcripts stay sealed and searchable.
+              Lecture halls stay scholarly. Registry and transcripts stay sealed and searchable.
             </p>
           </motion.div>
           <div className="space-y-8 lg:col-span-8">
             {[
-              { t: 'Accredited programmes', d: 'Degrees, HNDs, and professional tracks with clear outcomes.', img: skin.campusImage },
-              { t: 'Industry bridges', d: 'SIWES, internships, and employer-ready portfolios.', img: skin.fusionImage },
-              { t: 'Campus life, managed', d: 'Hostels, fees, transcripts, and senate records — one OS.', img: skin.familyImage },
+              { t: 'Accredited programmes', d: 'Degrees, HNDs, and professional tracks with clear outcomes.' },
+              { t: 'Industry bridges', d: 'SIWES, internships, and employer-ready portfolios.' },
+              { t: 'Campus life, managed', d: 'Hostels, fees, transcripts, and senate records — one OS.' },
             ].map((row, i) => (
-              <motion.article
-                key={row.t}
-                {...fade(reduce, 0.12 * i)}
-                className="grid gap-6 border-t border-line pt-8 md:grid-cols-[1fr_14rem]"
-              >
-                <div>
-                  <h3 className="font-display text-2xl font-bold">{row.t}</h3>
-                  <p className="mt-3 max-w-xl text-muted">{row.d}</p>
-                </div>
-                <div
-                  className="hidden h-28 bg-cover bg-center md:block"
-                  style={{ backgroundImage: `url(${row.img})` }}
-                />
+              <motion.article key={row.t} {...fade(reduce, 0.12 * i)} className="border-t border-line pt-8">
+                <h3 className="font-display text-2xl font-bold">{row.t}</h3>
+                <p className="mt-3 max-w-xl text-muted">{row.d}</p>
               </motion.article>
             ))}
           </div>
@@ -542,23 +521,16 @@ function TertiaryLanding({ skin }: { skin: WebsiteSkin }) {
             <motion.div
               key={f.title}
               {...fade(reduce, 0.1 * i)}
-              className="relative overflow-hidden border border-line bg-card/50 p-8 backdrop-blur-md"
+              className="border border-line bg-card/50 p-8 backdrop-blur-md"
             >
-              <div
-                className="absolute inset-0 opacity-25"
-                style={{ backgroundImage: `url(${i === 0 ? skin.lifeImage : i === 1 ? skin.fusionImage : skin.campusImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-              />
-              <div className="absolute inset-0 bg-background/75" />
-              <div className="relative">
-                <p className="font-display text-sm uppercase tracking-[0.2em] text-accent-soft">
-                  {f.icon} {f.title}
-                </p>
-                <p className="mt-4 text-muted">{f.body}</p>
-              </div>
+              <p className="font-display text-sm uppercase tracking-[0.2em] text-accent-soft">
+                {f.icon} {f.title}
+              </p>
+              <p className="mt-4 text-muted">{f.body}</p>
             </motion.div>
           ))}
         </div>
-      </PhotoBand>
+      </DesignBand>
 
       <ClosingCta
         skin={skin}
@@ -578,10 +550,6 @@ const LANDINGS: Record<SkinId, (props: { skin: WebsiteSkin }) => ReactNode> = {
   tertiary: TertiaryLanding,
 };
 
-/**
- * Skin-aware landing — structure, scroll motion, and composition change completely
- * when the top nav switches Nursery / Primary / Secondary / Tertiary.
- */
 export function SkinLanding() {
   const { skin, skinConfig } = useSkin();
   const Landing = LANDINGS[skin] ?? PrimaryLanding;

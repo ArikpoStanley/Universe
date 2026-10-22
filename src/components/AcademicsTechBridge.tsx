@@ -13,7 +13,7 @@ import {
   Users,
 } from 'lucide-react';
 import { useSkin } from '@/components/SkinProvider';
-import { PhotoBand, PhotoFrame } from '@/components/PhotoBand';
+import { DesignBand, IllustrationCard } from '@/components/DesignBand';
 
 const MODULES = [
   { icon: ClipboardCheck, title: 'Attendance & pastoral', body: 'Roll call that reaches parents before the bell.' },
@@ -25,8 +25,7 @@ const MODULES = [
 ];
 
 /**
- * Shared mid-page story: academics on the left of the brand promise,
- * technology on the right — photo-backed so the message feels real.
+ * Shared mid-page story: academics × technology — illustrated, not photographic.
  */
 export function AcademicsTechBridge() {
   const { skin, skinConfig } = useSkin();
@@ -38,42 +37,36 @@ export function AcademicsTechBridge() {
           kicker: 'Academics × technology',
           title: 'Circle time stays human. The OS stays invisible.',
           body: 'Carers teach, comfort, and play — Universe quietly handles pickup verification, diaries, and parent updates so nothing falls through the cracks.',
-          leftCaption: 'Warm rooms. Soft starts. Real educators.',
-          rightCaption: 'Live desk, diary, and family alerts — running now.',
+          left: { title: 'Warm rooms. Soft starts.', body: 'Real educators lead the day — technology never interrupts the circle.', motif: 'book' as const },
+          right: { title: 'Live desk & family alerts', body: 'Pickup, diary, and attendance hum in the background.', motif: 'family' as const },
         }
       : skin === 'primary'
         ? {
             kicker: 'Academics × technology',
             title: 'Whiteboards for learning. Dashboards for growth.',
             body: 'Literacy and numeracy happen in the room. Progress, fees, and parent partnership live on the platform — so teachers teach and families stay in the loop.',
-            leftCaption: 'Interactive boards. Curious minds. Clear foundations.',
-            rightCaption: 'Attendance, fees, and progress synced for every class.',
+            left: { title: 'Boards & foundations', body: 'Interactive lessons that build confident readers.', motif: 'board' as const },
+            right: { title: 'Progress that parents see', body: 'Attendance, fees, and growth synced for every class.', motif: 'orbit' as const },
           }
         : skin === 'secondary'
           ? {
               kicker: 'Academics × technology',
               title: 'Labs and lectures. Results that move in real time.',
               body: 'Subjects, clubs, and board exams stay rigorous. Marking, broadsheets, and messaging run on Universe so performance is visible the moment it happens.',
-              leftCaption: 'STEM benches. Debate floors. Exam readiness.',
-              rightCaption: 'Scripts marked. Results published. Clubs online.',
+              left: { title: 'STEM & exam readiness', body: 'Benches, debate floors, and structured prep.', motif: 'lab' as const },
+              right: { title: 'Results engines', body: 'Scripts marked. Broadsheets published. Clubs online.', motif: 'orbit' as const },
             }
           : {
               kicker: 'Academics × technology',
               title: 'Lecture halls meet a governed campus OS.',
               body: 'Programmes, research, and careers stay academic. Registry, fees, transcripts, and GPA live on Universe — precision without paperwork chaos.',
-              leftCaption: 'Accredited pathways. Research. Real outcomes.',
-              rightCaption: 'Sealed transcripts. Live GPA. Campus ops in one place.',
+              left: { title: 'Accredited pathways', body: 'Research, profession, and clear outcomes.', motif: 'book' as const },
+              right: { title: 'Sealed records', body: 'Transcripts, GPA, and campus ops in one place.', motif: 'campus' as const },
             };
 
   return (
     <>
-      <PhotoBand
-        image={skinConfig.fusionImage}
-        overlay="strong"
-        waves
-        className="py-24 md:py-32"
-        innerClassName="py-4"
-      >
+      <DesignBand className="py-24 md:py-32" waves trails>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 24 }}
@@ -101,26 +94,24 @@ export function AcademicsTechBridge() {
           </motion.div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <PhotoFrame
-              image={skinConfig.lifeImage}
-              caption={story.leftCaption}
+            <IllustrationCard
+              title={story.left.title}
+              body={story.left.body}
+              motif={story.left.motif}
               radius={skin === 'nursery' ? 'rounded-[2rem]' : skin === 'tertiary' ? 'rounded-md' : 'rounded-3xl'}
             />
-            <PhotoFrame
-              image={skinConfig.campusImage}
-              caption={story.rightCaption}
+            <IllustrationCard
+              title={story.right.title}
+              body={story.right.body}
+              motif={story.right.motif}
               className="sm:mt-10"
               radius={skin === 'nursery' ? 'rounded-[2rem]' : skin === 'tertiary' ? 'rounded-md' : 'rounded-3xl'}
             />
           </div>
         </div>
-      </PhotoBand>
+      </DesignBand>
 
-      <PhotoBand
-        image={skinConfig.familyImage}
-        overlay="split-left"
-        className="border-y border-line/40 py-20 md:py-28"
-      >
+      <DesignBand variant="aurora" className="border-y border-line/40 py-20 md:py-28" waves={false}>
         <div className="max-w-2xl">
           <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-accent-soft">
             {skinConfig.motif} Platform modules
@@ -154,7 +145,7 @@ export function AcademicsTechBridge() {
             );
           })}
         </div>
-      </PhotoBand>
+      </DesignBand>
     </>
   );
 }

@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { Logo } from './Logo';
 import { portalHref } from '@/lib/portal';
-import { useSkin } from '@/components/SkinProvider';
 import { WaveBackdrop } from '@/components/WaveBackdrop';
 
 const COLUMNS = [
@@ -33,16 +32,9 @@ const COLUMNS = [
 ];
 
 export function Footer() {
-  const { skinConfig } = useSkin();
-
   return (
     <footer className="relative overflow-hidden border-t border-line/50 bg-surface/40 backdrop-blur-xl">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-20"
-        style={{ backgroundImage: `url(${skinConfig.heroImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-        aria-hidden
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/55 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_0%,rgb(var(--accent)/0.18),transparent_55%)]" aria-hidden />
       <WaveBackdrop intensity="strong" />
       <div className="relative mx-auto max-w-site px-5 py-16 md:px-10 lg:px-14">
         <div className="grid gap-12 md:grid-cols-[1.4fr_repeat(3,1fr)]">

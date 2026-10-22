@@ -39,32 +39,29 @@ const WAVE_C =
   'M0,256L80,240C160,224,320,192,480,186.7C640,181,800,203,960,213.3C1120,224,1280,224,1360,224L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z';
 
 /**
- * Site-wide atmosphere: soft classroom photography + animated waves + mesh orbs.
- * Fixed behind every page so backgrounds stay alive while you scroll.
+ * Site-wide designed atmosphere — gradients, waves, grid mesh.
+ * No photography; heroes own the photos.
  */
 export function SiteAtmosphere({ skinConfig }: { skinConfig: WebsiteSkin }) {
   const reduce = useReducedMotion();
 
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden>
-      {/* Modern classroom / campus photo — swaps with skin */}
+      <div className="absolute inset-0 bg-background" />
       <div
         key={skinConfig.id}
-        className="absolute inset-0 scale-110 bg-cover bg-center opacity-[0.28] transition-[background-image,opacity] duration-700 md:opacity-[0.32]"
+        className="absolute inset-0 transition-opacity duration-700"
         style={{
-          backgroundImage: `url(${skinConfig.heroImage})`,
-          backgroundAttachment: 'scroll',
+          background: `
+            radial-gradient(ellipse at 15% 10%, rgb(var(--accent) / 0.22), transparent 50%),
+            radial-gradient(ellipse at 85% 30%, rgb(var(--accent-soft) / 0.16), transparent 45%),
+            radial-gradient(ellipse at 50% 90%, rgb(var(--accent-deep) / 0.18), transparent 55%)
+          `,
         }}
       />
 
-      {/* Readable academic wash */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/78 to-background/88" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_10%,rgb(var(--accent)/0.22),transparent_50%),radial-gradient(ellipse_at_85%_30%,rgb(var(--accent-soft)/0.16),transparent_45%),radial-gradient(ellipse_at_50%_90%,rgb(var(--accent-deep)/0.18),transparent_55%)]" />
+      <div className="absolute inset-0 bg-grid-accent opacity-[0.28]" />
 
-      {/* Soft grid like a modern OS */}
-      <div className="absolute inset-0 bg-grid-accent opacity-[0.35]" />
-
-      {/* Top waves */}
       <WaveBand
         className="top-0 h-[28vh] -translate-y-1/3 rotate-180 opacity-70"
         fill="rgb(var(--accent) / 0.12)"
@@ -79,8 +76,6 @@ export function SiteAtmosphere({ skinConfig }: { skinConfig: WebsiteSkin }) {
         reduce={reduce}
         reverse
       />
-
-      {/* Mid-viewport waves */}
       <WaveBand
         className="top-[42%] h-[30vh] opacity-55"
         fill="rgb(var(--accent) / 0.11)"
@@ -88,15 +83,6 @@ export function SiteAtmosphere({ skinConfig }: { skinConfig: WebsiteSkin }) {
         reduce={reduce}
         speed="animate-wave-drift-slow"
       />
-      <WaveBand
-        className="top-[48%] h-[24vh] opacity-50"
-        fill="rgb(var(--accent-deep) / 0.14)"
-        path={WAVE_A}
-        reduce={reduce}
-        reverse
-      />
-
-      {/* Bottom waves */}
       <WaveBand
         className="bottom-0 h-[36vh] opacity-80"
         fill="rgb(var(--accent) / 0.14)"
@@ -119,7 +105,6 @@ export function SiteAtmosphere({ skinConfig }: { skinConfig: WebsiteSkin }) {
         speed="animate-wave-bob"
       />
 
-      {/* Floating orbs */}
       <div className={`orb -left-24 top-[12%] h-[28rem] w-[28rem] bg-accent/20 ${reduce ? '' : 'animate-floaty'}`} />
       <div
         className={`orb -right-20 top-[38%] h-[32rem] w-[32rem] bg-accent-soft/15 ${reduce ? '' : 'animate-floaty'}`}
