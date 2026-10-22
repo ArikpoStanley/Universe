@@ -74,21 +74,47 @@ export function IllustrationBackdrop({
   );
 }
 
-/** Compact illustrated card — replaces photo frames mid-page. */
+/** Compact card — optional inset photo (in-card media, not a section background). */
 export function IllustrationCard({
   title,
   body,
   motif = 'book',
+  image,
+  imageAlt,
   className = '',
   radius = 'rounded-3xl',
 }: {
   title: string;
   body: string;
   motif?: 'book' | 'board' | 'lab' | 'campus' | 'family' | 'orbit';
+  /** Photo shown inside the card chrome — never a page background. */
+  image?: string;
+  imageAlt?: string;
   className?: string;
   radius?: string;
 }) {
   const uid = useId().replace(/:/g, '');
+
+  if (image) {
+    return (
+      <figure
+        className={`flex h-full flex-col overflow-hidden border border-line/70 bg-card/70 shadow-[0_30px_80px_-40px_rgb(var(--accent)/0.45)] backdrop-blur-xl ${radius} ${className}`}
+      >
+        <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-surface">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={image} alt={imageAlt || title} className="h-full w-full object-cover" />
+        </div>
+        <figcaption className="flex flex-1 flex-col p-5 md:p-6">
+          <span className="mb-2 flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.22em] text-accent-soft">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-ok" />
+            In the school
+          </span>
+          <p className="font-display text-lg font-bold leading-snug">{title}</p>
+          <p className="mt-2 text-sm leading-relaxed text-muted">{body}</p>
+        </figcaption>
+      </figure>
+    );
+  }
 
   return (
     <figure

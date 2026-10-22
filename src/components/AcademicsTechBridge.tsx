@@ -16,52 +16,109 @@ import { useSkin } from '@/components/SkinProvider';
 import { DesignBand, IllustrationCard } from '@/components/DesignBand';
 
 const MODULES = [
-  { icon: ClipboardCheck, title: 'Attendance & pastoral', body: 'Roll call that reaches parents before the bell.' },
-  { icon: BookOpen, title: 'Assessment & results', body: 'Markbooks, broadsheets, and transcripts that stay consistent.' },
-  { icon: LineChart, title: 'Progress analytics', body: 'See cohorts climb — class by class, term by term.' },
-  { icon: MessageSquare, title: 'Family messaging', body: 'Diary notes, fees, and alerts in one trusted thread.' },
-  { icon: Users, title: 'Admissions OS', body: 'Full biodata applications, entrance tests, enrolment.' },
-  { icon: ShieldCheck, title: 'Tenant-safe ops', body: 'Every school runs on its own secure Universe space.' },
+  {
+    icon: ClipboardCheck,
+    title: 'Attendance & pastoral',
+    body: 'Roll call that reaches parents before the bell — with pastoral notes that stay with the learner, not in a lost notebook.',
+  },
+  {
+    icon: BookOpen,
+    title: 'Assessment & results',
+    body: 'Markbooks, broadsheets, and transcripts that stay consistent across classes, terms, and campuses.',
+  },
+  {
+    icon: LineChart,
+    title: 'Progress analytics',
+    body: 'See cohorts climb class by class and term by term — so interventions happen before the report card lands.',
+  },
+  {
+    icon: MessageSquare,
+    title: 'Family messaging',
+    body: 'Diary notes, fees, and alerts in one trusted thread scoped to your institution and the right guardians.',
+  },
+  {
+    icon: Users,
+    title: 'Admissions OS',
+    body: 'Full biodata applications, entrance tests, and enrolment that copy cleanly into the student record.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Tenant-safe ops',
+    body: 'Every school runs on its own secure Universe space — no cross-tenant bleed, ever.',
+  },
 ];
 
 /**
- * Shared mid-page story: academics × technology — illustrated, not photographic.
+ * Shared mid-page story: academics × technology with in-card photography.
  */
 export function AcademicsTechBridge() {
   const { skin, skinConfig } = useSkin();
   const reduce = useReducedMotion();
+  const imgs = skinConfig.cardImages;
 
   const story =
     skin === 'nursery'
       ? {
           kicker: 'Academics × technology',
           title: 'Circle time stays human. The OS stays invisible.',
-          body: 'Carers teach, comfort, and play — Universe quietly handles pickup verification, diaries, and parent updates so nothing falls through the cracks.',
-          left: { title: 'Warm rooms. Soft starts.', body: 'Real educators lead the day — technology never interrupts the circle.', motif: 'book' as const },
-          right: { title: 'Live desk & family alerts', body: 'Pickup, diary, and attendance hum in the background.', motif: 'family' as const },
+          body: 'Carers teach, comfort, and play — Universe quietly handles pickup verification, diaries, and parent updates so nothing falls through the cracks. The goal isn’t more screens in the room; it’s fewer interruptions to care.',
+          left: {
+            title: 'Warm rooms. Soft starts.',
+            body: 'Real educators lead the day — technology never interrupts the circle.',
+            image: imgs.life,
+          },
+          right: {
+            title: 'Live desk & family alerts',
+            body: 'Pickup, diary, and attendance hum in the background while families stay informed.',
+            image: imgs.family,
+          },
         }
       : skin === 'primary'
         ? {
             kicker: 'Academics × technology',
             title: 'Whiteboards for learning. Dashboards for growth.',
-            body: 'Literacy and numeracy happen in the room. Progress, fees, and parent partnership live on the platform — so teachers teach and families stay in the loop.',
-            left: { title: 'Boards & foundations', body: 'Interactive lessons that build confident readers.', motif: 'board' as const },
-            right: { title: 'Progress that parents see', body: 'Attendance, fees, and growth synced for every class.', motif: 'orbit' as const },
+            body: 'Literacy and numeracy happen in the room. Progress, fees, and parent partnership live on the platform — so teachers teach and families stay in the loop without chasing paper or WhatsApp forwards.',
+            left: {
+              title: 'Boards & foundations',
+              body: 'Interactive lessons that build confident readers and curious mathematicians.',
+              image: imgs.life,
+            },
+            right: {
+              title: 'Progress that parents see',
+              body: 'Attendance, fees, and growth synced for every class — one coherent story.',
+              image: imgs.fusion,
+            },
           }
         : skin === 'secondary'
           ? {
               kicker: 'Academics × technology',
               title: 'Labs and lectures. Results that move in real time.',
-              body: 'Subjects, clubs, and board exams stay rigorous. Marking, broadsheets, and messaging run on Universe so performance is visible the moment it happens.',
-              left: { title: 'STEM & exam readiness', body: 'Benches, debate floors, and structured prep.', motif: 'lab' as const },
-              right: { title: 'Results engines', body: 'Scripts marked. Broadsheets published. Clubs online.', motif: 'orbit' as const },
+              body: 'Subjects, clubs, and board exams stay rigorous. Marking, broadsheets, and messaging run on Universe so performance is visible the moment it happens — not weeks later in a binder.',
+              left: {
+                title: 'STEM & exam readiness',
+                body: 'Benches, debate floors, and structured prep that match ambitious schools.',
+                image: imgs.life,
+              },
+              right: {
+                title: 'Results engines',
+                body: 'Scripts marked. Broadsheets published. Clubs online — all on one tenant.',
+                image: imgs.campus,
+              },
             }
           : {
               kicker: 'Academics × technology',
               title: 'Lecture halls meet a governed campus OS.',
-              body: 'Programmes, research, and careers stay academic. Registry, fees, transcripts, and GPA live on Universe — precision without paperwork chaos.',
-              left: { title: 'Accredited pathways', body: 'Research, profession, and clear outcomes.', motif: 'book' as const },
-              right: { title: 'Sealed records', body: 'Transcripts, GPA, and campus ops in one place.', motif: 'campus' as const },
+              body: 'Programmes, research, and careers stay academic. Registry, fees, transcripts, and GPA live on Universe — precision without paperwork chaos, from matriculation through graduation.',
+              left: {
+                title: 'Accredited pathways',
+                body: 'Research, profession, and clear outcomes with searchable student journeys.',
+                image: imgs.life,
+              },
+              right: {
+                title: 'Sealed records',
+                body: 'Transcripts, GPA, and campus ops in one place — ready for audits and alumni.',
+                image: imgs.campus,
+              },
             };
 
   return (
@@ -83,6 +140,10 @@ export function AcademicsTechBridge() {
               {story.title}
             </h2>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-muted md:text-lg">{story.body}</p>
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted">
+              Switch Nursery, Primary, Secondary, or Tertiary in the nav — the story, modules, and campus
+              moments reshape for that institution type while the OS stays the same.
+            </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/products" className="btn-primary">
                 See the product →
@@ -97,13 +158,13 @@ export function AcademicsTechBridge() {
             <IllustrationCard
               title={story.left.title}
               body={story.left.body}
-              motif={story.left.motif}
+              image={story.left.image}
               radius={skin === 'nursery' ? 'rounded-[2rem]' : skin === 'tertiary' ? 'rounded-md' : 'rounded-3xl'}
             />
             <IllustrationCard
               title={story.right.title}
               body={story.right.body}
-              motif={story.right.motif}
+              image={story.right.image}
               className="sm:mt-10"
               radius={skin === 'nursery' ? 'rounded-[2rem]' : skin === 'tertiary' ? 'rounded-md' : 'rounded-3xl'}
             />
@@ -119,8 +180,9 @@ export function AcademicsTechBridge() {
           <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
             Everything a modern school runs — in one OS.
           </h2>
-          <p className="mt-4 text-muted">
-            Not a pile of apps. A coherent operating system for teaching, families, and administration.
+          <p className="mt-4 text-muted md:text-lg">
+            Not a pile of apps. A coherent operating system for teaching, families, and administration —
+            tenant-scoped, role-aware, and ready for {skinConfig.label.toLowerCase()} institutions.
           </p>
         </div>
 
@@ -134,7 +196,7 @@ export function AcademicsTechBridge() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ delay: i * 0.06, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                className="rounded-2xl border border-line/70 bg-card/70 p-5 backdrop-blur-xl"
+                className="rounded-2xl border border-line/70 bg-card/70 p-5 backdrop-blur-xl md:p-6"
               >
                 <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-accent/30 bg-accent/15 text-accent-soft">
                   <Icon className="h-5 w-5" />

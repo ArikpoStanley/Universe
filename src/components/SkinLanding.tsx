@@ -9,6 +9,7 @@ import { WaveBackdrop } from '@/components/WaveBackdrop';
 import { EnergyTrails } from '@/components/EnergyTrails';
 import { TechInAction } from '@/components/TechInAction';
 import { DesignBand, IllustrationCard } from '@/components/DesignBand';
+import { MediaCard } from '@/components/MediaCard';
 
 function springy(reduce: boolean | null): MotionProps {
   if (reduce) return {};
@@ -163,32 +164,55 @@ function NurseryLanding({ skin }: { skin: WebsiteSkin }) {
         <div className="grid items-end gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <motion.h2 {...slideUp(reduce)} className="font-display text-3xl font-bold md:text-5xl">
-              A day that feels like play — and still runs on a real OS.
+              {skin.story.dayTitle}
             </motion.h2>
             <motion.p {...slideUp(reduce, 0.1)} className="mt-5 max-w-md text-muted md:text-lg">
-              Songs, paint, and soft starts stay front and centre. Pickup verification, diaries, and attendance
-              hum quietly in the background.
+              {skin.story.dayBody}
             </motion.p>
           </div>
           <div className="grid gap-4 sm:grid-cols-3 lg:col-span-7">
-            {[
-              { t: 'Morning circle', d: 'Songs and stories that settle little hearts — logged as present.' },
-              { t: 'Discovery time', d: 'Blocks, paint, outdoor play — curiosity leads the schedule.' },
-              { t: 'Family handoff', d: 'Verified pickup, diary notes, carers in the loop.' },
-            ].map((row, i) => (
+            {skin.story.moments.map((row, i) => (
               <motion.div
-                key={row.t}
+                key={row.title}
                 {...springy(reduce)}
                 transition={{ type: 'spring', stiffness: 110, damping: 14, delay: i * 0.12 }}
                 className="rounded-[2rem] border border-accent/25 bg-card/60 p-6 backdrop-blur-xl"
                 style={{ rotate: reduce ? 0 : i % 2 === 0 ? -1.5 : 1.5 }}
               >
                 <p className="text-xs font-bold uppercase tracking-[0.25em] text-accent-soft">Moment 0{i + 1}</p>
-                <h3 className="mt-2 font-display text-xl font-bold">{row.t}</h3>
-                <p className="mt-2 text-sm text-muted">{row.d}</p>
+                <h3 className="mt-2 font-display text-xl font-bold">{row.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{row.body}</p>
               </motion.div>
             ))}
           </div>
+        </div>
+        <div className="mt-12 grid gap-5 sm:grid-cols-3">
+          <MediaCard
+            image={skin.cardImages.life}
+            alt="Nursery learning corner"
+            eyebrow="Rooms"
+            title="Cosy spaces for little minds"
+            body="Sensory corners and soft starts — the atmosphere families expect from early years."
+            radius="rounded-[2rem]"
+          />
+          <MediaCard
+            image={skin.cardImages.campus}
+            alt="Nursery classroom"
+            eyebrow="Care"
+            title="Low ratios, high attention"
+            body="Carers stay present while Universe handles the desk work behind the scenes."
+            delay={0.08}
+            radius="rounded-[2rem]"
+          />
+          <MediaCard
+            image={skin.cardImages.family}
+            alt="Parent at school gate"
+            eyebrow="Families"
+            title="Handoffs parents can trust"
+            body="Verified pickup and diary notes so every child goes home with the right adult."
+            delay={0.16}
+            radius="rounded-[2rem]"
+          />
         </div>
       </DesignBand>
 
@@ -197,13 +221,16 @@ function NurseryLanding({ skin }: { skin: WebsiteSkin }) {
           <IllustrationCard
             title="Smart boards stay gentle"
             body="The OS never interrupts circle time — carers stay present with the children."
-            motif="book"
+            image={skin.cardImages.fusion}
             radius="rounded-[2rem]"
           />
           <div>
             <motion.h2 {...slideUp(reduce)} className="font-display text-3xl font-bold md:text-4xl">
-              Built for carers who teach with their hands — and hearts.
+              {skin.story.promiseTitle}
             </motion.h2>
+            <motion.p {...slideUp(reduce, 0.08)} className="mt-4 text-muted md:text-lg">
+              {skin.story.promiseBody}
+            </motion.p>
             <div className="mt-8 space-y-4">
               {skin.features.map((f, i) => (
                 <motion.div
@@ -214,7 +241,7 @@ function NurseryLanding({ skin }: { skin: WebsiteSkin }) {
                   <h3 className="font-display text-lg font-bold">
                     {f.icon} {f.title}
                   </h3>
-                  <p className="mt-1 text-sm text-muted">{f.body}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-muted">{f.body}</p>
                 </motion.div>
               ))}
             </div>
@@ -277,30 +304,48 @@ function PrimaryLanding({ skin }: { skin: WebsiteSkin }) {
 
       <DesignBand variant="mesh" className="py-24">
         <motion.h2 {...slideUp(reduce)} className="font-display text-3xl font-bold md:text-5xl">
-          Growing year by year — foundations that stick.
+          {skin.story.dayTitle}
         </motion.h2>
-        <p className="mt-4 max-w-2xl text-muted md:text-lg">
-          Classroom rhythm feeds the same progress story parents see on Universe.
-        </p>
+        <p className="mt-4 max-w-2xl text-muted md:text-lg">{skin.story.dayBody}</p>
         <div className="mt-14 space-y-5">
-          {[
-            { year: 'P1–P2', title: 'Roots', body: 'Phonics, number sense, and settling into school rhythm — attendance that parents trust.' },
-            { year: 'P3–P4', title: 'Stem', body: 'Projects, clubs, and confidence in reading aloud — progress visible term by term.' },
-            { year: 'P5–P6', title: 'Canopy', body: 'Leadership roles, exams readiness, secondary transition — records ready to travel.' },
-          ].map((row, i) => (
+          {skin.story.moments.map((row, i) => (
             <motion.div
-              key={row.year}
+              key={row.title}
               {...slideUp(reduce, i * 0.1)}
-              className="grid items-center gap-6 rounded-3xl border border-line/70 bg-card/55 p-6 backdrop-blur-xl md:grid-cols-[9rem_1fr]"
+              className="grid items-center gap-6 rounded-3xl border border-line/70 bg-card/55 p-6 backdrop-blur-xl md:grid-cols-[1fr]"
               style={{ marginLeft: reduce ? 0 : `${i * 3}%` }}
             >
-              <span className="font-display text-2xl font-bold text-accent-soft">{row.year}</span>
               <div>
                 <h3 className="font-display text-xl font-bold">{row.title}</h3>
-                <p className="mt-1 text-muted">{row.body}</p>
+                <p className="mt-1 leading-relaxed text-muted">{row.body}</p>
               </div>
             </motion.div>
           ))}
+        </div>
+        <div className="mt-12 grid gap-5 sm:grid-cols-3">
+          <MediaCard
+            image={skin.cardImages.life}
+            alt="Primary outdoor learning"
+            eyebrow="Yard & board"
+            title="Learning that looks like childhood"
+            body="Outdoor collaboration and interactive classrooms feed the same progress story."
+          />
+          <MediaCard
+            image={skin.cardImages.campus}
+            alt="Primary campus"
+            eyebrow="Campus"
+            title="Spaces built for foundations"
+            body="Playgrounds and classrooms that match how primary schools actually feel."
+            delay={0.08}
+          />
+          <MediaCard
+            image={skin.cardImages.family}
+            alt="Parent partnership"
+            eyebrow="Parents"
+            title="Partnership without the chase"
+            body="Fees, attendance, and updates in one place — no more lost notes."
+            delay={0.16}
+          />
         </div>
       </DesignBand>
 
@@ -308,15 +353,18 @@ function PrimaryLanding({ skin }: { skin: WebsiteSkin }) {
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div>
             <motion.h2 {...slideUp(reduce)} className="font-display text-3xl font-bold md:text-4xl">
-              Foundations that travel with the child.
+              {skin.story.promiseTitle}
             </motion.h2>
+            <motion.p {...slideUp(reduce, 0.08)} className="mt-4 text-muted md:text-lg">
+              {skin.story.promiseBody}
+            </motion.p>
             <div className="mt-8 grid gap-4">
               {skin.features.map((f, i) => (
                 <motion.div key={f.title} {...slideUp(reduce, 0.08 * i)} className="glass-card p-5">
                   <h3 className="font-display text-lg font-bold">
                     {f.icon} {f.title}
                   </h3>
-                  <p className="mt-2 text-sm text-muted">{f.body}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{f.body}</p>
                 </motion.div>
               ))}
             </div>
@@ -324,7 +372,7 @@ function PrimaryLanding({ skin }: { skin: WebsiteSkin }) {
           <IllustrationCard
             title="Interactive board for literacy"
             body="Dashboard for growth — same child, one coherent story."
-            motif="board"
+            image={skin.cardImages.fusion}
           />
         </div>
       </DesignBand>
@@ -394,29 +442,62 @@ function SecondaryLanding({ skin }: { skin: WebsiteSkin }) {
 
       <DesignBand variant="grid" className="-mt-4 py-24">
         <motion.h2 {...slideX(reduce, 'right')} className="font-display text-3xl font-black md:text-5xl">
-          From classroom to certificate
+          {skin.story.dayTitle}
         </motion.h2>
-        <p className="mt-4 max-w-2xl text-muted md:text-lg">
-          Labs, lectures, and clubs stay rigorous. Marking and broadsheets move the moment scripts are done.
-        </p>
-        <div className="mt-12 grid gap-4 md:grid-cols-4">
-          {['Master subjects', 'Sit board exams', 'Lead clubs', 'Launch careers'].map((label, i) => (
+        <p className="mt-4 max-w-2xl text-muted md:text-lg">{skin.story.dayBody}</p>
+        <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {skin.story.moments.map((row, i) => (
             <motion.div
-              key={label}
+              key={row.title}
               {...slideX(reduce, i % 2 === 0 ? 'left' : 'right', i * 0.08)}
               className="relative overflow-hidden rounded-2xl border border-line bg-card/55 p-6 backdrop-blur-xl"
             >
               <span className="font-display text-4xl font-black text-accent/40">0{i + 1}</span>
-              <p className="mt-4 text-lg font-bold">{label}</p>
+              <p className="mt-4 text-lg font-bold">{row.title}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{row.body}</p>
               <div className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-accent to-transparent" />
             </motion.div>
           ))}
+        </div>
+        <div className="mt-12 grid gap-5 sm:grid-cols-3">
+          <MediaCard
+            image={skin.cardImages.life}
+            alt="Secondary STEM lab"
+            eyebrow="STEM"
+            title="Labs that stay serious"
+            body="Science benches and screens for charts — academics first, ops second."
+            radius="rounded-xl"
+          />
+          <MediaCard
+            image={skin.cardImages.campus}
+            alt="Secondary campus"
+            eyebrow="Campus"
+            title="Ambition has a place"
+            body="Secondary campuses where clubs, exams, and leadership share one OS."
+            delay={0.08}
+            radius="rounded-xl"
+          />
+          <MediaCard
+            image={skin.cardImages.fusion}
+            alt="Classroom technology"
+            eyebrow="Results"
+            title="Performance in motion"
+            body="When scripts are marked, broadsheets move — parents and principals see it live."
+            delay={0.16}
+            radius="rounded-xl"
+          />
         </div>
       </DesignBand>
 
       <DesignBand variant="grid" className="py-20" trails={false}>
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div className="space-y-4">
+            <motion.h2 {...slideX(reduce, 'left')} className="font-display text-3xl font-black md:text-4xl">
+              {skin.story.promiseTitle}
+            </motion.h2>
+            <motion.p {...slideX(reduce, 'left', 0.06)} className="text-muted md:text-lg">
+              {skin.story.promiseBody}
+            </motion.p>
             {skin.features.map((f, i) => (
               <motion.div
                 key={f.title}
@@ -424,14 +505,14 @@ function SecondaryLanding({ skin }: { skin: WebsiteSkin }) {
                 className="border-l-4 border-accent bg-card/55 py-6 pl-5 pr-4 backdrop-blur-md"
               >
                 <h3 className="font-display text-xl font-bold">{f.title}</h3>
-                <p className="mt-2 text-sm text-muted">{f.body}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{f.body}</p>
               </motion.div>
             ))}
           </div>
           <IllustrationCard
             title="Science benches meet live results"
             body="STEM stays physical. Performance stays visible the moment it happens."
-            motif="lab"
+            image={skin.cardImages.life}
             radius="rounded-xl"
           />
         </div>
@@ -497,23 +578,47 @@ function TertiaryLanding({ skin }: { skin: WebsiteSkin }) {
         <div className="grid gap-16 lg:grid-cols-12">
           <motion.div {...fade(reduce)} className="lg:col-span-4">
             <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-accent-soft">Pathways</p>
-            <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">Research. Profession. Impact.</h2>
-            <p className="mt-4 text-muted">
-              Lecture halls stay scholarly. Registry and transcripts stay sealed and searchable.
-            </p>
+            <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">{skin.story.dayTitle}</h2>
+            <p className="mt-4 leading-relaxed text-muted">{skin.story.dayBody}</p>
+            <p className="mt-4 text-sm leading-relaxed text-muted">{skin.story.promiseBody}</p>
           </motion.div>
           <div className="space-y-8 lg:col-span-8">
-            {[
-              { t: 'Accredited programmes', d: 'Degrees, HNDs, and professional tracks with clear outcomes.' },
-              { t: 'Industry bridges', d: 'SIWES, internships, and employer-ready portfolios.' },
-              { t: 'Campus life, managed', d: 'Hostels, fees, transcripts, and senate records — one OS.' },
-            ].map((row, i) => (
-              <motion.article key={row.t} {...fade(reduce, 0.12 * i)} className="border-t border-line pt-8">
-                <h3 className="font-display text-2xl font-bold">{row.t}</h3>
-                <p className="mt-3 max-w-xl text-muted">{row.d}</p>
+            {skin.story.moments.map((row, i) => (
+              <motion.article key={row.title} {...fade(reduce, 0.12 * i)} className="border-t border-line pt-8">
+                <h3 className="font-display text-2xl font-bold">{row.title}</h3>
+                <p className="mt-3 max-w-xl leading-relaxed text-muted">{row.body}</p>
               </motion.article>
             ))}
           </div>
+        </div>
+
+        <div className="mt-16 grid gap-5 md:grid-cols-3">
+          <MediaCard
+            image={skin.cardImages.life}
+            alt="Tertiary study"
+            eyebrow="Scholarship"
+            title="Study floors that stay serious"
+            body="Lecture halls and mezzanines for learning — records stay searchable on the OS."
+            radius="rounded-md"
+          />
+          <MediaCard
+            image={skin.cardImages.campus}
+            alt="Tertiary campus"
+            eyebrow="Campus"
+            title="Architecture for ambition"
+            body="Campuses where faculties, hostels, and careers share one governed tenant."
+            delay={0.08}
+            radius="rounded-md"
+          />
+          <MediaCard
+            image={skin.cardImages.fusion}
+            alt="Academics and technology"
+            eyebrow="Governed OS"
+            title="Precision without paperwork chaos"
+            body="Transcripts, GPA, and registry sealed — ready for senate and alumni."
+            delay={0.16}
+            radius="rounded-md"
+          />
         </div>
 
         <div className="mt-20 grid gap-6 md:grid-cols-3">

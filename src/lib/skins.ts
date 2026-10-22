@@ -31,6 +31,21 @@ export type WebsiteSkin = {
   /** Full-bleed photoreal school environment for heroes / apply banners only. */
   heroImage: string;
   applyImage: string;
+  /** In-card photos (never used as section backgrounds). */
+  cardImages: {
+    life: string;
+    campus: string;
+    fusion: string;
+    family: string;
+  };
+  /** Extra landing copy so pages feel substantial. */
+  story: {
+    dayTitle: string;
+    dayBody: string;
+    promiseTitle: string;
+    promiseBody: string;
+    moments: { title: string; body: string }[];
+  };
   vars: SkinVars;
   features: { title: string; body: string; icon: string }[];
 };
@@ -50,6 +65,34 @@ export const skins: Record<SkinId, WebsiteSkin> = {
     motif: '🧸',
     heroImage: '/images/modern-early-years.jpg',
     applyImage: '/images/modern-early-years.jpg',
+    cardImages: {
+      life: '/images/nursery-learning-corner.jpg',
+      campus: '/images/nursery-classroom-hero.jpg',
+      fusion: '/images/academics-tech-classroom.jpg',
+      family: '/images/parent-school-portal.jpg',
+    },
+    story: {
+      dayTitle: 'A day that feels like play — and still runs on a real OS.',
+      dayBody:
+        'Songs, paint, and soft starts stay front and centre. Pickup verification, diaries, and attendance hum quietly so carers stay present with the children — not buried in paperwork.',
+      promiseTitle: 'Built for carers who teach with their hands — and hearts.',
+      promiseBody:
+        'Universe keeps early-years operations gentle: verified handoffs, photo diaries, and parent updates without turning circle time into screen time.',
+      moments: [
+        {
+          title: 'Morning circle',
+          body: 'Songs and stories that settle little hearts — with attendance logged before the first song ends.',
+        },
+        {
+          title: 'Discovery time',
+          body: 'Blocks, paint, outdoor play — curiosity leads the schedule while the OS stays out of the way.',
+        },
+        {
+          title: 'Family handoff',
+          body: 'Verified pickup, diary notes, and carers in the loop so every child goes home with the right adult.',
+        },
+      ],
+    },
     heroGradient:
       'radial-gradient(1200px 600px at 12% -8%, rgba(244,114,182,0.32), transparent 60%), radial-gradient(1000px 500px at 88% 8%, rgba(251,191,36,0.22), transparent 55%), linear-gradient(165deg, #1A0E1C 0%, #241124 55%, #16090F 100%)',
     vars: {
@@ -82,6 +125,34 @@ export const skins: Record<SkinId, WebsiteSkin> = {
     motif: '🌱',
     heroImage: '/images/modern-classroom-whiteboard.jpg',
     applyImage: '/images/modern-classroom-whiteboard.jpg',
+    cardImages: {
+      life: '/images/primary-outdoor-learning.jpg',
+      campus: '/images/primary-playground-hero.jpg',
+      fusion: '/images/academics-tech-classroom.jpg',
+      family: '/images/parent-school-portal.jpg',
+    },
+    story: {
+      dayTitle: 'Growing year by year — foundations that stick.',
+      dayBody:
+        'Interactive boards and outdoor collaboration feed the same progress story parents see on Universe. Literacy and numeracy stay in the room; fees, attendance, and updates stay on the OS.',
+      promiseTitle: 'Foundations that travel with the child.',
+      promiseBody:
+        'From phonics to secondary transition, records stay coherent — so teachers teach and families never chase paper.',
+      moments: [
+        {
+          title: 'Roots · P1–P2',
+          body: 'Phonics, number sense, and settling into school rhythm — attendance that parents trust.',
+        },
+        {
+          title: 'Stem · P3–P4',
+          body: 'Projects, clubs, and confidence in reading aloud — progress visible term by term.',
+        },
+        {
+          title: 'Canopy · P5–P6',
+          body: 'Leadership roles, exams readiness, secondary transition — records ready to travel.',
+        },
+      ],
+    },
     heroGradient:
       'radial-gradient(1200px 600px at 12% -8%, rgba(34,197,94,0.30), transparent 60%), radial-gradient(1000px 500px at 88% 8%, rgba(132,204,22,0.20), transparent 55%), linear-gradient(165deg, #071510 0%, #0C1F18 55%, #06100B 100%)',
     vars: {
@@ -114,6 +185,26 @@ export const skins: Record<SkinId, WebsiteSkin> = {
     motif: '🚀',
     heroImage: '/images/modern-stem-lab.jpg',
     applyImage: '/images/modern-stem-lab.jpg',
+    cardImages: {
+      life: '/images/secondary-science-tech.jpg',
+      campus: '/images/secondary-campus-hero.jpg',
+      fusion: '/images/academics-tech-classroom.jpg',
+      family: '/images/parent-school-portal.jpg',
+    },
+    story: {
+      dayTitle: 'From classroom to certificate.',
+      dayBody:
+        'Labs, lectures, and clubs stay rigorous. Marking and broadsheets move the moment scripts are done — so ambition has an operating system, not a spreadsheet trail.',
+      promiseTitle: 'Performance you can see — while it’s still happening.',
+      promiseBody:
+        'Board prep, clubs, and results engines run on one tenant. Parents and principals stop waiting for end-of-term surprises.',
+      moments: [
+        { title: 'Master subjects', body: 'Structured schemes, continuous assessment, and clear subject ownership.' },
+        { title: 'Sit board exams', body: 'Mocks, scripts, and broadsheets that stay consistent across classes.' },
+        { title: 'Lead clubs', body: 'Debate, STEM, and societies with live check-ins and membership.' },
+        { title: 'Launch careers', body: 'Guidance, transcripts, and pathways ready for the next chapter.' },
+      ],
+    },
     heroGradient:
       'radial-gradient(1200px 600px at 12% -8%, rgba(59,130,246,0.32), transparent 60%), radial-gradient(1000px 500px at 88% 8%, rgba(6,182,212,0.22), transparent 55%), linear-gradient(165deg, #060D18 0%, #0A1628 55%, #040810 100%)',
     vars: {
@@ -146,6 +237,34 @@ export const skins: Record<SkinId, WebsiteSkin> = {
     motif: '🎓',
     heroImage: '/images/modern-lecture-hall.jpg',
     applyImage: '/images/modern-lecture-hall.jpg',
+    cardImages: {
+      life: '/images/tertiary-study-tech.jpg',
+      campus: '/images/tertiary-campus-hero.jpg',
+      fusion: '/images/academics-tech-classroom.jpg',
+      family: '/images/parent-school-portal.jpg',
+    },
+    story: {
+      dayTitle: 'Research. Profession. Impact.',
+      dayBody:
+        'Lecture halls and study floors stay scholarly. Registry, fees, transcripts, and GPA stay sealed and searchable — precision without paperwork chaos.',
+      promiseTitle: 'A governed campus OS from matriculation to graduation.',
+      promiseBody:
+        'Faculties, hostels, SIWES, and senate records live on one tenant so academics stay academic and administration stays accountable.',
+      moments: [
+        {
+          title: 'Accredited programmes',
+          body: 'Degrees, HNDs, and professional tracks with clear outcomes and searchable records.',
+        },
+        {
+          title: 'Industry bridges',
+          body: 'SIWES, internships, and employer-ready portfolios tied to the student journey.',
+        },
+        {
+          title: 'Campus life, managed',
+          body: 'Hostels, fees, transcripts, and senate records — one coherent operating system.',
+        },
+      ],
+    },
     heroGradient:
       'radial-gradient(1200px 600px at 12% -8%, rgba(251,191,36,0.30), transparent 60%), radial-gradient(1000px 500px at 88% 8%, rgba(245,158,11,0.20), transparent 55%), linear-gradient(165deg, #141008 0%, #1C1608 55%, #0E0B05 100%)',
     vars: {

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { SkinLanding } from '@/components/SkinLanding';
 import { AcademicsTechBridge } from '@/components/AcademicsTechBridge';
+import { SiteDepthSections } from '@/components/SiteDepthSections';
 import { PortalShowcase } from '@/components/PortalShowcase';
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export default function HomePage() {
     <>
       <SkinLanding />
       <AcademicsTechBridge />
+      <SiteDepthSections />
       <PortalShowcase />
     </>
   );
