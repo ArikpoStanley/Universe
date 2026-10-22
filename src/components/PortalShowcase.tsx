@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useSkin } from '@/components/SkinProvider';
-import { WaveDivider } from '@/components/WaveBackdrop';
 import { TechInAction } from '@/components/TechInAction';
 import { DesignBand } from '@/components/DesignBand';
 import { MediaCard } from '@/components/MediaCard';
@@ -47,8 +46,7 @@ export function PortalShowcase() {
             };
 
   return (
-    <DesignBand className="border-y border-line/50 py-20 md:py-28" trails waves>
-      <WaveDivider />
+    <DesignBand className="py-20 md:py-28" trails waves>
       <div
         className={`relative grid items-center gap-12 md:grid-cols-2 ${
           skin === 'tertiary' ? 'lg:gap-20' : ''

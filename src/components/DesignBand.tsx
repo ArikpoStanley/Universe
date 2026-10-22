@@ -61,15 +61,26 @@ export function IllustrationBackdrop({
 
   return (
     <div className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`} aria-hidden>
-      <div className="absolute inset-0 bg-background" />
+      {/* Transparent art over the shared fixed atmosphere — each band's art
+          fades at its top/bottom so sections blend with no visible seam. */}
+      <div
+        className="absolute inset-0"
+        style={{
+          maskImage:
+            'linear-gradient(to bottom, transparent, black 16%, black 84%, transparent)',
+          WebkitMaskImage:
+            'linear-gradient(to bottom, transparent, black 16%, black 84%, transparent)',
+        }}
+      >
+        {variant === 'playful' && <PlayfulArt reduce={!!reduce} uid={uid} />}
+        {variant === 'mesh' && <MeshArt reduce={!!reduce} uid={uid} />}
+        {variant === 'grid' && <GridArt reduce={!!reduce} uid={uid} />}
+        {variant === 'editorial' && <EditorialArt reduce={!!reduce} uid={uid} />}
+        {variant === 'aurora' && <AuroraArt />}
+      </div>
 
-      {variant === 'playful' && <PlayfulArt reduce={!!reduce} uid={uid} />}
-      {variant === 'mesh' && <MeshArt reduce={!!reduce} uid={uid} />}
-      {variant === 'grid' && <GridArt reduce={!!reduce} uid={uid} />}
-      {variant === 'editorial' && <EditorialArt reduce={!!reduce} uid={uid} />}
-      {variant === 'aurora' && <AuroraArt />}
-
-      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/80" />
+      {/* Gentle vignette for depth without a horizontal band */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_55%,rgb(var(--background)/0.3)_100%)]" />
     </div>
   );
 }
@@ -193,7 +204,7 @@ function MeshArt({ reduce, uid }: { reduce: boolean; uid: string }) {
 function GridArt({ reduce, uid }: { reduce: boolean; uid: string }) {
   return (
     <>
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgb(var(--background))_0%,rgb(var(--surface))_45%,rgb(var(--background))_100%)]" />
+      <div className="absolute inset-0 bg-surface/15" />
       <div className="absolute inset-0 opacity-50 [background-image:linear-gradient(rgb(var(--accent)/0.08)_1px,transparent_1px),linear-gradient(90deg,rgb(var(--accent)/0.08)_1px,transparent_1px)] [background-size:48px_48px]" />
       <div className="absolute -right-20 top-10 h-[70%] w-[45%] -skew-y-3 bg-gradient-to-br from-accent/20 via-accent-soft/10 to-transparent" />
       <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">

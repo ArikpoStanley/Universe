@@ -38,7 +38,7 @@ export default function PricingPage() {
 
       <PricingPlans />
 
-      <DesignBand variant="aurora" className="border-t border-line/40 py-20" waves={false}>
+      <DesignBand variant="aurora" className="py-20" waves={false}>
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-bold md:text-4xl">Not sure which plan fits?</h2>
           <p className="mt-4 text-muted">

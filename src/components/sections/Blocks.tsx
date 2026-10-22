@@ -55,7 +55,7 @@ function Counter({ value }: { value: string }) {
 
 export function StatsSection({ section }: { section: Section }) {
   return (
-    <section className="relative overflow-hidden border-y border-line/40 bg-surface/25 backdrop-blur-md">
+    <section className="relative overflow-hidden bg-transparent backdrop-blur-md">
       <WaveBackdrop intensity="subtle" />
       <div className="relative mx-auto grid max-w-site grid-cols-2 divide-line/50 px-5 md:grid-cols-4 md:divide-x md:px-10 lg:px-14">
         {(section.items || []).map((item, i) => (

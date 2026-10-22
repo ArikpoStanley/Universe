@@ -172,7 +172,7 @@ export function AcademicsTechBridge() {
         </div>
       </DesignBand>
 
-      <DesignBand variant="aurora" className="border-y border-line/40 py-20 md:py-28" waves={false}>
+      <DesignBand variant="aurora" className="py-20 md:py-28" waves={false}>
         <div className="max-w-2xl">
           <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-accent-soft">
             {skinConfig.motif} Platform modules

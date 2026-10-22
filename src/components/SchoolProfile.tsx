@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 import { institutionTypeLabels, institutionTypeToSkin, skins } from '@/lib/skins';
 import { useSkin } from '@/components/SkinProvider';
-import { WaveBackdrop, WaveDivider } from '@/components/WaveBackdrop';
+import { WaveBackdrop } from '@/components/WaveBackdrop';
 import { EnergyTrails } from '@/components/EnergyTrails';
 import type { PublicInstitutionDetail } from '@/lib/institutions';
 
@@ -76,7 +76,6 @@ export function SchoolProfile({ data }: { data: PublicInstitutionDetail }) {
           </div>
         </div>
       </section>
-      <WaveDivider />
 
       <section className="relative mx-auto max-w-site px-5 py-12 md:px-10 lg:px-14">
         <WaveBackdrop intensity="subtle" />

@@ -121,7 +121,7 @@ function NurseryLanding({ skin }: { skin: WebsiteSkin }) {
           style={{ backgroundImage: `url(${skin.heroImage})` }}
           aria-hidden
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/55 via-background/70 to-background/92" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/55 via-background/70 to-background" />
         <EnergyTrails intensity="hero" />
         <WaveBackdrop intensity="strong" />
 
@@ -277,7 +277,7 @@ function PrimaryLanding({ skin }: { skin: WebsiteSkin }) {
           style={{ backgroundImage: `url(${skin.heroImage})` }}
           aria-hidden
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/75 to-background/92" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/75 to-background" />
         <EnergyTrails intensity="hero" />
         <WaveBackdrop intensity="subtle" />
         <div className="relative mx-auto grid min-h-[calc(100svh-6rem)] max-w-site items-center gap-10 px-5 py-12 md:grid-cols-2 md:px-10 lg:px-14">
@@ -402,6 +402,7 @@ function SecondaryLanding({ skin }: { skin: WebsiteSkin }) {
         <motion.div style={{ y: shift }} className="absolute inset-0">
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${skin.heroImage})` }} />
           <div className="absolute inset-0 bg-gradient-to-tr from-background via-background/75 to-background/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
         </motion.div>
         <EnergyTrails intensity="hero" />
         <WaveBackdrop intensity="strong" />

@@ -33,7 +33,7 @@ const COLUMNS = [
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-line/50 bg-surface/40 backdrop-blur-xl">
+    <footer className="relative overflow-hidden bg-transparent backdrop-blur-xl">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_0%,rgb(var(--accent)/0.18),transparent_55%)]" aria-hidden />
       <WaveBackdrop intensity="strong" />
       <div className="relative mx-auto max-w-site px-5 py-16 md:px-10 lg:px-14">

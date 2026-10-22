@@ -1,7 +1,6 @@
 'use client';
 
 import { useSkin } from '@/components/SkinProvider';
-import { WaveDivider } from '@/components/WaveBackdrop';
 import { LIVE_MOMENTS } from '@/components/EnergyTrails';
 import { DesignBand } from '@/components/DesignBand';
 import type { SkinId } from '@/lib/skins';
@@ -40,7 +39,6 @@ export function DirectoryHero() {
           <div className="mx-auto mt-10 h-px w-28 bg-gradient-to-r from-transparent via-accent to-transparent" />
         </div>
       </DesignBand>
-      <WaveDivider />
     </>
   );
 }

@@ -103,7 +103,7 @@ export function Hero({ section }: { section: Section }) {
         style={{ backgroundImage: `url(${skinConfig.heroImage})` }}
         aria-hidden
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/25 via-background/55 to-background/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/25 via-background/55 to-background" />
       <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/30" />
       <WaveBackdrop intensity="strong" />
       <AccentCanvas />
@@ -181,7 +181,7 @@ export function Hero({ section }: { section: Section }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 1 }}
-        className="relative border-t border-line/50 py-5"
+        className="relative py-5"
       >
         <div className="flex overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]">
           <div className="flex shrink-0 animate-marquee items-center gap-10 pr-10">

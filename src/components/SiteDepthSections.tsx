@@ -138,7 +138,7 @@ export function SiteDepthSections() {
         </div>
       </DesignBand>
 
-      <DesignBand variant="aurora" className="border-y border-line/40 py-20 md:py-28" waves={false}>
+      <DesignBand variant="aurora" className="py-20 md:py-28" waves={false}>
         <div className="max-w-2xl">
           <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-accent-soft">
             {skinConfig.motif} Built for every role
@@ -225,7 +225,7 @@ export function SiteDepthSections() {
         </div>
       </DesignBand>
 
-      <DesignBand variant="mesh" className="border-y border-line/40 py-20 md:py-28" trails={false}>
+      <DesignBand variant="mesh" className="py-20 md:py-28" trails={false}>
         <div className="max-w-2xl">
           <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.35em] text-accent-soft">
             <Sparkles className="h-3.5 w-3.5" /> From signup to school day
