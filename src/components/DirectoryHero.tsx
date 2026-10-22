@@ -1,9 +1,9 @@
 'use client';
 
 import { useSkin } from '@/components/SkinProvider';
-import { WaveBackdrop, WaveDivider } from '@/components/WaveBackdrop';
-import { EnergyTrails } from '@/components/EnergyTrails';
+import { WaveDivider } from '@/components/WaveBackdrop';
 import { LIVE_MOMENTS } from '@/components/EnergyTrails';
+import { PhotoBand } from '@/components/PhotoBand';
 import type { SkinId } from '@/lib/skins';
 
 export function DirectoryHero() {
@@ -12,18 +12,14 @@ export function DirectoryHero() {
 
   return (
     <>
-      <section className="relative overflow-hidden px-5 pb-16 pt-16 md:px-10 md:pt-20 lg:px-14">
-        <div
-          className="absolute inset-0 scale-105 bg-cover bg-center transition-[background-image] duration-700"
-          style={{ backgroundImage: `url(${skinConfig.heroImage})` }}
-          aria-hidden
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/55 to-background/85" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/35 via-transparent to-background/30" />
-        <EnergyTrails intensity="hero" />
-        <WaveBackdrop intensity="strong" />
-
-        <div className="relative mx-auto max-w-site text-center">
+      <PhotoBand
+        image={skinConfig.heroImage}
+        overlay="soft"
+        waves
+        className="pb-16 pt-16 md:pb-20 md:pt-20"
+        trails
+      >
+        <div className="text-center">
           <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-accent-soft">
             {skinConfig.motif} The Universe directory
           </p>
@@ -31,7 +27,7 @@ export function DirectoryHero() {
             Explore institutions
           </h1>
           <p className="mx-auto mt-6 max-w-2xl leading-relaxed text-muted md:text-lg">
-            Modern classrooms, clean campuses — filter by type, open a school profile, and apply with the full student + guardian form.
+            Real campuses. Live admissions. Filter by type, open a school profile, and apply with the full student + guardian form.
           </p>
 
           <div className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-2">
@@ -49,7 +45,7 @@ export function DirectoryHero() {
 
           <div className="mx-auto mt-10 h-px w-28 bg-gradient-to-r from-transparent via-accent to-transparent" />
         </div>
-      </section>
+      </PhotoBand>
       <WaveDivider />
     </>
   );

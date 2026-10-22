@@ -3,24 +3,19 @@
 import { motion } from 'framer-motion';
 import type { Section } from '@/lib/types';
 import { useSkin } from '@/components/SkinProvider';
-import { WaveBackdrop } from '@/components/WaveBackdrop';
-import { EnergyTrails } from '@/components/EnergyTrails';
+import { PhotoBand } from '@/components/PhotoBand';
 
 export function PageHero({ section }: { section: Section }) {
   const { skinConfig } = useSkin();
   const words = (section.heading || '').split(' ');
   return (
-    <section className="relative overflow-hidden px-5 pb-16 pt-16 md:px-10 md:pb-24 md:pt-20 lg:px-14">
-      <div
-        className="absolute inset-0 scale-105 bg-cover bg-center opacity-45"
-        style={{ backgroundImage: `url(${skinConfig.heroImage})` }}
-        aria-hidden
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/55 via-background/80 to-background" />
-      <EnergyTrails intensity="page" />
-      <WaveBackdrop intensity="default" />
-
-      <div className="relative mx-auto max-w-site text-center">
+    <PhotoBand
+      image={skinConfig.lifeImage || skinConfig.heroImage}
+      overlay="strong"
+      waves
+      className="pb-16 pt-16 md:pb-24 md:pt-20"
+    >
+      <div className="text-center">
         {section.kicker && (
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -67,6 +62,6 @@ export function PageHero({ section }: { section: Section }) {
           transition={{ duration: 1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
         />
       </div>
-    </section>
+    </PhotoBand>
   );
 }

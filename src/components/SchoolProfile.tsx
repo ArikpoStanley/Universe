@@ -43,6 +43,10 @@ export function SchoolProfile({ data }: { data: PublicInstitutionDetail }) {
         <EnergyTrails intensity="hero" />
         <WaveBackdrop intensity="default" />
         <div className="relative mx-auto max-w-site px-5 py-14 pt-12 md:px-10 md:pt-16 lg:px-14">
+          {/* academics × tech cue */}
+          <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-accent-soft">
+            Campus life · powered by Universe
+          </p>
           <Link href="/schools" className="text-sm font-semibold text-accent-soft hover:underline">
             ← All institutions
           </Link>
