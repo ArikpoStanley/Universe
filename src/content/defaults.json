@@ -242,13 +242,13 @@
     {
       "slug": "pricing",
       "title": "Pricing — Universe",
-      "description": "Clear plans for schools of every size — seat quotas, campuses, and the engines you need.",
+      "description": "Free Trial, Standard, Campus, and Enterprise — same plans as the admin dashboard, from ₦50,000/month.",
       "sections": [
         {
           "type": "hero",
           "kicker": "Pricing",
           "heading": "Plans that grow with your school.",
-          "subheading": "Start with guided setup. Scale seats and campuses as enrolment grows — without changing platforms."
+          "subheading": "Start on a free trial. Scale seats and billing cycles as enrolment grows — without changing platforms."
         },
         {
           "type": "pricing"
@@ -256,7 +256,7 @@
         {
           "type": "cta",
           "heading": "Not sure which plan fits?",
-          "body": "Tell us your tier, campuses, and enrolment — we’ll map seats and engines to a clear package.",
+          "body": "Tell us your institution type, campuses, and enrolment — we’ll map seats and engines to a clear package.",
           "cta": {
             "label": "Contact us",
             "href": "/contact"
@@ -346,43 +346,65 @@
   "pricing": [
     {
       "id": 1,
-      "name": "Starter",
-      "audience": "Single-campus schools",
-      "price": "Talk to us",
-      "unit": "",
+      "name": "Free Trial",
+      "audience": "Up to 50 users",
+      "price": "Free",
+      "unit": "14 days full access",
       "features": [
-        "Guided school setup",
-        "Attendance & assessment engines",
-        "Results & basic finance",
-        "Admin + teacher seats"
+        "Full platform access for 14 days",
+        "Up to 50 users",
+        "Admissions, classes & subjects",
+        "Fee billing & payment collection",
+        "Staff & payroll basics",
+        "Email support"
       ],
       "highlighted": false
     },
     {
       "id": 2,
-      "name": "Growth",
-      "audience": "Multi-campus schools",
-      "price": "Talk to us",
-      "unit": "",
+      "name": "Standard",
+      "audience": "Up to 500 users",
+      "price": "₦50,000",
+      "unit": "/ month",
       "features": [
-        "Everything in Starter",
-        "Campus & seat quotas",
-        "Family messaging",
-        "Priority onboarding support"
+        "Up to 500 users",
+        "Full academics (admissions, classes, subjects, grading)",
+        "Finance: fee billing, invoicing & payment collection",
+        "HR & payroll",
+        "Transport, messaging & notifications",
+        "Email support"
+      ],
+      "highlighted": false
+    },
+    {
+      "id": 3,
+      "name": "Campus",
+      "audience": "Up to 2,000 users",
+      "price": "₦90,000",
+      "unit": "/ month",
+      "features": [
+        "Up to 2,000 users",
+        "Everything in Standard",
+        "Term & quarterly billing flexibility",
+        "Advanced analytics & reporting",
+        "Custom domain",
+        "Priority support"
       ],
       "highlighted": true
     },
     {
-      "id": 3,
+      "id": 4,
       "name": "Enterprise",
-      "audience": "Groups & tertiary",
-      "price": "Custom",
-      "unit": "",
+      "audience": "Up to 10,000 users",
+      "price": "₦150,000",
+      "unit": "/ month",
       "features": [
-        "Everything in Growth",
-        "Custom SLAs",
-        "Dedicated success",
-        "Advanced reporting"
+        "Up to 10,000 users",
+        "Everything in Campus",
+        "Unlimited scale",
+        "Custom domain & SSO",
+        "API access & integrations",
+        "Dedicated account manager"
       ],
       "highlighted": false
     }

@@ -11,7 +11,8 @@ import {
   StatsSection,
   StepsSection,
 } from './Blocks';
-import { ContactBlock, FaqAccordion, PricingCards } from './Interactive';
+import { ContactBlock, FaqAccordion } from './Interactive';
+import { PricingPlans } from '@/components/PricingPlans';
 import { PageHero } from './PageHero';
 
 interface Props {
@@ -50,7 +51,7 @@ export function SectionRenderer({ sections, data, compactHero = false }: Props) 
           case 'cta':
             return <CtaSection key={i} section={section} />;
           case 'pricing':
-            return <PricingCards key={i} plans={data?.pricing || []} />;
+            return <PricingPlans key={i} />;
           case 'faq':
             return <FaqAccordion key={i} faqs={data?.faqs || []} />;
           case 'contact':
