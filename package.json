@@ -8,7 +8,7 @@
     "start": "next start -p ${PORT:-3001}"
   },
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
   },
   "dependencies": {
     "framer-motion": "11.11.17",

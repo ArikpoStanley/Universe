@@ -10,7 +10,7 @@ import type { PublicInstitutionDetail } from '@/lib/institutions';
 
 export function SchoolProfile({ data }: { data: PublicInstitutionDetail }) {
   const { setSkin } = useSkin();
-  const { institution, classes } = data;
+  const { institution, classes, stats, entranceTest } = data;
 
   useEffect(() => {
     setSkin(institutionTypeToSkin(institution.type));
@@ -24,12 +24,22 @@ export function SchoolProfile({ data }: { data: PublicInstitutionDetail }) {
   ].filter(Boolean).join(', ');
 
   const contactRows = [
-    { label: 'Email', value: institution.contactEmail },
-    { label: 'Phone', value: institution.contactPhone },
+    { label: 'Email', value: institution.contactEmail, href: institution.contactEmail ? `mailto:${institution.contactEmail}` : undefined },
+    { label: 'Phone', value: institution.contactPhone, href: institution.contactPhone ? `tel:${institution.contactPhone}` : undefined },
     { label: 'Location', value: location },
-  ].filter((row) => row.value) as { label: string; value: string }[];
+  ].filter((row) => row.value) as { label: string; value: string; href?: string }[];
 
   const skin = skins[institutionTypeToSkin(institution.type)];
+  const establishedYear = institution.createdAt
+    ? new Date(institution.createdAt).getFullYear()
+    : null;
+
+  const statItems = [
+    { label: 'Classes', value: stats?.classes ?? classes.length },
+    { label: 'Learners', value: stats?.learners ?? null },
+    { label: 'Staff', value: stats?.staff ?? null },
+    ...(establishedYear ? [{ label: 'On Universe since', value: establishedYear }] : []),
+  ].filter((item) => item.value !== null) as { label: string; value: string | number }[];
 
   return (
     <div>
@@ -43,7 +53,6 @@ export function SchoolProfile({ data }: { data: PublicInstitutionDetail }) {
         <EnergyTrails intensity="hero" />
         <WaveBackdrop intensity="default" />
         <div className="relative mx-auto max-w-site px-5 py-14 pt-12 md:px-10 md:pt-16 lg:px-14">
-          {/* academics × tech cue */}
           <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-accent-soft">
             Campus life · powered by Universe
           </p>
@@ -74,42 +83,82 @@ export function SchoolProfile({ data }: { data: PublicInstitutionDetail }) {
               {location ? <p className="mt-2 text-sm text-muted">📍 {location}</p> : null}
             </div>
           </div>
+
+          {statItems.length ? (
+            <div className="mt-8 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
+              {statItems.map((stat) => (
+                <div key={stat.label} className="rounded-xl border border-line bg-card/80 p-4 text-center backdrop-blur-sm">
+                  <p className="font-display text-2xl font-black text-accent-soft">{stat.value}</p>
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-muted">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          ) : null}
         </div>
       </section>
 
       <section className="relative mx-auto max-w-site px-5 py-12 md:px-10 lg:px-14">
         <WaveBackdrop intensity="subtle" />
         <div className="relative grid gap-8 lg:grid-cols-3">
-          <div className="lg:col-span-2">
-            <h2 className="text-xl font-bold">About this institution</h2>
-            <div className="mt-4 space-y-3">
-              {contactRows.map((row) => (
-                <div key={row.label} className="flex items-start gap-3 rounded-xl border border-line bg-card/90 p-4 backdrop-blur-sm">
-                  <span className="shrink-0 text-sm font-bold text-muted">{row.label}</span>
-                  <span className="text-sm text-foreground">{row.value}</span>
-                </div>
-              ))}
-              {contactRows.length === 0 ? (
-                <p className="rounded-xl border border-line bg-card/90 p-4 text-sm text-muted">
-                  Contact details are available from the school directly.
-                </p>
-              ) : null}
+          <div className="space-y-10 lg:col-span-2">
+            <div>
+              <h2 className="text-xl font-bold">About this institution</h2>
+              <div className="mt-4 space-y-3">
+                {contactRows.map((row) => (
+                  <div key={row.label} className="flex items-start gap-3 rounded-xl border border-line bg-card/90 p-4 backdrop-blur-sm">
+                    <span className="w-24 shrink-0 text-sm font-bold text-muted">{row.label}</span>
+                    {row.href ? (
+                      <a href={row.href} className="text-sm text-foreground hover:text-accent-soft hover:underline">
+                        {row.value}
+                      </a>
+                    ) : (
+                      <span className="text-sm text-foreground">{row.value}</span>
+                    )}
+                  </div>
+                ))}
+                {contactRows.length === 0 ? (
+                  <p className="rounded-xl border border-line bg-card/90 p-4 text-sm text-muted">
+                    Contact details are available from the school directly.
+                  </p>
+                ) : null}
+              </div>
             </div>
 
-            <h2 className="mt-10 text-xl font-bold">Available classes</h2>
-            {classes.length ? (
-              <div className="mt-4 flex flex-wrap gap-2">
-                {classes.map((cls) => (
-                  <span key={cls.id} className="rounded-full border border-line bg-card/80 px-4 py-1.5 text-sm font-semibold text-foreground">
-                    {cls.name}
-                  </span>
-                ))}
+            <div>
+              <h2 className="text-xl font-bold">Available classes</h2>
+              {classes.length ? (
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {classes.map((cls) => (
+                    <span key={cls.id} className="rounded-full border border-line bg-card/80 px-4 py-1.5 text-sm font-semibold text-foreground">
+                      {cls.name}
+                      {cls.level ? <span className="ml-2 text-xs font-normal text-muted">{cls.level}</span> : null}
+                    </span>
+                  ))}
+                </div>
+              ) : (
+                <p className="mt-4 text-sm text-muted">
+                  Class groups are not published yet — the school will confirm placement after you apply.
+                </p>
+              )}
+            </div>
+
+            {entranceTest ? (
+              <div className="overflow-hidden rounded-2xl border border-line bg-card/90 backdrop-blur-sm">
+                <div className="h-1.5 bg-gradient-to-r from-accent via-accent-soft to-ok" aria-hidden />
+                <div className="p-6">
+                  <h2 className="text-xl font-bold">Entrance assessment</h2>
+                  <p className="mt-1 text-sm font-semibold text-accent-soft">{entranceTest.title}</p>
+                  {entranceTest.description ? (
+                    <p className="mt-2 text-sm text-muted">{entranceTest.description}</p>
+                  ) : null}
+                  {entranceTest.passMark != null ? (
+                    <p className="mt-3 inline-flex items-center gap-2 rounded-full border border-line px-3 py-1 text-xs font-bold text-muted">
+                      Pass mark: {entranceTest.passMark}%
+                    </p>
+                  ) : null}
+                </div>
               </div>
-            ) : (
-              <p className="mt-4 text-sm text-muted">
-                Class groups are not published yet — the school will confirm placement after you apply.
-              </p>
-            )}
+            ) : null}
           </div>
 
           <aside>

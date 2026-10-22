@@ -24,14 +24,24 @@ export type PublicInstitution = {
   city?: string | null;
   state?: string | null;
   country?: string | null;
+  createdAt?: string | null;
 };
 
 export type PublicClass = { id: string; name: string; level?: string | null };
 
+export type PublicEntranceTest = {
+  id: string;
+  title: string;
+  description?: string | null;
+  passMark?: number | null;
+  questions?: Array<{ id?: string; prompt?: string; options?: string[] }>;
+};
+
 export type PublicInstitutionDetail = {
   institution: PublicInstitution;
   classes: PublicClass[];
-  entranceTest: unknown;
+  stats?: { learners?: number; staff?: number; classes?: number } | null;
+  entranceTest: PublicEntranceTest | null;
 };
 
 function apiBase() {
