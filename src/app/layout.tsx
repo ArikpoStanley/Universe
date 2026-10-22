@@ -1,23 +1,25 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { SkinProvider } from '@/components/SkinProvider';
 import { Preloader } from '@/components/Preloader';
 import { Navbar } from '@/components/Navbar';
+import { TechPulseBar } from '@/components/TechInAction';
 import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Spring — Powering the Future of Mortgages in Africa',
-    template: '%s | Spring',
+    default: 'Universe — One Platform. Every Institution.',
+    template: '%s | Universe',
   },
   description:
-    'Fintech infrastructure-as-a-service. Spring delivers mortgage, loan, savings, investment and commodity products through banks, fintechs, real estate firms and communities — on CBN-licensed rails.',
+    'Create and run nursery, primary, secondary, and tertiary schools on one platform — attendance, assessment, results, finance, and family messaging.',
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: dark)', color: '#070709' },
-    { media: '(prefers-color-scheme: light)', color: '#faf7ef' },
+    { media: '(prefers-color-scheme: dark)', color: '#0B1220' },
+    { media: '(prefers-color-scheme: light)', color: '#F8FAFC' },
   ],
   width: 'device-width',
   initialScale: 1,
@@ -26,12 +28,17 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-noise min-h-screen">
+      <body className="min-h-screen">
         <ThemeProvider>
-          <Preloader />
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
+          <SkinProvider>
+            <Preloader />
+            <Navbar />
+            <div className="pt-[72px]">
+              <TechPulseBar />
+              {children}
+            </div>
+            <Footer />
+          </SkinProvider>
         </ThemeProvider>
       </body>
     </html>

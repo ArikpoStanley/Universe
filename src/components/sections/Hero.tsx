@@ -5,8 +5,11 @@ import { ArrowDown, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import type { Section } from '@/lib/types';
+import { resolveCtaHref } from '@/lib/portal';
+import { useSkin } from '@/components/SkinProvider';
+import { WaveBackdrop } from '@/components/WaveBackdrop';
 
-function GoldCanvas() {
+function AccentCanvas() {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -45,9 +48,9 @@ function GoldCanvas() {
         ctx.beginPath();
         ctx.arc(pt.x, pt.y, pt.r, 0, Math.PI * 2);
         ctx.fillStyle = dark
-          ? `rgba(212,175,55,${a})`
-          : `rgba(158,116,22,${a})`;
-        ctx.shadowColor = dark ? 'rgba(240,215,123,0.9)' : 'rgba(197,152,44,0.8)';
+          ? `rgba(96,165,250,${a})`
+          : `rgba(37,99,235,${a})`;
+        ctx.shadowColor = dark ? 'rgba(147,197,253,0.85)' : 'rgba(59,130,246,0.7)';
         ctx.shadowBlur = 8 * devicePixelRatio;
         ctx.fill();
       }
@@ -70,59 +73,64 @@ function GoldCanvas() {
 }
 
 const MARQUEE = [
-  'Mortgage',
-  'Loan',
-  'Savings',
-  'Investment',
-  'Commodity',
-  'AG Mortgage Bank',
-  'Charis MFB',
-  'Fortress Capital',
+  'Attendance',
+  'Assessment',
+  'Results',
+  'Finance',
+  'Nursery',
+  'Primary',
+  'Secondary',
+  'Tertiary',
 ];
 
 export function Hero({ section }: { section: Section }) {
   const reduce = useReducedMotion();
+  const { skinConfig } = useSkin();
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 160]);
   const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
 
-  const words = (section.heading || '').split(' ');
+  const heading = `${skinConfig.headline} ${skinConfig.headlineAccent}`;
+  const words = heading.split(' ');
+  const subheading = skinConfig.subheadline || section.subheading;
 
   return (
     <section ref={ref} className="relative flex min-h-[100svh] flex-col overflow-hidden">
-      {/* backdrop */}
-      <div className="absolute inset-0 bg-grid-gold" />
-      <div className="orb left-[-10%] top-[-15%] h-[32rem] w-[32rem] bg-gold/25 dark:bg-gold/15" />
-      <div className="orb bottom-[5%] right-[-8%] h-[26rem] w-[26rem] bg-gold-deep/25 dark:bg-gold-deep/20" />
-      <GoldCanvas />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+      {/* Full-bleed modern classroom / campus photo */}
+      <div
+        className="absolute inset-0 scale-105 bg-cover bg-center transition-[background-image] duration-700"
+        style={{ backgroundImage: `url(${skinConfig.heroImage})` }}
+        aria-hidden
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/25 via-background/55 to-background/90" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/30" />
+      <WaveBackdrop intensity="strong" />
+      <AccentCanvas />
 
       <motion.div
         style={{ y, opacity }}
-        className="relative mx-auto flex w-full max-w-7xl flex-1 flex-col items-center justify-center px-5 pb-24 pt-36 text-center md:px-8"
+        className="relative mx-auto flex w-full max-w-site flex-1 flex-col items-center justify-center px-5 pb-24 pt-36 text-center md:px-10 lg:px-14"
       >
-        {section.kicker && (
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-7 flex items-center gap-3"
-          >
-            <span className="h-px w-10 bg-gradient-to-r from-transparent to-gold" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.35em] text-gold md:text-xs">
-              {section.kicker}
-            </span>
-            <span className="h-px w-10 bg-gradient-to-l from-transparent to-gold" />
-          </motion.div>
-        )}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-7 flex items-center gap-3"
+        >
+          <span className="h-px w-10 bg-gradient-to-r from-transparent to-accent" />
+          <span className="text-[11px] font-semibold uppercase tracking-[0.35em] text-accent-soft md:text-xs">
+            {skinConfig.motif} {skinConfig.family} · Universe
+          </span>
+          <span className="h-px w-10 bg-gradient-to-l from-transparent to-accent" />
+        </motion.div>
 
         <h1 className="max-w-5xl font-display text-[2.6rem] font-bold leading-[1.08] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.2rem]">
           {words.map((word, i) => (
-            <span key={i} className="inline-block overflow-hidden pb-1 align-bottom">
+            <span key={`${skinConfig.id}-${i}`} className="inline-block overflow-hidden pb-1 align-bottom">
               <motion.span
                 className={`inline-block ${
-                  /mortgage|future|africa|spring/i.test(word) ? 'text-gold-gradient animate-shimmer' : ''
+                  i >= words.length - 2 ? 'text-accent-gradient' : ''
                 }`}
                 initial={{ y: '110%', rotate: 4 }}
                 animate={{ y: 0, rotate: 0 }}
@@ -139,14 +147,14 @@ export function Hero({ section }: { section: Section }) {
           ))}
         </h1>
 
-        {section.subheading && (
+        {subheading && (
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
             className="mt-7 max-w-2xl text-base leading-relaxed text-muted md:text-lg"
           >
-            {section.subheading}
+            {subheading}
           </motion.p>
         )}
 
@@ -156,14 +164,12 @@ export function Hero({ section }: { section: Section }) {
           transition={{ duration: 0.9, delay: 1.05, ease: [0.22, 1, 0.36, 1] }}
           className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
         >
-          {section.cta && (
-            <Link href={section.cta.href} className="btn-gold group">
-              {section.cta.label}
-              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
-          )}
+          <Link href="/schools" className="btn-primary group">
+            {skinConfig.ctaLabel}
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
           {section.secondaryCta && (
-            <Link href={section.secondaryCta.href} className="btn-ghost">
+            <Link href={resolveCtaHref(section.secondaryCta.href, section.secondaryCta.label)} className="btn-ghost">
               {section.secondaryCta.label}
             </Link>
           )}
@@ -184,7 +190,7 @@ export function Hero({ section }: { section: Section }) {
                 <span className="text-sm font-medium uppercase tracking-[0.3em] text-muted">
                   {m}
                 </span>
-                <span className="h-1.5 w-1.5 rotate-45 bg-gold/70" />
+                <span className="h-1.5 w-1.5 rotate-45 bg-accent/70" />
               </span>
             ))}
           </div>
@@ -201,9 +207,9 @@ export function Hero({ section }: { section: Section }) {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/40"
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-accent/40"
         >
-          <ArrowDown className="h-4 w-4 text-gold" />
+          <ArrowDown className="h-4 w-4 text-accent-soft" />
         </motion.div>
       </motion.div>
     </section>

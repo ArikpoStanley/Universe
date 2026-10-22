@@ -7,14 +7,16 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Logo } from './Logo';
+import { SkinSwitcher } from './SkinSwitcher';
+import { portalHref } from '@/lib/portal';
 
 const LINKS = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/products', label: 'Products' },
+  { href: '/products', label: 'Product' },
+  { href: '/schools', label: 'Institutions' },
   { href: '/pricing', label: 'Pricing' },
-  { href: '/blog', label: 'Blog' },
   { href: '/faq', label: 'FAQ' },
+  { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -28,7 +30,7 @@ function ThemeToggle() {
     <button
       aria-label="Toggle theme"
       onClick={() => setTheme(dark ? 'light' : 'dark')}
-      className="relative flex h-9 w-9 items-center justify-center rounded-full border border-line text-foreground transition-colors hover:border-gold"
+      className="relative flex h-9 w-9 items-center justify-center rounded-full border border-line text-foreground transition-colors hover:border-accent"
     >
       <AnimatePresence mode="wait" initial={false}>
         <motion.span
@@ -38,7 +40,7 @@ function ThemeToggle() {
           exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         >
-          {dark ? <Sun className="h-4 w-4 text-gold" /> : <Moon className="h-4 w-4 text-gold" />}
+          {dark ? <Sun className="h-4 w-4 text-accent-soft" /> : <Moon className="h-4 w-4 text-accent" />}
         </motion.span>
       </AnimatePresence>
     </button>
@@ -65,15 +67,15 @@ export function Navbar() {
       <motion.header
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'border-b border-line/60 bg-background/80 backdrop-blur-xl'
-            : 'bg-transparent'
+            ? 'border-b border-line/50 bg-background/55 backdrop-blur-2xl'
+            : 'border-b border-transparent bg-background/20 backdrop-blur-md'
         }`}
       >
-        <nav className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-5 md:px-8">
-          <Link href="/" aria-label="Spring home">
+        <nav className="mx-auto flex h-[72px] max-w-site items-center justify-between px-5 md:px-10 lg:px-14">
+          <Link href="/" aria-label="Universe home">
             <Logo />
           </Link>
 
@@ -83,7 +85,7 @@ export function Navbar() {
                 key={l.href}
                 href={l.href}
                 className={`link-underline text-[13.5px] font-medium tracking-wide transition-colors ${
-                  pathname === l.href ? 'active text-gold' : 'text-muted hover:text-foreground'
+                  pathname === l.href ? 'active text-accent-soft' : 'text-muted hover:text-foreground'
                 }`}
               >
                 {l.label}
@@ -92,13 +94,16 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-3">
+            <div className="hidden xl:block">
+              <SkinSwitcher />
+            </div>
             <ThemeToggle />
-            <Link
-              href="/contact"
-              className="btn-gold hidden !px-5 !py-2.5 text-sm lg:inline-flex"
-            >
-              Partner with Spring
-            </Link>
+            <a href={portalHref('signin')} className="btn-ghost hidden !px-4 !py-2 text-sm lg:inline-flex">
+              Sign in
+            </a>
+            <a href={portalHref('create')} className="btn-primary hidden !px-5 !py-2.5 text-sm lg:inline-flex">
+              Create school
+            </a>
             <button
               aria-label="Open menu"
               onClick={() => setOpen(true)}
@@ -110,7 +115,6 @@ export function Navbar() {
         </nav>
       </motion.header>
 
-      {/* Mobile drawer */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -131,6 +135,8 @@ export function Navbar() {
               </button>
             </div>
             <div className="mt-8 flex flex-col gap-2 px-8">
+              <SkinSwitcher />
+              <div className="mt-3" />
               {LINKS.map((l, i) => (
                 <motion.div
                   key={l.href}
@@ -141,8 +147,8 @@ export function Navbar() {
                 >
                   <Link
                     href={l.href}
-                    className={`block border-b border-line/50 py-4 font-display text-3xl font-semibold transition-colors ${
-                      pathname === l.href ? 'text-gold' : 'text-foreground'
+                    className={`block border-b border-line/50 py-4 text-3xl font-black tracking-tight transition-colors ${
+                      pathname === l.href ? 'text-accent-soft' : 'text-foreground'
                     }`}
                   >
                     {l.label}
@@ -152,12 +158,15 @@ export function Navbar() {
               <motion.div
                 initial={{ y: 24, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.5 }}
-                className="mt-8"
+                transition={{ delay: 0.45, duration: 0.5 }}
+                className="mt-8 flex flex-col gap-3"
               >
-                <Link href="/contact" className="btn-gold w-full">
-                  Partner with Spring
-                </Link>
+                <a href={portalHref('create')} className="btn-primary w-full">
+                  Create school
+                </a>
+                <a href={portalHref('signin')} className="btn-ghost w-full">
+                  Sign in
+                </a>
               </motion.div>
             </div>
           </motion.div>

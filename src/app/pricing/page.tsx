@@ -3,7 +3,7 @@ import { CmsPage } from '@/components/CmsPage';
 
 export const metadata: Metadata = {
   title: 'Pricing',
-  description: 'Simple, transparent, scalable pricing — integration fees and a fair commission model.',
+  description: 'Plans that grow with your school — seats, campuses, and the engines you need.',
 };
 
 export default function PricingPage() {

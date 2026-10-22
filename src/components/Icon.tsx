@@ -3,8 +3,11 @@ import {
   BarChart3,
   Blocks,
   Building2,
+  ClipboardList,
   Code2,
   Compass,
+  FileText,
+  GraduationCap,
   Handshake,
   Home,
   Landmark,
@@ -44,6 +47,9 @@ const MAP: Record<string, LucideIcon> = {
   Code2,
   Compass,
   Handshake,
+  ClipboardList,
+  FileText,
+  GraduationCap,
 };
 
 export function CmsIcon({ name, className }: { name?: string; className?: string }) {

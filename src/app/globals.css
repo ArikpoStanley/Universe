@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ---------- Self-hosted fonts ---------- */
 @font-face {
   font-family: 'Playfair Display';
   src: url('/fonts/PlayfairDisplay.ttf') format('truetype');
@@ -18,29 +17,31 @@
   font-style: normal;
 }
 
-/* ---------- Theme tokens: Black & Gold ---------- */
+/* Universe — navy / sky / emerald school OS theme */
 :root {
-  --background: 250 247 239;
+  --background: 248 250 252;
   --surface: 255 255 255;
-  --card: 255 252 244;
-  --foreground: 20 19 16;
-  --muted: 96 90 78;
-  --line: 228 219 196;
-  --gold: 158 116 22;
-  --gold-soft: 197 152 44;
-  --gold-deep: 110 78 10;
+  --card: 241 245 249;
+  --foreground: 15 23 42;
+  --muted: 100 116 139;
+  --line: 226 232 240;
+  --accent: 37 99 235;
+  --accent-soft: 96 165 250;
+  --accent-deep: 30 58 138;
+  --ok: 34 197 94;
 }
 
 .dark {
-  --background: 7 7 9;
-  --surface: 13 13 17;
-  --card: 18 18 23;
-  --foreground: 245 242 233;
-  --muted: 158 152 138;
-  --line: 40 37 30;
-  --gold: 212 175 55;
-  --gold-soft: 240 215 123;
-  --gold-deep: 139 105 20;
+  --background: 11 18 32;
+  --surface: 15 23 42;
+  --card: 17 24 39;
+  --foreground: 248 250 252;
+  --muted: 148 163 184;
+  --line: 30 41 59;
+  --accent: 59 130 246;
+  --accent-soft: 147 197 253;
+  --accent-deep: 29 78 216;
+  --ok: 74 222 128;
 }
 
 html {
@@ -48,7 +49,7 @@ html {
 }
 
 body {
-  background-color: rgb(var(--background));
+  background-color: transparent;
   color: rgb(var(--foreground));
   font-family: Inter, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -56,8 +57,8 @@ body {
 }
 
 ::selection {
-  background: rgb(var(--gold) / 0.9);
-  color: #0a0a0a;
+  background: rgb(var(--accent) / 0.85);
+  color: #fff;
 }
 
 ::-webkit-scrollbar {
@@ -67,20 +68,18 @@ body {
   background: rgb(var(--background));
 }
 ::-webkit-scrollbar-thumb {
-  background: rgb(var(--gold-deep));
+  background: rgb(var(--accent-deep));
   border-radius: 8px;
   border: 2px solid rgb(var(--background));
 }
 
-/* ---------- Gold utilities ---------- */
-.text-gold-gradient {
+.text-accent-gradient {
   background: linear-gradient(
     100deg,
-    rgb(var(--gold-deep)) 0%,
-    rgb(var(--gold-soft)) 35%,
-    rgb(var(--gold)) 55%,
-    rgb(var(--gold-soft)) 80%,
-    rgb(var(--gold-deep)) 100%
+    rgb(var(--accent-deep)) 0%,
+    rgb(var(--accent-soft)) 40%,
+    rgb(var(--ok)) 75%,
+    rgb(var(--accent)) 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -88,26 +87,26 @@ body {
   color: transparent;
 }
 
-.btn-gold {
+.btn-primary {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: linear-gradient(120deg, rgb(var(--gold-deep)), rgb(var(--gold)) 45%, rgb(var(--gold-soft)));
-  color: #0b0a06;
-  font-weight: 600;
-  border-radius: 9999px;
-  padding: 0.875rem 1.9rem;
+  background: linear-gradient(120deg, rgb(var(--accent-deep)), rgb(var(--accent)) 55%, rgb(var(--accent-soft)));
+  color: #f8fafc;
+  font-weight: 700;
+  border-radius: 0.9rem;
+  padding: 0.85rem 1.6rem;
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s;
-  box-shadow: 0 8px 30px -8px rgb(var(--gold) / 0.55);
+  box-shadow: 0 10px 28px -10px rgb(var(--accent) / 0.55);
 }
-.btn-gold:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 16px 44px -10px rgb(var(--gold) / 0.7);
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px -10px rgb(var(--accent) / 0.65);
 }
-.btn-gold:active {
-  transform: translateY(0) scale(0.99);
+.btn-primary:active {
+  transform: translateY(0);
 }
 
 .btn-ghost {
@@ -115,41 +114,32 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border: 1px solid rgb(var(--gold) / 0.45);
+  border: 1px solid rgb(var(--line));
   color: rgb(var(--foreground));
-  font-weight: 500;
-  border-radius: 9999px;
-  padding: 0.875rem 1.9rem;
+  font-weight: 600;
+  border-radius: 0.9rem;
+  padding: 0.85rem 1.6rem;
   transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .btn-ghost:hover {
-  border-color: rgb(var(--gold));
-  background: rgb(var(--gold) / 0.08);
+  border-color: rgb(var(--accent) / 0.55);
+  background: rgb(var(--accent) / 0.08);
   transform: translateY(-2px);
 }
 
+.glass-panel,
 .glass-card {
-  background: rgb(var(--card) / 0.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgb(var(--line) / 0.8);
+  background: rgb(var(--card) / 0.62);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgb(var(--line) / 0.75);
   border-radius: 1.25rem;
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.45s, box-shadow 0.45s;
-}
-.glass-card:hover {
-  transform: translateY(-6px);
-  border-color: rgb(var(--gold) / 0.55);
-  box-shadow: 0 24px 60px -24px rgb(var(--gold) / 0.35);
 }
 
-.gold-ring {
-  border: 1px solid rgb(var(--gold) / 0.35);
-}
-
-.bg-grid-gold {
+.bg-grid-accent {
   background-image:
-    linear-gradient(rgb(var(--gold) / 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(var(--gold) / 0.055) 1px, transparent 1px);
+    linear-gradient(rgb(var(--accent) / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--accent) / 0.06) 1px, transparent 1px);
   background-size: 56px 56px;
 }
 
@@ -161,8 +151,18 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.35;
+  opacity: 0.18;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-wave-drift,
+  .animate-wave-drift-slow,
+  .animate-wave-bob,
+  .animate-floaty,
+  .animate-marquee {
+    animation: none !important;
+  }
 }
 
 .orb {
@@ -170,13 +170,6 @@ body {
   border-radius: 9999px;
   filter: blur(90px);
   pointer-events: none;
-}
-
-.prose-spring p {
-  margin-bottom: 1.1rem;
-  line-height: 1.85;
-  color: rgb(var(--muted));
-  font-size: 1.02rem;
 }
 
 .link-underline {
@@ -189,7 +182,7 @@ body {
   bottom: -4px;
   height: 1.5px;
   width: 100%;
-  background: linear-gradient(90deg, rgb(var(--gold)), rgb(var(--gold-soft)));
+  background: linear-gradient(90deg, rgb(var(--accent)), rgb(var(--accent-soft)));
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -200,11 +193,6 @@ body {
   transform-origin: left;
 }
 
-input,
-textarea,
-select {
-  outline: none;
-}
 .field {
   width: 100%;
   background: rgb(var(--surface));
@@ -215,8 +203,9 @@ select {
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 .field:focus {
-  border-color: rgb(var(--gold));
-  box-shadow: 0 0 0 3px rgb(var(--gold) / 0.18);
+  border-color: rgb(var(--accent));
+  box-shadow: 0 0 0 3px rgb(var(--accent) / 0.18);
+  outline: none;
 }
 .field::placeholder {
   color: rgb(var(--muted) / 0.6);

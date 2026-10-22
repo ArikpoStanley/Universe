@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { CmsPage } from '@/components/CmsPage';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy',
-  description: 'How Spring collects, protects, and respects your data — NDPR compliant.',
+  title: 'Privacy',
+  description: 'How Universe handles school and personal data — tenant-scoped and role-aware.',
 };
 
 export default function PrivacyPage() {

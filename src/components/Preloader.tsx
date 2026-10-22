@@ -2,8 +2,9 @@
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { LogoMark } from './Logo';
 
-const LETTERS = ['S', 'P', 'R', 'I', 'N', 'G'];
+const LETTERS = ['U', 'n', 'i', 'v', 'e', 'r', 's', 'e'];
 
 export function Preloader() {
   const [done, setDone] = useState(false);
@@ -14,11 +15,11 @@ export function Preloader() {
       setDone(true);
       return;
     }
-    const seen = sessionStorage.getItem('spring-loaded');
-    const duration = seen ? 500 : 2300;
+    const seen = sessionStorage.getItem('universe-loaded');
+    const duration = seen ? 450 : 2000;
     const t = setTimeout(() => {
       setDone(true);
-      sessionStorage.setItem('spring-loaded', '1');
+      sessionStorage.setItem('universe-loaded', '1');
     }, duration);
     return () => clearTimeout(t);
   }, []);
@@ -27,56 +28,37 @@ export function Preloader() {
     <AnimatePresence>
       {!done && (
         <motion.div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#070709]"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0B1220]"
           exit={{ clipPath: 'inset(0 0 100% 0)' }}
-          transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
+          transition={{ duration: 0.85, ease: [0.76, 0, 0.24, 1] }}
         >
-          {/* radiating gold rings */}
           {[0, 1, 2].map((i) => (
             <motion.div
               key={i}
-              className="absolute h-40 w-40 rounded-full border border-[#d4af37]/30"
+              className="absolute h-40 w-40 rounded-full border border-[#3B82F6]/25"
               initial={{ scale: 0.4, opacity: 0.8 }}
               animate={{ scale: 3.2, opacity: 0 }}
-              transition={{ duration: 2.2, delay: 0.3 + i * 0.45, repeat: Infinity, ease: 'easeOut' }}
+              transition={{ duration: 2.1, delay: 0.25 + i * 0.4, repeat: Infinity, ease: 'easeOut' }}
             />
           ))}
 
           <div className="relative flex flex-col items-center">
-            {/* coil draw */}
-            <motion.svg
-              viewBox="0 0 48 48"
-              className="mb-6 h-16 w-16"
-              initial={{ rotate: -8 }}
-              animate={{ rotate: 0 }}
-              transition={{ duration: 1.1, ease: [0.34, 1.56, 0.64, 1] }}
+            <motion.div
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
-              <motion.path
-                d="M10 34c6 3 24 3 28-3 3.4-5.1-1-9-8-9.6-8.2-.7-16-2.4-16-8 0-5.4 7.4-7.4 13-6 3.6.9 6.6 2.8 9 5.4"
-                fill="none"
-                stroke="#d4af37"
-                strokeWidth="3"
-                strokeLinecap="round"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 1.4, ease: 'easeInOut' }}
-              />
-            </motion.svg>
+              <LogoMark className="mb-6 h-16 w-16" />
+            </motion.div>
 
             <div className="flex overflow-hidden">
               {LETTERS.map((l, i) => (
                 <motion.span
-                  key={l}
-                  className="font-display text-4xl font-bold tracking-[0.3em] text-transparent md:text-5xl"
-                  style={{
-                    backgroundImage:
-                      'linear-gradient(120deg,#8b6914,#f0d77b 45%,#d4af37 65%,#8b6914)',
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                  }}
+                  key={`${l}-${i}`}
+                  className="text-4xl font-black tracking-[-0.04em] text-slate-50 md:text-5xl"
                   initial={{ y: 64, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.7, delay: 0.35 + i * 0.09, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.65, delay: 0.28 + i * 0.05, ease: [0.22, 1, 0.36, 1] }}
                 >
                   {l}
                 </motion.span>
@@ -84,18 +66,18 @@ export function Preloader() {
             </div>
 
             <motion.div
-              className="mt-4 h-px w-48 origin-left bg-gradient-to-r from-transparent via-[#d4af37] to-transparent"
+              className="mt-4 h-px w-52 origin-left bg-gradient-to-r from-transparent via-sky-400 to-transparent"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
-              transition={{ duration: 1.3, delay: 0.7, ease: 'easeInOut' }}
+              transition={{ duration: 1.1, delay: 0.55, ease: 'easeInOut' }}
             />
             <motion.p
-              className="mt-4 text-[11px] uppercase tracking-[0.4em] text-[#d4af37]/70"
+              className="mt-4 text-[11px] uppercase tracking-[0.32em] text-sky-300/80"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 0.8 }}
+              transition={{ delay: 0.85, duration: 0.7 }}
             >
-              Powering the future of mortgages
+              One platform. Every institution.
             </motion.p>
           </div>
         </motion.div>

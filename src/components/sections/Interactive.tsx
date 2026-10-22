@@ -4,34 +4,36 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Building2, Check, Mail, MapPin, Plus, Send } from 'lucide-react';
 import { FormEvent, useState } from 'react';
 import { Reveal, Stagger, StaggerItem } from '../Reveal';
+import { WaveBackdrop } from '../WaveBackdrop';
 import type { FaqData, PricingPlanData } from '@/lib/types';
 
 /* ---------------- Pricing ---------------- */
 
 export function PricingCards({ plans }: { plans: PricingPlanData[] }) {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20">
-      <Stagger className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+    <section className="relative overflow-hidden px-5 py-16 md:px-10 lg:px-14 md:py-20">
+      <WaveBackdrop intensity="subtle" />
+      <Stagger className="relative mx-auto grid max-w-site gap-6 md:grid-cols-2 xl:grid-cols-4">
         {plans.map((plan) => (
           <StaggerItem key={plan.id}>
             <div
-              className={`relative flex h-full flex-col rounded-3xl border p-7 transition-all duration-500 hover:-translate-y-2 ${
+              className={`relative flex h-full flex-col rounded-3xl border p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 ${
                 plan.highlighted
-                  ? 'border-gold bg-gradient-to-b from-gold/15 to-card shadow-[0_24px_70px_-24px_rgb(var(--gold)/0.5)]'
-                  : 'border-line bg-card hover:border-gold/50'
+                  ? 'border-accent bg-gradient-to-b from-accent/20 to-card/70 shadow-[0_24px_70px_-24px_rgb(var(--accent)/0.5)]'
+                  : 'border-line bg-card/55 hover:border-accent/50'
               }`}
             >
               {plan.highlighted && (
-                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-gold-deep via-gold to-gold-soft px-4 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-black">
+                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-accent-deep via-accent to-accent-soft px-4 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-black">
                   Most Popular
                 </span>
               )}
-              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-gold">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-accent-soft">
                 {plan.audience}
               </p>
               <h3 className="mt-2 font-display text-xl font-bold">{plan.name}</h3>
               <div className="mt-5">
-                <span className="text-gold-gradient font-display text-3xl font-bold">
+                <span className="text-accent-soft-gradient font-display text-3xl font-bold">
                   {plan.price}
                 </span>
                 <p className="mt-1 text-xs text-muted">{plan.unit}</p>
@@ -39,7 +41,7 @@ export function PricingCards({ plans }: { plans: PricingPlanData[] }) {
               <ul className="mt-6 flex-1 space-y-3 border-t border-line/60 pt-6">
                 {plan.features.map((f, i) => (
                   <li key={i} className="flex items-start gap-2.5 text-sm text-muted">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent-soft" />
                     {f}
                   </li>
                 ))}
@@ -57,15 +59,16 @@ export function PricingCards({ plans }: { plans: PricingPlanData[] }) {
 export function FaqAccordion({ faqs }: { faqs: FaqData[] }) {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="mx-auto max-w-3xl px-5 py-14 md:px-8 md:py-20">
-      <Stagger className="space-y-4">
+    <section className="relative overflow-hidden px-5 py-14 md:px-10 lg:px-14 md:py-20">
+      <WaveBackdrop intensity="subtle" />
+      <Stagger className="relative mx-auto max-w-3xl space-y-4">
         {faqs.map((faq, i) => {
           const isOpen = open === i;
           return (
             <StaggerItem key={faq.id}>
               <div
-                className={`overflow-hidden rounded-2xl border transition-colors duration-500 ${
-                  isOpen ? 'border-gold/60 bg-card' : 'border-line bg-card/50'
+                className={`overflow-hidden rounded-2xl border backdrop-blur-xl transition-colors duration-500 ${
+                  isOpen ? 'border-accent/60 bg-card/75' : 'border-line bg-card/45'
                 }`}
               >
                 <button
@@ -79,7 +82,7 @@ export function FaqAccordion({ faqs }: { faqs: FaqData[] }) {
                     animate={{ rotate: isOpen ? 45 : 0 }}
                     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border ${
-                      isOpen ? 'border-gold bg-gold text-black' : 'border-line text-gold'
+                      isOpen ? 'border-accent bg-accent text-black' : 'border-line text-accent-soft'
                     }`}
                   >
                     <Plus className="h-4 w-4" />
@@ -111,8 +114,8 @@ export function FaqAccordion({ faqs }: { faqs: FaqData[] }) {
 /* ---------------- Contact ---------------- */
 
 const INFO = [
-  { icon: Mail, label: 'Email', value: 'partnerships@spring.ng' },
-  { icon: Building2, label: 'Careers', value: 'hr@spring.ng' },
+  { icon: Mail, label: 'Email', value: 'hello@universe.school' },
+  { icon: Building2, label: 'Support', value: 'support@universe.school' },
   { icon: MapPin, label: 'Headquarters', value: 'Lagos, Nigeria' },
 ];
 
@@ -125,13 +128,13 @@ export function ContactBlock() {
     setStatus('sending');
     const form = new FormData(e.currentTarget);
     try {
-      const res = await fetch('/api/public/messages', {
+      const res = await fetch('/api/v1/public/marketing/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: form.get('name'),
           email: form.get('email'),
-          company: form.get('company'),
+          organisation: form.get('organisation'),
           topic: form.get('topic'),
           message: form.get('message'),
         }),
@@ -140,21 +143,22 @@ export function ContactBlock() {
       if (!res.ok) throw new Error(data.message || 'Failed to send');
       setServerMsg(data.message || 'Thank you — we will be in touch shortly.');
       setStatus('sent');
-    } catch (err: any) {
-      setServerMsg(err.message || 'Something went wrong. Please try again.');
+    } catch (err: unknown) {
+      setServerMsg(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
       setStatus('error');
     }
   }
 
   return (
-    <section className="mx-auto max-w-7xl px-5 py-14 md:px-8 md:py-20">
-      <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
+    <section className="relative overflow-hidden px-5 py-14 md:px-10 lg:px-14 md:py-20">
+      <WaveBackdrop intensity="default" />
+      <div className="relative mx-auto grid max-w-site gap-12 lg:grid-cols-[1fr_1.2fr]">
         <div>
           <Stagger className="space-y-5">
             {INFO.map((info, i) => (
               <StaggerItem key={i}>
                 <div className="glass-card flex items-center gap-5 p-6">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-gold/10 text-gold">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-accent/40 bg-accent/10 text-accent-soft">
                     <info.icon className="h-5 w-5" />
                   </div>
                   <div>
@@ -168,11 +172,11 @@ export function ContactBlock() {
             ))}
           </Stagger>
           <Reveal delay={0.3} className="mt-8">
-            <div className="rounded-2xl border border-gold/30 bg-gradient-to-br from-gold/10 to-transparent p-6">
-              <p className="font-display text-lg font-semibold">Partner with us.</p>
+            <div className="rounded-2xl border border-accent/30 bg-gradient-to-br from-accent/10 to-transparent p-6">
+              <p className="font-display text-lg font-semibold">Talk to the Universe team.</p>
               <p className="mt-2 text-sm leading-relaxed text-muted">
-                Real estate firms, banks, fintechs, cooperatives, churches, and NGOs — Spring takes
-                care of the infrastructure. You focus on serving your customers.
+                Nursery through tertiary — tell us your campuses and enrolment and we’ll map the right
+                setup path.
               </p>
             </div>
           </Reveal>
@@ -183,7 +187,7 @@ export function ContactBlock() {
             onSubmit={onSubmit}
             className="glass-card relative overflow-hidden p-7 md:p-9"
           >
-            <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gold/15 blur-3xl" />
+            <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-accent/15 blur-3xl" />
             {status === 'sent' ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.92 }}
@@ -194,7 +198,7 @@ export function ContactBlock() {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ type: 'spring', stiffness: 200, damping: 14, delay: 0.1 }}
-                  className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gold text-black"
+                  className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-accent text-black"
                 >
                   <Check className="h-8 w-8" />
                 </motion.div>
@@ -226,19 +230,19 @@ export function ContactBlock() {
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.2em] text-muted">
-                      Company
+                      School / organisation
                     </label>
-                    <input name="company" className="field" placeholder="Company Ltd." />
+                    <input name="organisation" className="field" placeholder="Greenfield Academy" />
                   </div>
                   <div>
                     <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.2em] text-muted">
                       I am a…
                     </label>
                     <select name="topic" className="field">
-                      <option value="bank">Bank / Fintech</option>
-                      <option value="real-estate">Real Estate Firm</option>
-                      <option value="community">Church / Cooperative / NGO</option>
-                      <option value="employer">Employer</option>
+                      <option value="school-admin">School administrator</option>
+                      <option value="proprietor">Proprietor / founder</option>
+                      <option value="teacher">Teacher / staff</option>
+                      <option value="parent">Parent / guardian</option>
                       <option value="general">Other</option>
                     </select>
                   </div>
@@ -252,7 +256,7 @@ export function ContactBlock() {
                     required
                     rows={5}
                     className="field resize-none"
-                    placeholder="Tell us about your organisation and what you'd like to build…"
+                    placeholder="Tell us about your school and how we can help…"
                   />
                 </div>
                 {status === 'error' && (
@@ -260,7 +264,7 @@ export function ContactBlock() {
                     {serverMsg}
                   </p>
                 )}
-                <button type="submit" disabled={status === 'sending'} className="btn-gold group w-full sm:w-auto">
+                <button type="submit" disabled={status === 'sending'} className="btn-primary group w-full sm:w-auto">
                   {status === 'sending' ? 'Sending…' : 'Send Message'}
                   <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
                 </button>

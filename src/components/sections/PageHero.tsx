@@ -2,17 +2,25 @@
 
 import { motion } from 'framer-motion';
 import type { Section } from '@/lib/types';
+import { useSkin } from '@/components/SkinProvider';
+import { WaveBackdrop } from '@/components/WaveBackdrop';
+import { EnergyTrails } from '@/components/EnergyTrails';
 
 export function PageHero({ section }: { section: Section }) {
+  const { skinConfig } = useSkin();
   const words = (section.heading || '').split(' ');
   return (
-    <section className="relative overflow-hidden px-5 pb-16 pt-40 md:px-8 md:pb-24 md:pt-48">
-      <div className="absolute inset-0 bg-grid-gold opacity-70" />
-      <div className="orb left-[-8%] top-[-20%] h-96 w-96 bg-gold/20" />
-      <div className="orb bottom-[-30%] right-[-6%] h-72 w-72 bg-gold-deep/20" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent to-background" />
+    <section className="relative overflow-hidden px-5 pb-16 pt-16 md:px-10 md:pb-24 md:pt-20 lg:px-14">
+      <div
+        className="absolute inset-0 scale-105 bg-cover bg-center opacity-45"
+        style={{ backgroundImage: `url(${skinConfig.heroImage})` }}
+        aria-hidden
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/55 via-background/80 to-background" />
+      <EnergyTrails intensity="page" />
+      <WaveBackdrop intensity="default" />
 
-      <div className="relative mx-auto max-w-4xl text-center">
+      <div className="relative mx-auto max-w-site text-center">
         {section.kicker && (
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -20,11 +28,11 @@ export function PageHero({ section }: { section: Section }) {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="mb-6 flex items-center justify-center gap-3"
           >
-            <span className="h-px w-10 bg-gradient-to-r from-transparent to-gold" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.35em] text-gold">
+            <span className="h-px w-10 bg-gradient-to-r from-transparent to-accent" />
+            <span className="text-[11px] font-semibold uppercase tracking-[0.35em] text-accent-soft">
               {section.kicker}
             </span>
-            <span className="h-px w-10 bg-gradient-to-l from-transparent to-gold" />
+            <span className="h-px w-10 bg-gradient-to-l from-transparent to-accent" />
           </motion.div>
         )}
         <h1 className="font-display text-4xl font-bold leading-[1.12] tracking-tight md:text-6xl">
@@ -53,7 +61,7 @@ export function PageHero({ section }: { section: Section }) {
           </motion.p>
         )}
         <motion.div
-          className="mx-auto mt-10 h-px w-28 bg-gradient-to-r from-transparent via-gold to-transparent"
+          className="mx-auto mt-10 h-px w-28 bg-gradient-to-r from-transparent via-accent to-transparent"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}

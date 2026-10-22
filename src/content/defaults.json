@@ -2,158 +2,81 @@
   "pages": [
     {
       "slug": "home",
-      "title": "Spring — Powering the Future of Mortgages in Africa",
-      "description": "Seamless, scalable, and accessible B2B infrastructure that delivers mortgage services into the hands of millions.",
+      "title": "Universe — One Platform. Every Institution.",
+      "description": "Create and run nursery, primary, secondary, and tertiary schools on one platform.",
       "sections": [
         {
           "type": "hero",
-          "kicker": "Fintech Infrastructure-as-a-Service",
-          "heading": "Powering the Future of Mortgages in Africa.",
-          "subheading": "Seamless, scalable, and accessible. B2B infrastructure that delivers mortgage services into the hands of millions — faster, smarter, and without the red tape.",
+          "kicker": "School operating system",
+          "heading": "One platform for every institution.",
+          "subheading": "Attendance, assessment, results, finance, and family messaging — nursery through tertiary on one tenant-scoped OS.",
           "cta": {
-            "label": "Partner with Spring",
-            "href": "/contact"
+            "label": "Create school",
+            "href": "portal:create"
           },
           "secondaryCta": {
-            "label": "Explore the Platform",
+            "label": "Explore product",
             "href": "/products"
           }
         },
         {
-          "type": "stats",
-          "items": [
-            {
-              "value": "20M+",
-              "label": "Housing deficit in Nigeria"
-            },
-            {
-              "value": "<1%",
-              "label": "Mortgage penetration today"
-            },
-            {
-              "value": "5",
-              "label": "Product pillars, one platform"
-            },
-            {
-              "value": "Weeks",
-              "label": "To launch — not years"
-            }
-          ]
-        },
-        {
           "type": "pillars",
-          "kicker": "Five Pillars, One Platform",
-          "heading": "Every financial product. One infrastructure.",
-          "subheading": "All five product pillars carry equal strategic weight and are distributed through the same infrastructure and the same end-user experience.",
+          "kicker": "Core Engines",
+          "heading": "Everything your school runs on, connected.",
+          "subheading": "Each engine shares tenants, roles, and the academic calendar.",
           "items": [
             {
-              "icon": "Home",
-              "title": "Mortgage",
-              "text": "End-to-end mortgage origination — from eligibility checks through inspection, down payment, and contract signing."
+              "icon": "Users",
+              "title": "Attendance Engine",
+              "text": "Sessions and records for every tier."
+            },
+            {
+              "icon": "ClipboardList",
+              "title": "Assessment Engine",
+              "text": "Schemes, components, and score capture."
+            },
+            {
+              "icon": "FileText",
+              "title": "Result Engine",
+              "text": "Broadsheets, report cards, and transcripts."
             },
             {
               "icon": "Banknote",
-              "title": "Loan",
-              "text": "Personal and business loan origination, including guarantor verification and structured repayment tracking."
-            },
-            {
-              "icon": "PiggyBank",
-              "title": "Savings",
-              "text": "Flexible and locked savings products with automated contributions and transparent returns."
-            },
-            {
-              "icon": "TrendingUp",
-              "title": "Investment",
-              "text": "Investment products with transparent projected returns and defined maturity terms."
-            },
-            {
-              "icon": "Package",
-              "title": "Commodity",
-              "text": "Commodity financing and purchase products — a direct alternative to informal and crypto-based instruments."
-            }
-          ]
-        },
-        {
-          "type": "features",
-          "kicker": "Who Spring Serves",
-          "heading": "Built for every side of the market.",
-          "subheading": "Spring connects licensed institutions, distribution partners, and end users on one trusted rails.",
-          "items": [
-            {
-              "icon": "Building2",
-              "title": "For Businesses",
-              "text": "Unlock new revenue streams by offering mortgages under your brand — without becoming a licensed institution."
-            },
-            {
-              "icon": "Landmark",
-              "title": "For Banks",
-              "text": "Scale distribution without increasing operational overhead. Bring products to market faster, at lower cost."
-            },
-            {
-              "icon": "Users",
-              "title": "For Customers",
-              "text": "Access trusted, affordable mortgages where you already shop, bank, or worship — in a mobile-first experience."
+              "title": "Finance Engine",
+              "text": "Fees, invoices, receipts, and payments."
             }
           ]
         },
         {
           "type": "steps",
-          "kicker": "How Spring Works",
-          "heading": "From configuration to keys-in-hand.",
-          "subheading": "A core architectural principle underpins every layer: each Spring wallet maps one-to-one to a real account held at the originating financial institution.",
+          "kicker": "How setup works",
+          "heading": "Live in three guided steps.",
+          "subheading": "Create your school on the portal, then configure from the admin dashboard.",
           "items": [
             {
-              "title": "Configure on Plata",
-              "text": "A licensed financial institution configures a product on Plata, defining its terms, pricing, and eligibility rules."
+              "title": "Institution type",
+              "text": "Nursery, primary, secondary, or tertiary theme."
             },
             {
-              "title": "Distribute via Spring Platform",
-              "text": "The product becomes available to business partners — fintechs, cooperatives, real estate firms, and employers — who distribute it to their own audiences."
+              "title": "School details",
+              "text": "Institution name and slug."
             },
             {
-              "title": "Discover on the User PWA",
-              "text": "End users discover, apply for, and manage the product through a white-labelled, mobile-first PWA branded to the distributing partner."
-            },
-            {
-              "title": "Settle with Trust",
-              "text": "Every transaction is orchestrated by Spring and settled into a real account at the originating institution. Spring earns a transparent take-rate."
-            }
-          ]
-        },
-        {
-          "type": "split",
-          "kicker": "Why Spring",
-          "heading": "Trust by design. Compounding by nature.",
-          "body": "Spring is not a bank, lender, or deposit-taking institution. Every account and every transaction on Spring infrastructure is legally held and owned by a CBN-licensed financial institution.",
-          "items": [
-            {
-              "title": "Speed to market",
-              "text": "Launch products on shared infrastructure rather than building from scratch."
-            },
-            {
-              "title": "Regulatory integrity",
-              "text": "Every wallet maps to a real, licensed account — no ambiguity over ownership of customer funds."
-            },
-            {
-              "title": "Trust by design",
-              "text": "Transparent terms, real-time status tracking, and a guided, mobile-first journey."
-            },
-            {
-              "title": "Compounding distribution",
-              "text": "Each new institution and partner extends the reach of the platform for every other participant."
+              "title": "Admin account",
+              "text": "You become the school owner and can configure everything."
             }
           ]
         },
         {
           "type": "cta",
-          "heading": "Power home ownership with us.",
-          "body": "Real estate firms, banks, fintechs, cooperatives, churches, and NGOs — Spring takes care of the infrastructure. You focus on serving your customers.",
+          "heading": "Ready to create your school?",
+          "body": "Sign in or start onboarding on the Universe portal.",
           "cta": {
-            "label": "Partner with Spring",
+            "label": "Contact us",
             "href": "/contact"
           },
           "secondaryCta": {
-            "label": "See Pricing",
+            "label": "View pricing",
             "href": "/pricing"
           }
         }
@@ -161,206 +84,156 @@
     },
     {
       "slug": "about",
-      "title": "About Spring",
-      "description": "Spring is a fintech infrastructure company transforming mortgage banking in Nigeria, in partnership with AG Mortgage Bank.",
+      "title": "About Universe",
+      "description": "Universe is the operating system for modern schools — academics, attendance, results, finance, and family messaging.",
       "sections": [
         {
           "type": "hero",
           "kicker": "Who We Are",
-          "heading": "The infrastructure behind Africa’s mortgage revolution.",
-          "subheading": "Spring is a fintech infrastructure company transforming mortgage banking in Nigeria. In partnership with AG Mortgage Bank, we provide the backbone that lets businesses, fintechs, and real estate firms embed mortgage services seamlessly."
+          "heading": "One platform for every institution.",
+          "subheading": "Universe brings nursery, primary, secondary, and tertiary schools onto a single operating system — so admins, teachers, parents, and learners share the same source of truth."
         },
         {
           "type": "split",
           "kicker": "Our Story",
-          "heading": "Born to break the barriers.",
-          "body": "Nigeria faces a housing deficit of over 20 million units. Yet mortgage penetration is less than 1%. Direct-to-consumer banking models are too slow and too expensive. Building compliant, licensed financial products from the ground up is slow, capital-intensive, and operationally complex for most institutions in Africa.\n\nLicensed institutions often have regulatory capacity but lack the technology, distribution reach, or customer experience layer to bring products to market at scale. Distribution partners have access to end users but no licensed capacity to originate financial products directly. End users are underserved by processes that are opaque, paper-based, and slow.\n\nSpring was born to break these barriers.",
+          "heading": "Built for schools that outgrew spreadsheets.",
+          "body": "Most schools run on a patchwork of attendance books, fee ledgers, WhatsApp groups, and report-card templates. Universe replaces that pile with guided setup, role-aware dashboards, and engines that work the same way from nursery through tertiary.\n\nWe start with Nursery & Primary — clear onboarding, admin email verification, and the core engines schools need on day one — then scale into secondary and tertiary workflows without re-platforming.",
           "items": [
             {
-              "title": "Company",
-              "text": "Spring TD Limited — Lagos, Nigeria"
+              "title": "Focus",
+              "text": "School operations OS for Africa-first institutions"
             },
             {
-              "title": "Sector",
-              "text": "Financial Technology Infrastructure"
+              "title": "Tiers",
+              "text": "Nursery, primary, secondary, tertiary"
             },
             {
-              "title": "Licensing Partners",
-              "text": "AG Mortgage Bank, Charis MFB, Fortress Capital"
+              "title": "Roles",
+              "text": "Platform, school admin, teachers, parents, learners"
             },
             {
-              "title": "Regulation",
-              "text": "Operating on CBN-licensed partners’ regulatory backing"
+              "title": "Engines",
+              "text": "Attendance, assessment, results, finance"
             }
           ]
         },
         {
           "type": "quote",
-          "kicker": "Our Mission",
-          "heading": "To unlock home ownership for millions.",
-          "body": "To unlock home ownership for millions by making mortgages accessible, fast, and part of everyday commerce — giving any institution the infrastructure to launch and scale financial products in weeks rather than years, while giving end users a single trusted, transparent, mobile-first experience."
-        },
-        {
-          "type": "quote",
-          "kicker": "Our Vision",
-          "heading": "The “Flutterwave for Mortgage”.",
-          "body": "To be the trusted infrastructure powering Africa’s mortgage revolution — the infrastructure layer that powers access to mortgage, credit, savings, investment, and commodity finance for every underserved individual and institution across Africa."
-        },
-        {
-          "type": "cards",
-          "kicker": "Regulatory Foundation",
-          "heading": "Licensed. Accountable. Transparent.",
-          "subheading": "Spring operates on AG Mortgage Bank’s Central Bank of Nigeria banking license, alongside Charis MFB and Fortress Capital.",
-          "items": [
-            {
-              "icon": "ShieldCheck",
-              "title": "Regulatory backing",
-              "text": "Every product distributed through Spring carries the compliance oversight and legal accountability of a licensed institution."
-            },
-            {
-              "icon": "Lock",
-              "title": "We never hold funds",
-              "text": "Spring’s role is strictly technology, orchestration, and distribution — we do not underwrite, lend, or hold customer funds."
-            },
-            {
-              "icon": "Scale",
-              "title": "Legal ownership",
-              "text": "The originating financial institution retains full legal ownership of the customer relationship and funds."
-            }
-          ]
-        },
-        {
-          "type": "cards",
-          "kicker": "Join the Mortgage Revolution",
-          "heading": "We’re building Africa’s most ambitious fintech for housing.",
-          "subheading": "If you’re passionate about fintech, housing, or scaling bold ideas, we want you. Send your CV to hr@spring.ng.",
-          "items": [
-            {
-              "icon": "Code2",
-              "title": "Full-stack Engineers",
-              "text": "Build the rails that move mortgages across a continent."
-            },
-            {
-              "icon": "Compass",
-              "title": "Product Managers",
-              "text": "Shape the infrastructure experience for institutions and users."
-            },
-            {
-              "icon": "ShieldCheck",
-              "title": "Compliance & Risk Officers",
-              "text": "Keep every transaction on the right side of regulation."
-            },
-            {
-              "icon": "Handshake",
-              "title": "Sales & Partnership Executives",
-              "text": "Bring the next hundred partners onto the platform."
-            }
-          ]
+          "kicker": "Mission",
+          "heading": "Make school operations feel inevitable.",
+          "body": "Give every institution a trusted place to run academics, money, and family communication — without forcing them to become software companies."
         },
         {
           "type": "cta",
-          "heading": "Let’s build together.",
-          "body": "Partner with us. Ask questions. Together, we scale mortgages for millions.",
+          "heading": "Ready to create your school?",
+          "body": "Three guided steps. You become the owner. Configure everything from there.",
           "cta": {
-            "label": "Contact Us",
-            "href": "/contact"
+            "label": "Create school",
+            "href": "portal:create"
+          },
+          "secondaryCta": {
+            "label": "See product",
+            "href": "/products"
           }
         }
       ]
     },
     {
       "slug": "products",
-      "title": "Products — Mortgage Infrastructure-as-a-Service",
-      "description": "White-label solutions, mortgage widgets, community platforms, and data-driven analytics — the MIaaS stack.",
+      "title": "Product — Universe school OS",
+      "description": "Attendance, assessment, results, finance, and messaging — one platform for every institution tier.",
       "sections": [
         {
           "type": "hero",
-          "kicker": "Mortgage Infrastructure-as-a-Service",
-          "heading": "The MIaaS stack, ready to embed.",
-          "subheading": "Three platform layers — Plata, the Spring Platform, and the white-labelled User PWA — take products from configuration to customers in weeks."
+          "kicker": "Platform",
+          "heading": "Four engines. One school OS.",
+          "subheading": "Universe is built around the workflows schools run every term — not a generic CRM with education labels."
         },
         {
-          "type": "cards",
-          "kicker": "Platform Layers",
-          "heading": "Three layers. One architecture.",
+          "type": "pillars",
+          "kicker": "Core Engines",
+          "heading": "Everything your school runs on, connected.",
+          "subheading": "Each engine shares the same tenants, roles, and academic calendar — so data stays consistent across dashboards.",
           "items": [
             {
-              "icon": "Wrench",
-              "title": "Plata",
-              "text": "A product builder used by licensed financial institutions to configure and list financial products on Spring’s infrastructure."
+              "icon": "Users",
+              "title": "Attendance Engine",
+              "text": "Sessions and records for every tier — from nursery check-in to tertiary lecture registers."
             },
             {
-              "icon": "Network",
-              "title": "Spring Platform",
-              "text": "A distribution hub used by business partners — fintechs, cooperatives, real estate firms, and employers — to access and distribute products to their own audiences."
+              "icon": "ClipboardList",
+              "title": "Assessment Engine",
+              "text": "Schemes, components, and score capture that match how your school actually grades."
             },
             {
-              "icon": "Smartphone",
-              "title": "User PWA",
-              "text": "A white-labelled, mobile-first Progressive Web App through which end users discover, apply for, and manage financial products."
+              "icon": "FileText",
+              "title": "Result Engine",
+              "text": "Broadsheets, report cards, and transcripts generated from the same assessment source of truth."
+            },
+            {
+              "icon": "Banknote",
+              "title": "Finance Engine",
+              "text": "Fees, invoices, receipts, and payments with clear status for admin and family portals."
             }
           ]
         },
         {
           "type": "features",
-          "kicker": "What You Can Build",
-          "heading": "Plug in. Brand it. Launch.",
+          "kicker": "Who Universe Serves",
+          "heading": "Built for every side of the school.",
+          "subheading": "One tenant. Role-aware experiences. Institution-scoped notifications.",
           "items": [
             {
-              "icon": "Palette",
-              "title": "White-label Solutions",
-              "text": "Offer mortgages under your own brand. Your customers never leave your experience."
+              "icon": "Building2",
+              "title": "School admins",
+              "text": "Create the school, verify ownership, configure campuses, seats, and academic structure."
             },
             {
-              "icon": "Blocks",
-              "title": "Mortgage Widgets",
-              "text": "Embed plug-and-play mortgage calculators, eligibility checks, and onboarding flows into your app."
+              "icon": "GraduationCap",
+              "title": "Teachers",
+              "text": "Capture attendance and scores without fighting the timetable or the term calendar."
             },
             {
               "icon": "Users",
-              "title": "Community Platforms",
-              "text": "Give cooperatives, churches, and social groups the ability to create their own mortgage service hubs."
-            },
-            {
-              "icon": "BarChart3",
-              "title": "Data-Driven Analytics",
-              "text": "Understand customers’ mortgage needs with real-time insights across your portfolio."
+              "title": "Parents & learners",
+              "text": "See results, fees, and messages in one place — scoped to their institution."
             }
           ]
         },
         {
           "type": "steps",
-          "kicker": "Use Cases",
-          "heading": "Where Spring shows up.",
+          "kicker": "How setup works",
+          "heading": "Live in three guided steps.",
+          "subheading": "No lengthy implementation project required to get a working school tenant.",
           "items": [
             {
-              "title": "Real Estate Firms",
-              "text": "Launch branded mortgage packages alongside your properties, boosting sales and customer trust."
+              "title": "Institution type",
+              "text": "Choose nursery, primary, secondary, or tertiary theme so the UI matches your tier."
             },
             {
-              "title": "Banks & Fintechs",
-              "text": "Add a mortgage button to your app — become a one-stop-shop for customer financial needs."
+              "title": "School details",
+              "text": "Set institution name and slug — your school identity on Universe."
             },
             {
-              "title": "Churches & Cooperatives",
-              "text": "Provide mortgage access to members. Housing as a community benefit."
+              "title": "Admin account",
+              "text": "Create the first admin, verify email, and become the school owner."
             },
             {
-              "title": "Employers",
-              "text": "Offer housing as a benefit by embedding mortgage services into your HR or payroll systems."
+              "title": "Configure & invite",
+              "text": "Add structure, staff, and learners — then run attendance, assessment, results, and fees."
             }
           ]
         },
         {
           "type": "cta",
-          "heading": "Launch your mortgage product in weeks.",
-          "body": "Contact us — integration is fast, with setup starting at $1,500.",
+          "heading": "Start with your first school.",
+          "body": "Create a tenant, verify the admin, and explore the engines with real school workflows.",
           "cta": {
-            "label": "Get Started",
-            "href": "/contact"
+            "label": "Create school",
+            "href": "portal:create"
           },
           "secondaryCta": {
-            "label": "See Pricing",
+            "label": "View pricing",
             "href": "/pricing"
           }
         }
@@ -368,30 +241,24 @@
     },
     {
       "slug": "pricing",
-      "title": "Pricing — Simple, Transparent, Scalable",
-      "description": "Transparent integration fees and a fair commission model on every mortgage plan processed.",
+      "title": "Pricing — Universe",
+      "description": "Clear plans for schools of every size — seat quotas, campuses, and the engines you need.",
       "sections": [
         {
           "type": "hero",
           "kicker": "Pricing",
-          "heading": "Simple. Transparent. Scalable.",
-          "subheading": "A one-time integration fee, then a fair commission on every mortgage plan and subscription processed. No hidden costs, ever."
+          "heading": "Plans that grow with your school.",
+          "subheading": "Start with guided setup. Scale seats and campuses as enrolment grows — without changing platforms."
         },
         {
           "type": "pricing"
         },
         {
-          "type": "rich",
-          "kicker": "The Commission Model",
-          "heading": "We earn when you earn.",
-          "body": "Spring earns a fair, transparent take-rate on every mortgage plan and subscription orchestrated through the infrastructure. Every fee, commission, and integration is transparent and binding — agreed up front, visible always."
-        },
-        {
           "type": "cta",
-          "heading": "Ready to scale?",
-          "body": "Talk to us about the right structure for your institution or community.",
+          "heading": "Not sure which plan fits?",
+          "body": "Tell us your tier, campuses, and enrolment — we’ll map seats and engines to a clear package.",
           "cta": {
-            "label": "Contact Sales",
+            "label": "Contact us",
             "href": "/contact"
           }
         }
@@ -399,24 +266,24 @@
     },
     {
       "slug": "faq",
-      "title": "FAQ — Frequently Asked Questions",
-      "description": "Answers about Spring, our licensing model, data safety, and how to get started.",
+      "title": "FAQ — Universe",
+      "description": "Common questions about creating a school, engines, roles, and signing in.",
       "sections": [
         {
           "type": "hero",
           "kicker": "FAQ",
-          "heading": "Questions, answered.",
-          "subheading": "Everything you need to know about Spring, our partners, and how the infrastructure works."
+          "heading": "Questions schools ask first.",
+          "subheading": "Setup, roles, engines, and how Universe fits nursery through tertiary."
         },
         {
           "type": "faq"
         },
         {
           "type": "cta",
-          "heading": "Still curious?",
-          "body": "We’re ready to talk. Reach out and let’s build together.",
+          "heading": "Still have questions?",
+          "body": "Reach out — we’ll walk through setup for your institution type.",
           "cta": {
-            "label": "Contact Us",
+            "label": "Contact us",
             "href": "/contact"
           }
         }
@@ -424,14 +291,14 @@
     },
     {
       "slug": "contact",
-      "title": "Contact Spring",
-      "description": "Partner with us. Ask questions. Let’s build together.",
+      "title": "Contact Universe",
+      "description": "Talk to us about creating a school, pricing, or partnership.",
       "sections": [
         {
           "type": "hero",
-          "kicker": "Contact Us",
-          "heading": "We’re ready to talk.",
-          "subheading": "Partner with us. Ask questions. Let’s build together."
+          "kicker": "Contact",
+          "heading": "Let’s get your school live.",
+          "subheading": "Whether you’re creating your first tenant or planning a multi-campus rollout, we’re here."
         },
         {
           "type": "contact"
@@ -440,183 +307,82 @@
     },
     {
       "slug": "privacy",
-      "title": "Privacy Policy — Spring",
-      "description": "How Spring collects, protects, and respects your data.",
+      "title": "Privacy — Universe",
+      "description": "How Universe handles school and personal data.",
       "sections": [
         {
           "type": "hero",
-          "kicker": "Privacy Policy",
-          "heading": "We take your privacy seriously.",
-          "subheading": "Spring collects only the data necessary to process mortgages, onboard businesses, and improve user experience."
+          "kicker": "Privacy",
+          "heading": "Your school’s data stays yours.",
+          "subheading": "We process institution and user data to operate the platform — scoped by tenant, with role-aware access."
         },
         {
           "type": "rich",
-          "heading": "Your Data, Your Control",
-          "body": "You can request, export, or delete your information at any time. Spring collects only the data necessary to process mortgages, onboard businesses, and improve the user experience — nothing more.\n\nData we collect is limited to identity and eligibility information required by our licensed partners to originate financial products, business information required to onboard partners, and anonymised usage signals that help us improve the platform."
-        },
-        {
-          "type": "rich",
-          "heading": "Security First",
-          "body": "We use bank-grade encryption across every layer of the platform and comply with the Nigeria Data Protection Regulation (NDPR).\n\nEvery Spring wallet maps one-to-one to a real account held at a CBN-licensed financial institution. Customer funds are never held by Spring."
-        },
-        {
-          "type": "rich",
-          "heading": "No Hidden Sharing",
-          "body": "We never sell your data. Partners only access what is needed to serve you better.\n\nData is shared exclusively with the licensed financial institutions originating your products and the distribution partner through whom you accessed them — always under strict contractual and regulatory obligations."
-        },
-        {
-          "type": "rich",
-          "heading": "Your Rights",
-          "body": "Under the NDPR you have the right to access your personal data, request correction of inaccurate data, request deletion of your data, and withdraw consent at any time.\n\nTo exercise any of these rights, contact us at privacy@spring.ng. We respond to all verified requests within 30 days."
-        },
-        {
-          "type": "cta",
-          "heading": "Questions about your data?",
-          "body": "Our team is ready to help with any privacy request.",
-          "cta": {
-            "label": "Contact Us",
-            "href": "/contact"
-          }
+          "heading": "Overview",
+          "body": "Universe collects account details, institutional configuration, and operational records required to run attendance, assessment, results, finance, and messaging.\n\nWe do not sell student or parent data. Access is limited by institution and role. Platform operators only see what is required for support and platform administration.\n\nContact hello@universe.school for privacy requests."
         }
       ]
     },
     {
       "slug": "terms",
-      "title": "Terms & Conditions — Spring",
-      "description": "The terms governing use of the Spring platform.",
+      "title": "Terms — Universe",
+      "description": "Terms of use for the Universe platform and marketing site.",
       "sections": [
         {
           "type": "hero",
-          "kicker": "Terms & Conditions",
-          "heading": "Clear terms. Binding trust.",
-          "subheading": "By using Spring’s platform, you agree to the following terms."
+          "kicker": "Terms",
+          "heading": "Terms of use.",
+          "subheading": "By using Universe you agree to operate within your institution’s tenant and applicable school policies."
         },
         {
           "type": "rich",
-          "heading": "1. Licensing & Compliance",
-          "body": "Mortgage processing on Spring is powered by AG Mortgage Bank for compliance and licensing, alongside Charis MFB and Fortress Capital — all Central Bank of Nigeria-licensed institutions.\n\nEvery account and every transaction on Spring’s infrastructure is legally held and owned by a licensed financial institution, which retains full legal ownership of the customer relationship and funds."
-        },
-        {
-          "type": "rich",
-          "heading": "2. Nature of the Service",
-          "body": "Spring provides infrastructure, not financial advice. Spring is not a bank, lender, or deposit-taking institution. Spring’s role is strictly limited to technology, orchestration, and distribution — Spring does not underwrite, lend, or hold customer funds.\n\nEligibility decisions, product terms, and regulatory obligations rest with the originating licensed institution."
-        },
-        {
-          "type": "rich",
-          "heading": "3. Fees & Commissions",
-          "body": "Fees, commissions, and integrations are transparent and binding. Integration fees are agreed before onboarding, and Spring earns a fair take-rate on transactions orchestrated through the infrastructure.\n\nNo hidden charges will ever be introduced. Any change to fees is communicated in advance and in writing."
-        },
-        {
-          "type": "rich",
-          "heading": "4. Partner Obligations",
-          "body": "All partners must comply with Nigerian mortgage and data protection laws, including the Nigeria Data Protection Regulation (NDPR).\n\nPartners are responsible for the accuracy of information they submit, for representing products fairly to their audiences, and for maintaining the confidentiality of their integration credentials."
-        },
-        {
-          "type": "rich",
-          "heading": "5. Acceptable Use",
-          "body": "You agree not to misuse the platform, attempt to reverse engineer the infrastructure, misrepresent Spring’s regulatory status, or use the platform for any unlawful purpose.\n\nSpring may suspend access for any breach of these terms, with notice and an opportunity to remedy where appropriate."
-        },
-        {
-          "type": "cta",
-          "heading": "Ready to partner on these terms?",
-          "body": "Transparent terms, binding trust — that’s how we scale.",
-          "cta": {
-            "label": "Partner with Spring",
-            "href": "/contact"
-          }
+          "heading": "Overview",
+          "body": "Universe provides software for school operations. Institutions remain responsible for the accuracy of academic and financial records entered by their users.\n\nAccounts must be used only by authorised staff, parents, and learners. Abuse, cross-tenant access attempts, or misuse of learner data is prohibited.\n\nContact hello@universe.school for commercial terms and agreements."
         }
       ]
     }
   ],
-  "posts": [
-    {
-      "slug": "why-nigeria-needs-mortgage-infrastructure",
-      "title": "Why Nigeria Needs Mortgage Infrastructure, Not More Banks",
-      "tag": "Infrastructure",
-      "excerpt": "Nigeria’s housing deficit exceeds 20 million units while mortgage penetration sits below 1%. The bottleneck isn’t demand — it’s the rails.",
-      "content": "Nigeria faces a housing deficit of over 20 million units. Yet mortgage penetration is less than 1%. The instinctive policy response is to call for more mortgage banks. But the direct-to-consumer banking model is precisely what has failed: it is too slow, too expensive, and too far from the customer.\n\nWhat Nigeria needs is infrastructure — shared rails that let any licensed institution originate mortgages and any trusted business distribute them. That is the layer Spring is building.\n\nWhen a real estate firm can offer mortgages under its own brand, when a cooperative can give members access to housing finance, when a bank can scale distribution without scaling overhead, the market compounds. Each new participant makes the network more valuable for everyone else.\n\nThe future of mortgages in Africa is not more banks. It is better rails.",
-      "createdAt": "2026-01-15T00:00:00.000Z"
-    },
-    {
-      "slug": "churches-cooperatives-power-home-ownership",
-      "title": "How Churches and Cooperatives Can Power Home Ownership",
-      "tag": "Community",
-      "excerpt": "The most trusted institutions in Nigerian communities are not banks. They are churches, cooperatives, and social groups — and they can become mortgage hubs.",
-      "content": "Trust is the scarcest resource in Nigerian finance. And the institutions that hold it — churches, cooperatives, and community organisations — have historically been locked out of formal financial distribution.\n\nSpring changes that. With a community subdomain, a cooperative or church can create its own mortgage service hub: branded, mobile-first, and backed by the regulatory license of AG Mortgage Bank.\n\nMembers access mortgage products through an institution they already trust. The community organisation earns a fair commission. And housing becomes a community benefit, not a distant banking product.\n\nThis is what embedded finance looks like when it meets African social structure: housing as a community benefit, powered by infrastructure that does the heavy lifting.",
-      "createdAt": "2026-01-15T00:00:00.000Z"
-    },
-    {
-      "slug": "the-flutterwave-playbook-for-mortgages",
-      "title": "The Flutterwave Playbook: What Mortgages Can Learn",
-      "tag": "Strategy",
-      "excerpt": "Payments scaled in Africa when infrastructure abstracted away complexity. Mortgages are next — and the playbook is already written.",
-      "content": "Before Flutterwave, accepting payments across Africa meant negotiating with banks, processors, and regulators one by one. Infrastructure changed everything: integrate once, reach everywhere.\n\nMortgages are where payments were a decade ago. Every institution that wants to offer housing finance faces the same wall: licensing, origination systems, compliance, distribution. Each builds alone, slowly, at enormous cost.\n\nSpring applies the same playbook to mortgages. One integration. Licensed rails. Distribution through every trusted channel — banks, fintechs, real estate firms, cooperatives, employers.\n\nOur vision is explicit: to be the Flutterwave for Mortgage — the trusted infrastructure powering Africa’s mortgage revolution.",
-      "createdAt": "2026-01-15T00:00:00.000Z"
-    },
-    {
-      "slug": "mortgage-2030-data-ai-africa-housing",
-      "title": "Mortgage 2030: Data, AI, and Africa’s Housing Revolution",
-      "tag": "Future",
-      "excerpt": "Real-time eligibility, data-driven underwriting signals, and mobile-first journeys will define the next decade of African housing finance.",
-      "content": "The mortgage process in much of Africa remains opaque, paper-based, and slow. First-time buyers, salaried professionals, and diaspora Nigerians are underserved by journeys that were never designed for them.\n\nThe next decade will be defined by three shifts. First, data: real-time insights into customer needs will let institutions design products that actually fit. Second, intelligence: eligibility checks and risk signals that today take weeks will happen in seconds. Third, experience: mobile-first, transparent, guided journeys will replace branch visits and paper files.\n\nSpring is building for that decade today — real-time status tracking, data-driven analytics for partners, and a white-labelled PWA that meets users where they already are.\n\nMortgage 2030 is not a prediction. It is a roadmap.",
-      "createdAt": "2026-01-15T00:00:00.000Z"
-    }
-  ],
+  "posts": [],
   "pricing": [
     {
       "id": 1,
-      "name": "Bank & Fintech Integration",
-      "audience": "For Banks & Fintechs",
-      "price": "$5,000 – $10,000",
-      "unit": "one-time integration fee",
+      "name": "Starter",
+      "audience": "Single-campus schools",
+      "price": "Talk to us",
+      "unit": "",
       "features": [
-        "Full API & widget integration",
-        "White-labelled end-user PWA",
-        "Mortgage calculators & eligibility checks",
-        "Dedicated integration engineer",
-        "Real-time analytics dashboard"
+        "Guided school setup",
+        "Attendance & assessment engines",
+        "Results & basic finance",
+        "Admin + teacher seats"
+      ],
+      "highlighted": false
+    },
+    {
+      "id": 2,
+      "name": "Growth",
+      "audience": "Multi-campus schools",
+      "price": "Talk to us",
+      "unit": "",
+      "features": [
+        "Everything in Starter",
+        "Campus & seat quotas",
+        "Family messaging",
+        "Priority onboarding support"
       ],
       "highlighted": true
     },
     {
-      "id": 2,
-      "name": "Custom Mortgage Services",
-      "audience": "For Real Estate Firms",
-      "price": "$5,000 – $10,000",
-      "unit": "one-time setup",
-      "features": [
-        "Branded mortgage packages alongside your properties",
-        "Custom eligibility & onboarding flows",
-        "Buyer tracking & pipeline analytics",
-        "Co-marketing support"
-      ],
-      "highlighted": false
-    },
-    {
       "id": 3,
-      "name": "Community Subdomain",
-      "audience": "For Churches, Cooperatives & NGOs",
-      "price": "$1,500",
-      "unit": "one-time setup",
+      "name": "Enterprise",
+      "audience": "Groups & tertiary",
+      "price": "Custom",
+      "unit": "",
       "features": [
-        "Your own branded mortgage hub",
-        "Member onboarding & management",
-        "Group-arranged financial products",
-        "Community analytics"
-      ],
-      "highlighted": false
-    },
-    {
-      "id": 4,
-      "name": "Commission Model",
-      "audience": "For All Partners",
-      "price": "Fair take-rate",
-      "unit": "per mortgage plan or subscription processed",
-      "features": [
-        "Transparent, agreed up front",
-        "No hidden charges",
-        "Aligned incentives — we earn when you earn",
-        "Settled on every transaction"
+        "Everything in Growth",
+        "Custom SLAs",
+        "Dedicated success",
+        "Advanced reporting"
       ],
       "highlighted": false
     }
@@ -624,33 +390,28 @@
   "faqs": [
     {
       "id": 1,
-      "question": "Is Spring a bank?",
-      "answer": "No. Spring is a fintech infrastructure provider. Mortgages are processed by licensed banks like AG Mortgage Bank, and every account is legally held and owned by a CBN-licensed financial institution."
+      "question": "How do I create a school?",
+      "answer": "From the marketing site or portal, choose Create school. Pick your institution type, enter name and slug, then create the first admin account and verify email."
     },
     {
       "id": 2,
-      "question": "Can individuals apply directly through Spring?",
-      "answer": "No. You’ll access Spring-powered mortgages through our partner merchants, banks, and institutions — where you already shop, bank, or worship."
+      "question": "Can existing staff sign in?",
+      "answer": "Yes. Staff invited to your institution sign in with email and password on the portal — scoped to your school tenant."
     },
     {
       "id": 3,
-      "question": "How safe is my data?",
-      "answer": "We use bank-grade security and comply with the Nigeria Data Protection Regulation (NDPR). We never sell your data, and partners only access what’s needed to serve you better."
+      "question": "What engines are included?",
+      "answer": "Attendance, Assessment, Result, and Finance engines share the same academic structure and roles."
     },
     {
       "id": 4,
-      "question": "How do businesses get started?",
-      "answer": "Contact us. Integration is fast, with setup fees starting at $1,500 for community subdomains and $5,000–$10,000 for full bank, fintech, or real estate integrations."
+      "question": "Does Universe support secondary and tertiary?",
+      "answer": "Yes. The product is designed for every institution tier; Nursery & Primary is the first polished onboarding path."
     },
     {
       "id": 5,
-      "question": "Who owns customer funds on the platform?",
-      "answer": "The originating licensed financial institution. Every Spring wallet maps one-to-one to a real account at the institution, which retains full legal ownership of the customer relationship and funds. Spring never holds customer funds."
-    },
-    {
-      "id": 6,
-      "question": "What products can be distributed through Spring?",
-      "answer": "Five pillars carry equal strategic weight on the platform: Mortgage, Loan, Savings, Investment, and Commodity products — all distributed through the same infrastructure and the same end-user experience."
+      "question": "Is my school’s data isolated?",
+      "answer": "Yes. Tenants are institution-scoped — including notifications, dashboards, and messaging fan-out."
     }
   ]
 }

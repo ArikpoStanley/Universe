@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { CmsPage } from '@/components/CmsPage';
 
 export const metadata: Metadata = {
-  title: 'About Us',
+  title: 'About',
   description:
-    'Spring is a fintech infrastructure company transforming mortgage banking in Nigeria, in partnership with AG Mortgage Bank.',
+    'Universe is the operating system for modern schools — academics, attendance, results, finance, and family messaging.',
 };
 
 export default function AboutPage() {

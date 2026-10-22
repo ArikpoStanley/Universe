@@ -3,7 +3,7 @@ import { CmsPage } from '@/components/CmsPage';
 
 export const metadata: Metadata = {
   title: 'FAQ',
-  description: 'Answers about Spring, our licensing model, data safety, and how to get started.',
+  description: 'Answers about creating a school, engines, roles, and signing in on Universe.',
 };
 
 export default function FaqPage() {
