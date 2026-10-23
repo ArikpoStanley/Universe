@@ -6,7 +6,6 @@ import { ArrowRight, Building2, School, Sparkles, University, Users2 } from 'luc
 import { useSkin } from '@/components/SkinProvider';
 import { DesignBand } from '@/components/DesignBand';
 import { MediaCard, MediaSplit } from '@/components/MediaCard';
-import { portalHref } from '@/lib/portal';
 
 const JOURNEY = [
   {
@@ -255,11 +254,8 @@ export function SiteDepthSections() {
           ))}
         </div>
         <div className="mt-10 flex flex-wrap gap-3">
-          <a href={portalHref('create')} className="btn-primary">
-            Create school →
-          </a>
-          <Link href="/schools" className="btn-ghost">
-            Browse institutions
+          <Link href="/schools" className="btn-primary">
+            Browse institutions →
           </Link>
           <Link href="/faq" className="btn-ghost">
             Read the FAQ

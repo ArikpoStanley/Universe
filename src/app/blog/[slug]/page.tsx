@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import { getBootstrap } from '@/lib/api';
 import { Reveal } from '@/components/Reveal';
-import { portalHref } from '@/lib/portal';
 
 export async function generateMetadata({
   params,
@@ -57,13 +56,13 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
         <Reveal className="mt-16">
           <div className="rounded-2xl border border-accent/30 bg-gradient-to-br from-accent/10 to-transparent p-8 text-center">
-            <p className="font-display text-xl font-semibold">Create your school on Universe.</p>
+            <p className="font-display text-xl font-semibold">Explore institutions on Universe.</p>
             <p className="mx-auto mt-2 max-w-md text-sm text-muted">
-              Three guided steps — institution type, school details, and your first admin account.
+              Browse schools across nursery, primary, secondary, and tertiary — and apply for admission online.
             </p>
-            <a href={portalHref('create')} className="btn-primary mt-6 inline-flex">
-              Create school
-            </a>
+            <Link href="/schools" className="btn-primary mt-6 inline-flex">
+              Browse institutions
+            </Link>
           </div>
         </Reveal>
       </div>

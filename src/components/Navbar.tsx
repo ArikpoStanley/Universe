@@ -8,7 +8,6 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Logo } from './Logo';
 import { SkinSwitcher } from './SkinSwitcher';
-import { portalHref } from '@/lib/portal';
 
 const LINKS = [
   { href: '/', label: 'Home' },
@@ -97,12 +96,6 @@ export function Navbar() {
               <SkinSwitcher />
             </div>
             <ThemeToggle />
-            <a href={portalHref('signin')} className="btn-ghost hidden !px-4 !py-2 text-sm lg:inline-flex">
-              Sign in
-            </a>
-            <a href={portalHref('create')} className="btn-primary hidden !px-5 !py-2.5 text-sm lg:inline-flex">
-              Create school
-            </a>
             <button
               aria-label="Open menu"
               onClick={() => setOpen(true)}
@@ -154,19 +147,6 @@ export function Navbar() {
                   </Link>
                 </motion.div>
               ))}
-              <motion.div
-                initial={{ y: 24, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.45, duration: 0.5 }}
-                className="mt-8 flex flex-col gap-3"
-              >
-                <a href={portalHref('create')} className="btn-primary w-full">
-                  Create school
-                </a>
-                <a href={portalHref('signin')} className="btn-ghost w-full">
-                  Sign in
-                </a>
-              </motion.div>
             </div>
           </motion.div>
         )}

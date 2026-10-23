@@ -11,8 +11,8 @@
           "heading": "One platform for every institution.",
           "subheading": "Attendance, assessment, results, finance, and family messaging — nursery through tertiary on one tenant-scoped OS.",
           "cta": {
-            "label": "Create school",
-            "href": "portal:create"
+            "label": "Browse institutions",
+            "href": "/schools"
           },
           "secondaryCta": {
             "label": "Explore product",
@@ -70,7 +70,7 @@
         {
           "type": "cta",
           "heading": "Ready to create your school?",
-          "body": "Sign in or start onboarding on the Universe portal.",
+          "body": "Browse institutions or reach out to partner with Universe.",
           "cta": {
             "label": "Contact us",
             "href": "/contact"
@@ -125,11 +125,11 @@
         },
         {
           "type": "cta",
-          "heading": "Ready to create your school?",
-          "body": "Three guided steps. You become the owner. Configure everything from there.",
+          "heading": "Explore institutions on Universe.",
+          "body": "Browse schools across every tier and apply for admission online.",
           "cta": {
-            "label": "Create school",
-            "href": "portal:create"
+            "label": "Browse institutions",
+            "href": "/schools"
           },
           "secondaryCta": {
             "label": "See product",
@@ -226,11 +226,11 @@
         },
         {
           "type": "cta",
-          "heading": "Start with your first school.",
-          "body": "Create a tenant, verify the admin, and explore the engines with real school workflows.",
+          "heading": "Want Universe for your school?",
+          "body": "Talk to our team to onboard your institution, or browse schools live on the directory today.",
           "cta": {
-            "label": "Create school",
-            "href": "portal:create"
+            "label": "Contact us",
+            "href": "/contact"
           },
           "secondaryCta": {
             "label": "Browse institutions",
@@ -322,7 +322,7 @@
     {
       "id": 1,
       "question": "How do I create a school?",
-      "answer": "From the marketing site or portal, choose Create school. Pick your institution type, enter name and slug, then create the first admin account and verify email."
+      "answer": "Institutions are onboarded by the Universe platform team. Once your school is set up, your admin account is provisioned for you — reach out via the Contact page to get started."
     },
     {
       "id": 2,

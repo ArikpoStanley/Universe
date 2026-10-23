@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { Logo } from './Logo';
-import { portalHref } from '@/lib/portal';
 import { WaveBackdrop } from '@/components/WaveBackdrop';
 
 const COLUMNS = [
@@ -44,14 +43,6 @@ export function Footer() {
               One operating system for nursery, primary, secondary, and tertiary institutions —
               academics, attendance, results, finance, and family messaging.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a href={portalHref('create')} className="btn-primary !px-4 !py-2 text-sm">
-                Create school
-              </a>
-              <a href={portalHref('signin')} className="btn-ghost !px-4 !py-2 text-sm">
-                Sign in
-              </a>
-            </div>
           </div>
           {COLUMNS.map((col) => (
             <div key={col.title}>
