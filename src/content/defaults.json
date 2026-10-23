@@ -242,7 +242,7 @@
     {
       "slug": "faq",
       "title": "FAQ — Universe",
-      "description": "Common questions about creating a school, engines, roles, and signing in.",
+      "description": "Common questions about getting on Universe, engines, roles, and signing in.",
       "sections": [
         {
           "type": "hero",
@@ -321,7 +321,7 @@
   "faqs": [
     {
       "id": 1,
-      "question": "How do I create a school?",
+      "question": "How do I get my school on Universe?",
       "answer": "Institutions are onboarded by the Universe platform team. Once your school is set up, your admin account is provisioned for you — reach out via the Contact page to get started."
     },
     {
