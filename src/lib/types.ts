@@ -23,7 +23,6 @@ export interface Section {
     | 'quote'
     | 'rich'
     | 'cta'
-    | 'pricing'
     | 'faq'
     | 'contact';
   kicker?: string;
@@ -51,16 +50,6 @@ export interface PostData {
   createdAt: string;
 }
 
-export interface PricingPlanData {
-  id: number;
-  name: string;
-  audience: string;
-  price: string;
-  unit: string;
-  features: string[];
-  highlighted: boolean;
-}
-
 export interface FaqData {
   id: number;
   question: string;
@@ -70,6 +59,5 @@ export interface FaqData {
 export interface BootstrapData {
   pages: PageData[];
   posts: PostData[];
-  pricing: PricingPlanData[];
   faqs: FaqData[];
 }

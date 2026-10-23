@@ -5,54 +5,7 @@ import { Building2, Check, Mail, MapPin, Plus, Send } from 'lucide-react';
 import { FormEvent, useState } from 'react';
 import { Reveal, Stagger, StaggerItem } from '../Reveal';
 import { WaveBackdrop } from '../WaveBackdrop';
-import type { FaqData, PricingPlanData } from '@/lib/types';
-
-/* ---------------- Pricing ---------------- */
-
-export function PricingCards({ plans }: { plans: PricingPlanData[] }) {
-  return (
-    <section className="relative overflow-hidden px-5 py-16 md:px-10 lg:px-14 md:py-20">
-      <WaveBackdrop intensity="subtle" />
-      <Stagger className="relative mx-auto grid max-w-site gap-6 md:grid-cols-2 xl:grid-cols-4">
-        {plans.map((plan) => (
-          <StaggerItem key={plan.id}>
-            <div
-              className={`relative flex h-full flex-col rounded-3xl border p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 ${
-                plan.highlighted
-                  ? 'border-accent bg-gradient-to-b from-accent/20 to-card/70 shadow-[0_24px_70px_-24px_rgb(var(--accent)/0.5)]'
-                  : 'border-line bg-card/55 hover:border-accent/50'
-              }`}
-            >
-              {plan.highlighted && (
-                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-accent-deep via-accent to-accent-soft px-4 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-black">
-                  Most Popular
-                </span>
-              )}
-              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-accent-soft">
-                {plan.audience}
-              </p>
-              <h3 className="mt-2 font-display text-xl font-bold">{plan.name}</h3>
-              <div className="mt-5">
-                <span className="text-accent-soft-gradient font-display text-3xl font-bold">
-                  {plan.price}
-                </span>
-                <p className="mt-1 text-xs text-muted">{plan.unit}</p>
-              </div>
-              <ul className="mt-6 flex-1 space-y-3 border-t border-line/60 pt-6">
-                {plan.features.map((f, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-sm text-muted">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent-soft" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </StaggerItem>
-        ))}
-      </Stagger>
-    </section>
-  );
-}
+import type { FaqData } from '@/lib/types';
 
 /* ---------------- FAQ ---------------- */
 

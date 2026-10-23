@@ -76,8 +76,8 @@
             "href": "/contact"
           },
           "secondaryCta": {
-            "label": "View pricing",
-            "href": "/pricing"
+            "label": "Browse institutions",
+            "href": "/schools"
           }
         }
       ]
@@ -233,33 +233,8 @@
             "href": "portal:create"
           },
           "secondaryCta": {
-            "label": "View pricing",
-            "href": "/pricing"
-          }
-        }
-      ]
-    },
-    {
-      "slug": "pricing",
-      "title": "Pricing — Universe",
-      "description": "Free Trial, Standard, Campus, and Enterprise — same plans as the admin dashboard, from ₦50,000/month.",
-      "sections": [
-        {
-          "type": "hero",
-          "kicker": "Pricing",
-          "heading": "Plans that grow with your school.",
-          "subheading": "Start on a free trial. Scale seats and billing cycles as enrolment grows — without changing platforms."
-        },
-        {
-          "type": "pricing"
-        },
-        {
-          "type": "cta",
-          "heading": "Not sure which plan fits?",
-          "body": "Tell us your institution type, campuses, and enrolment — we’ll map seats and engines to a clear package.",
-          "cta": {
-            "label": "Contact us",
-            "href": "/contact"
+            "label": "Browse institutions",
+            "href": "/schools"
           }
         }
       ]
@@ -292,7 +267,7 @@
     {
       "slug": "contact",
       "title": "Contact Universe",
-      "description": "Talk to us about creating a school, pricing, or partnership.",
+      "description": "Talk to us about creating a school or partnership.",
       "sections": [
         {
           "type": "hero",
@@ -343,72 +318,6 @@
     }
   ],
   "posts": [],
-  "pricing": [
-    {
-      "id": 1,
-      "name": "Free Trial",
-      "audience": "Up to 50 users",
-      "price": "Free",
-      "unit": "14 days full access",
-      "features": [
-        "Full platform access for 14 days",
-        "Up to 50 users",
-        "Admissions, classes & subjects",
-        "Fee billing & payment collection",
-        "Staff & payroll basics",
-        "Email support"
-      ],
-      "highlighted": false
-    },
-    {
-      "id": 2,
-      "name": "Standard",
-      "audience": "Up to 500 users",
-      "price": "₦50,000",
-      "unit": "/ month",
-      "features": [
-        "Up to 500 users",
-        "Full academics (admissions, classes, subjects, grading)",
-        "Finance: fee billing, invoicing & payment collection",
-        "HR & payroll",
-        "Transport, messaging & notifications",
-        "Email support"
-      ],
-      "highlighted": false
-    },
-    {
-      "id": 3,
-      "name": "Campus",
-      "audience": "Up to 2,000 users",
-      "price": "₦90,000",
-      "unit": "/ month",
-      "features": [
-        "Up to 2,000 users",
-        "Everything in Standard",
-        "Term & quarterly billing flexibility",
-        "Advanced analytics & reporting",
-        "Custom domain",
-        "Priority support"
-      ],
-      "highlighted": true
-    },
-    {
-      "id": 4,
-      "name": "Enterprise",
-      "audience": "Up to 10,000 users",
-      "price": "₦150,000",
-      "unit": "/ month",
-      "features": [
-        "Up to 10,000 users",
-        "Everything in Campus",
-        "Unlimited scale",
-        "Custom domain & SSO",
-        "API access & integrations",
-        "Dedicated account manager"
-      ],
-      "highlighted": false
-    }
-  ],
   "faqs": [
     {
       "id": 1,

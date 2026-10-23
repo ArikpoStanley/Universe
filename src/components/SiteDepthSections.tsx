@@ -35,7 +35,7 @@ const AUDIENCE = [
   {
     icon: School,
     title: 'Proprietors & admins',
-    body: 'One tenant for academics, fees, HR, and family messaging — with Plans & Pricing that scale seats as enrolment grows.',
+    body: 'One tenant for academics, fees, HR, and family messaging — free for schools, with a simple per-student portal levy.',
   },
   {
     icon: Users2,
@@ -258,8 +258,8 @@ export function SiteDepthSections() {
           <a href={portalHref('create')} className="btn-primary">
             Create school →
           </a>
-          <Link href="/pricing" className="btn-ghost">
-            See plans & pricing
+          <Link href="/schools" className="btn-ghost">
+            Browse institutions
           </Link>
           <Link href="/faq" className="btn-ghost">
             Read the FAQ

@@ -14,7 +14,6 @@ const LINKS = [
   { href: '/', label: 'Home' },
   { href: '/products', label: 'Product' },
   { href: '/schools', label: 'Institutions' },
-  { href: '/pricing', label: 'Pricing' },
   { href: '/faq', label: 'FAQ' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
