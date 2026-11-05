@@ -7,6 +7,7 @@ import { institutionTypeToSkin, skins } from '@/lib/skins';
 import { useSkin } from '@/components/SkinProvider';
 import { WaveBackdrop } from '@/components/WaveBackdrop';
 import { EnergyTrails } from '@/components/EnergyTrails';
+import { PhotoCropDialog } from '@/components/PhotoCropDialog';
 import type { PublicInstitutionDetail } from '@/lib/institutions';
 import {
   BLOOD_GROUP_OPTIONS,
@@ -108,6 +109,7 @@ function PhoneInput({
 }
 
 const emptyForm = {
+  photoUrl: '',
   preferredAdmissionNumber: '',
   firstName: '',
   middleName: '',
@@ -159,6 +161,8 @@ export default function ApplyPage() {
   const [score, setScore] = useState<number | null>(null);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [form, setForm] = useState(emptyForm);
+  const [photoUploading, setPhotoUploading] = useState(false);
+  const [photoToCrop, setPhotoToCrop] = useState<File | null>(null);
 
   useEffect(() => {
     void fetch(`${API}/public/institutions/${encodeURIComponent(slug)}`)
@@ -187,6 +191,33 @@ export default function ApplyPage() {
   function onSelect(key: keyof typeof form) {
     return (event: ChangeEvent<HTMLSelectElement | HTMLInputElement | HTMLTextAreaElement>) =>
       setField(key, event.target.value as never);
+  }
+
+  async function uploadPhoto(file: File | null) {
+    if (!file) return;
+    if (file.size > 3 * 1024 * 1024) {
+      setError('The photo must be 3 MB or smaller.');
+      return;
+    }
+    setPhotoUploading(true);
+    setError(null);
+    try {
+      const body = new FormData();
+      body.append('file', file);
+      const response = await fetch(`${API}/public/institutions/${encodeURIComponent(slug)}/admissions/photo`, {
+        method: 'POST',
+        body,
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.url) {
+        throw new Error(typeof result.message === 'string' ? result.message : 'Could not upload the photo');
+      }
+      setField('photoUrl', result.url);
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : 'Could not upload the photo');
+    } finally {
+      setPhotoUploading(false);
+    }
   }
 
   async function submitApply(event: FormEvent) {
@@ -241,6 +272,7 @@ export default function ApplyPage() {
           secondaryGuardianPhone: form.secondaryGuardianPhone || undefined,
           medicalNotes: form.medicalNotes || undefined,
           notes: form.notes || undefined,
+          photoUrl: form.photoUrl || undefined,
           applicationSource: 'Online',
         }),
       });
@@ -395,6 +427,45 @@ export default function ApplyPage() {
               description="Identity and personal details used for the student record and portal account."
               delay={0.1}
             >
+              <div className="flex flex-wrap items-center gap-4">
+                <div className="grid h-28 w-[88px] shrink-0 place-items-center overflow-hidden rounded-2xl border border-line bg-surface text-xs text-muted">
+                  {form.photoUrl ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={form.photoUrl} alt="Applicant photo" className="h-full w-full object-cover" />
+                  ) : (
+                    'No photo'
+                  )}
+                </div>
+                <div className="space-y-1.5">
+                  <p className="text-sm font-semibold text-foreground">Passport photograph</p>
+                  <p className="text-xs text-muted">A clear, recent face photo (JPG, PNG or WebP, up to 3 MB).</p>
+                  <label className="btn-ghost inline-flex cursor-pointer items-center text-sm">
+                    {photoUploading ? 'Uploading…' : form.photoUrl ? 'Change photo' : 'Upload photo'}
+                    <input
+                      type="file"
+                      accept="image/jpeg,image/png,image/webp"
+                      className="sr-only"
+                      disabled={photoUploading}
+                      onChange={(event) => {
+                        const file = event.target.files?.[0];
+                        if (file) setPhotoToCrop(file);
+                        event.target.value = '';
+                      }}
+                    />
+                  </label>
+                  <PhotoCropDialog
+                    file={photoToCrop}
+                    title="Frame your passport photo"
+                    aspect={7 / 9}
+                    shape="rect"
+                    onCancel={() => setPhotoToCrop(null)}
+                    onConfirm={(cropped) => {
+                      setPhotoToCrop(null);
+                      void uploadPhoto(cropped);
+                    }}
+                  />
+                </div>
+              </div>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 <Field label="Admission number">
                   <input
@@ -680,7 +751,7 @@ export default function ApplyPage() {
                 Cancel
               </a>
               <button type="submit" className="btn-primary min-w-[180px]" disabled={saving}>
-                {saving ? 'Submitting…' : 'Create Record'}
+                {saving ? 'Submitting…' : 'Submit application'}
               </button>
             </div>
           </form>
