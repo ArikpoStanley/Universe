@@ -12,6 +12,7 @@ import { SkinSwitcher } from './SkinSwitcher';
 const LINKS = [
   { href: '/', label: 'Home' },
   { href: '/products', label: 'Product' },
+  { href: '/plans', label: 'Plans' },
   { href: '/schools', label: 'Institutions' },
   { href: '/faq', label: 'FAQ' },
   { href: '/about', label: 'About' },
