@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { CookieSettingsButton } from './CookieSettingsButton';
 import { Logo } from './Logo';
 import { WaveBackdrop } from '@/components/WaveBackdrop';
 
@@ -25,8 +26,9 @@ const COLUMNS = [
   {
     title: 'Legal',
     links: [
-      { label: 'Privacy', href: '/privacy' },
-      { label: 'Terms', href: '/terms' },
+      { label: 'Terms of Service', href: '/terms' },
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'Cookie Policy', href: '/cookies' },
     ],
   },
 ];
@@ -58,6 +60,11 @@ export function Footer() {
                     </Link>
                   </li>
                 ))}
+                {col.title === 'Legal' && (
+                  <li>
+                    <CookieSettingsButton variant="link" />
+                  </li>
+                )}
               </ul>
             </div>
           ))}
