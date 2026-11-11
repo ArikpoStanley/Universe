@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
-import type { PlanFeatureState, PublicPlan, PublicPlanCatalog } from '@/lib/plans';
+import { studentCapacityLabel, type PlanFeatureState, type PublicPlan, type PublicPlanCatalog } from '@/lib/plans';
 
 const STATE_CELL: Record<PlanFeatureState, { symbol: string; label: string; className: string }> = {
   included: { symbol: '✓', label: 'Included', className: 'text-ok' },
@@ -95,7 +95,7 @@ export function PlansExplorer({ data }: { data: PublicPlanCatalog }) {
         </div>
       </div>
 
-      <div className={`grid gap-6 ${plans.length >= 3 ? 'lg:grid-cols-3' : plans.length === 2 ? 'md:grid-cols-2' : ''}`}>
+      <div className={`grid gap-6 ${plans.length >= 4 ? 'md:grid-cols-2 xl:grid-cols-4' : plans.length === 3 ? 'lg:grid-cols-3' : plans.length === 2 ? 'md:grid-cols-2' : ''}`}>
         {plans.map((plan, index) => {
           const termPrice = plan.effectivePrice ?? plan.price;
           const shown = cycle === 'term' ? termPrice : sessionPrice(plan);
@@ -130,8 +130,14 @@ export function PlansExplorer({ data }: { data: PublicPlanCatalog }) {
                     ) : null}
                   </>
                 ) : (
-                  <span className="text-3xl font-bold tracking-tight">Custom pricing</span>
+                  <>
+                    <span className="text-3xl font-bold tracking-tight">Custom</span>
+                    <p className="mt-1 text-sm text-muted">Contact Universe for a quote</p>
+                  </>
                 )}
+                <p className="mt-3 inline-flex rounded-full bg-accent/10 px-3 py-1 text-sm font-semibold text-accent-soft">
+                  {studentCapacityLabel(plan.maxStudents ?? null, plans)}
+                </p>
               </div>
               {plan.description ? <p className="mt-4 text-sm text-muted">{plan.description}</p> : null}
               <ul className="mt-6 flex-1 space-y-2 text-sm">
@@ -163,6 +169,20 @@ export function PlansExplorer({ data }: { data: PublicPlanCatalog }) {
         })}
       </div>
 
+      {data.portalLevy ? (
+        <div className="mx-auto max-w-2xl rounded-3xl border border-dashed border-line bg-surface p-7 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Separate student portal levy</p>
+          <p className="mt-2 font-display text-3xl font-bold">
+            {money(data.portalLevy.amount, data.portalLevy.currency)}{' '}
+            <span className="text-base font-medium text-muted">/ active student / term</span>
+          </p>
+          <p className="mt-2 text-sm text-muted">
+            Charged separately from the institutional subscription and collected through the school&apos;s fee structure.
+            Your plan sets how many active students you can have; it never includes or replaces the levy.
+          </p>
+        </div>
+      ) : null}
+
       {groups.length ? (
         <div>
           <h2 className="mb-2 text-center font-display text-3xl font-bold">Compare plans</h2>
@@ -187,6 +207,14 @@ export function PlansExplorer({ data }: { data: PublicPlanCatalog }) {
                   {plans.map((plan) => (
                     <td key={plan.level} className="px-5 py-3 text-center font-semibold">
                       {money(cycle === 'term' ? plan.effectivePrice ?? plan.price : sessionPrice(plan), plan.currency) ?? 'Custom'}
+                    </td>
+                  ))}
+                </tr>
+                <tr className="border-b border-line">
+                  <td className="sticky left-0 bg-surface px-5 py-3 text-muted">Active students</td>
+                  {plans.map((plan) => (
+                    <td key={plan.level} className="px-5 py-3 text-center font-semibold">
+                      {studentCapacityLabel(plan.maxStudents ?? null, plans)}
                     </td>
                   ))}
                 </tr>

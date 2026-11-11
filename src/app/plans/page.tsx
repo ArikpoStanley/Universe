@@ -28,8 +28,8 @@ export default async function PlansPage() {
             One platform, a plan for every school.
           </h1>
           <p className="mt-5 text-base text-muted md:text-lg">
-            Choose your institution type, compare what each plan includes, and pick the one that fits. Prices are per
-            school, billed per term or per session.
+            Choose your institution type, compare what each plan includes, and pick the one that fits your student
+            numbers. Prices are per school, billed per term or per session.
           </p>
         </div>
       </DesignBand>
