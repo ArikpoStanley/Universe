@@ -64,22 +64,3 @@ export function WaveBackdrop({
     </div>
   );
 }
-
-/** Thin wavy divider used between page sections. */
-export function WaveDivider({ flip = false }: { flip?: boolean }) {
-  const reduce = useReducedMotion();
-  return (
-    <div className={`relative h-16 w-full overflow-hidden ${flip ? 'rotate-180' : ''}`} aria-hidden>
-      <svg
-        className={`absolute inset-0 h-full w-[200%] ${reduce ? '' : 'animate-wave-drift'}`}
-        viewBox="0 0 1440 80"
-        preserveAspectRatio="none"
-      >
-        <path
-          fill="rgb(var(--surface))"
-          d="M0,40L60,45C120,50,240,60,360,55C480,50,600,30,720,28C840,26,960,42,1080,48C1200,54,1320,50,1380,48L1440,46L1440,80L0,80Z"
-        />
-      </svg>
-    </div>
-  );
-}

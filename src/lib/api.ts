@@ -1,4 +1,4 @@
-import type { BootstrapData, PageData } from './types';
+import type { BootstrapData } from './types';
 import fallback from '@/content/defaults.json';
 
 function apiBase() {
@@ -26,11 +26,4 @@ export async function getBootstrap(): Promise<BootstrapData> {
   } catch {
     return fallbackData;
   }
-}
-
-export async function getPage(slug: string): Promise<PageData> {
-  const data = await getBootstrap();
-  const page = data.pages.find((p) => p.slug === slug);
-  if (page) return page;
-  return { slug, title: 'Universe', description: '', sections: [] };
 }
