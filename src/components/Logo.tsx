@@ -1,16 +1,23 @@
-/** Universe brand mark (public/brand/universe-mark.png). */
 export function LogoMark({ className }: { className?: string }) {
-  // eslint-disable-next-line @next/next/no-img-element
-  return <img src="/brand/universe-mark.png" alt="" aria-hidden="true" className={`object-contain ${className ?? ''}`} />;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src="/brand/universe-mark.png" alt="" aria-hidden="true" className={`object-contain ${className ?? ''}`} />
+  );
 }
 
-export function Logo({ compact = false }: { compact?: boolean }) {
+/** Stacked Universe logo (mark, wordmark, tagline); `className` sets the height. */
+export function Logo({ compact = false, className = 'h-14' }: { compact?: boolean; className?: string }) {
+  if (compact) return <LogoMark className="h-9 w-9" />;
   return (
-    <span className="flex items-center gap-2.5">
-      <LogoMark className="h-9 w-9" />
-      {!compact && (
-        <span className="text-xl font-black tracking-[-0.04em] text-foreground">Universe</span>
-      )}
+    <span className="flex items-center">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/brand/universe-logo-stacked.png" alt="Universe" className={`w-auto object-contain dark:hidden ${className}`} />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/brand/universe-logo-stacked-dark.png"
+        alt="Universe"
+        className={`hidden w-auto object-contain dark:block ${className}`}
+      />
     </span>
   );
 }

@@ -41,7 +41,7 @@ export function Footer() {
       <div className="relative mx-auto max-w-site px-5 py-16 md:px-10 lg:px-14">
         <div className="grid gap-12 md:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div>
-            <Logo />
+            <Logo className="h-24" />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted">
               One operating system for nursery, primary, secondary, and tertiary institutions —
               academics, attendance, results, finance, and family messaging.

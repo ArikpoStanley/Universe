@@ -90,7 +90,7 @@ function LoginCard({ onLogin }: { onLogin: (token: string) => void }) {
         className="glass-card w-full max-w-md p-9"
       >
         <div className="mb-8 flex flex-col items-center text-center">
-          <Logo />
+          <Logo className="h-24" />
           <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-accent-soft">
             Marketing inbox
           </p>
