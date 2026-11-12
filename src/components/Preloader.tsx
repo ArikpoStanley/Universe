@@ -2,9 +2,6 @@
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { LogoMark } from './Logo';
-
-const LETTERS = ['U', 'n', 'i', 'v', 'e', 'r', 's', 'e'];
 
 export function Preloader() {
   const [done, setDone] = useState(false);
@@ -48,22 +45,9 @@ export function Preloader() {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
-              <LogoMark className="mb-6 h-16 w-16" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/brand/universe-logo-stacked-dark.png" alt="Universe" className="h-36 w-auto object-contain md:h-44" />
             </motion.div>
-
-            <div className="flex overflow-hidden">
-              {LETTERS.map((l, i) => (
-                <motion.span
-                  key={`${l}-${i}`}
-                  className="text-4xl font-black tracking-[-0.04em] text-slate-50 md:text-5xl"
-                  initial={{ y: 64, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.65, delay: 0.28 + i * 0.05, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  {l}
-                </motion.span>
-              ))}
-            </div>
 
             <motion.div
               className="mt-4 h-px w-52 origin-left bg-gradient-to-r from-transparent via-sky-400 to-transparent"
