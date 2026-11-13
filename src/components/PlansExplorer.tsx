@@ -95,7 +95,7 @@ export function PlansExplorer({ data }: { data: PublicPlanCatalog }) {
         </div>
       </div>
 
-      <div className={`grid gap-6 ${plans.length >= 4 ? 'md:grid-cols-2 xl:grid-cols-4' : plans.length === 3 ? 'lg:grid-cols-3' : plans.length === 2 ? 'md:grid-cols-2' : ''}`}>
+      <div className={`grid gap-5 sm:grid-cols-2 ${plans.length >= 4 ? 'lg:grid-cols-4' : plans.length === 3 ? 'lg:grid-cols-3' : ''}`}>
         {plans.map((plan, index) => {
           const termPrice = plan.effectivePrice ?? plan.price;
           const shown = cycle === 'term' ? termPrice : sessionPrice(plan);
@@ -104,7 +104,7 @@ export function PlansExplorer({ data }: { data: PublicPlanCatalog }) {
           return (
             <article
               key={plan.level}
-              className={`relative flex flex-col rounded-3xl border bg-surface p-7 shadow-sm ${
+              className={`relative flex min-w-0 flex-col rounded-3xl border bg-surface p-6 shadow-sm ${
                 index === featured ? 'border-accent ring-2 ring-accent/30' : 'border-line'
               }`}
             >
@@ -118,7 +118,7 @@ export function PlansExplorer({ data }: { data: PublicPlanCatalog }) {
               <div className="mt-6">
                 {formatted ? (
                   <>
-                    <span className="text-4xl font-bold tracking-tight">{formatted}</span>
+                    <span className="text-3xl font-bold tracking-tight xl:text-4xl">{formatted}</span>
                     <span className="ml-1 text-sm text-muted">
                       / {cycle === 'term' ? periodWord(plan.billingPeriod) : 'session'}
                     </span>

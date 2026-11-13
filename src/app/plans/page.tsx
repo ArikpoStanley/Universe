@@ -34,7 +34,7 @@ export default async function PlansPage() {
         </div>
       </DesignBand>
 
-      <section className="mx-auto w-full max-w-6xl px-5 pb-24 md:px-8">
+      <section className="mx-auto w-full max-w-7xl px-5 pb-24 md:px-8">
         {data && data.catalogs.length > 0 ? (
           <PlansExplorer data={data} />
         ) : (
