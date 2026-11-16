@@ -1,0 +1,15 @@
+**/node_modules
+**/.next
+**/.turbo
+**/dist
+**/*.tsbuildinfo
+.git
+.gitignore
+.env
+.env.*
+!.env.example
+**/*.log
+.vercel
+out
+README.md
+vercel.json

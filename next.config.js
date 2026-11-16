@@ -8,6 +8,7 @@ const API_ORIGIN = (
 
 const nextConfig = {
   reactStrictMode: true,
+  output: 'standalone',
   async rewrites() {
     return [
       {
