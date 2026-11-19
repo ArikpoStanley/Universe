@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { institutionTypeLabels, institutionTypeToSkin, skins } from '@/lib/skins';
 import { useSkin } from '@/components/SkinProvider';
 import { WaveBackdrop } from '@/components/WaveBackdrop';
@@ -9,12 +10,22 @@ import { EnergyTrails } from '@/components/EnergyTrails';
 import type { PublicInstitutionDetail } from '@/lib/institutions';
 
 export function SchoolProfile({ data }: { data: PublicInstitutionDetail }) {
+  const router = useRouter();
   const { setSkin } = useSkin();
   const { institution, classes, stats, entranceTest } = data;
+  const [entranceNoticeOpen, setEntranceNoticeOpen] = useState(false);
 
   useEffect(() => {
     setSkin(institutionTypeToSkin(institution.type));
   }, [institution.type, setSkin]);
+
+  function startApply() {
+    if (entranceTest) {
+      setEntranceNoticeOpen(true);
+      return;
+    }
+    router.push(`/apply/${institution.slug}`);
+  }
 
   const location = [
     institution.physicalAddress,
@@ -172,15 +183,61 @@ export function SchoolProfile({ data }: { data: PublicInstitutionDetail }) {
                 <p className="mt-2 text-sm text-muted">
                   Complete the full student + guardian application for {institution.name}.
                 </p>
-                <Link href={`/apply/${institution.slug}`} className="btn-primary mt-5 w-full">
+                <button type="button" onClick={startApply} className="btn-primary mt-5 w-full">
                   Apply now →
-                </Link>
+                </button>
                 <p className="mt-4 text-center text-xs text-muted">Free · no account needed to apply</p>
               </div>
             </div>
           </aside>
         </div>
       </section>
+
+      {entranceNoticeOpen && entranceTest ? (
+        <div
+          className="fixed inset-0 z-50 flex items-end justify-center bg-black/55 p-4 sm:items-center"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="entrance-notice-title"
+        >
+          <div className="w-full max-w-md overflow-hidden rounded-2xl border border-line bg-card shadow-[0_24px_80px_-24px_rgb(0_0_0/0.65)]">
+            <div className="h-1.5 bg-gradient-to-r from-accent via-accent-soft to-ok" aria-hidden />
+            <div className="p-6">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-accent-soft">
+                Before you apply
+              </p>
+              <h2 id="entrance-notice-title" className="mt-2 text-xl font-bold text-foreground">
+                Entrance test required
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-muted">
+                Applicants for <span className="font-semibold text-foreground">{institution.name}</span>{' '}
+                must sit for an entrance test as part of the application process. After you submit
+                your details, you will take the test online before your application is complete.
+              </p>
+              <p className="mt-3 text-sm font-semibold text-accent-soft">{entranceTest.title}</p>
+              {entranceTest.passMark != null ? (
+                <p className="mt-2 text-xs text-muted">Pass mark: {entranceTest.passMark}%</p>
+              ) : null}
+              <div className="mt-6 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+                <button
+                  type="button"
+                  className="btn-ghost"
+                  onClick={() => setEntranceNoticeOpen(false)}
+                >
+                  Go back
+                </button>
+                <button
+                  type="button"
+                  className="btn-primary"
+                  onClick={() => router.push(`/apply/${institution.slug}?ready=1`)}
+                >
+                  Continue to application
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

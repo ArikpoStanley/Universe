@@ -1,13 +1,14 @@
 'use client';
 
 import { useEffect, useMemo, useState, type ChangeEvent, type FormEvent, type ReactNode } from 'react';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { institutionTypeToSkin, skins } from '@/lib/skins';
 import { useSkin } from '@/components/SkinProvider';
 import { WaveBackdrop } from '@/components/WaveBackdrop';
 import { EnergyTrails } from '@/components/EnergyTrails';
 import { PhotoCropDialog } from '@/components/PhotoCropDialog';
+import { RichTextHtml } from '@/components/RichTextHtml';
 import type { PublicInstitutionDetail } from '@/lib/institutions';
 import {
   BLOOD_GROUP_OPTIONS,
@@ -149,6 +150,7 @@ const emptyForm = {
 
 export default function ApplyPage() {
   const params = useParams<{ slug: string }>();
+  const router = useRouter();
   const slug = params.slug;
   const { setSkin, skinConfig } = useSkin();
 
@@ -163,6 +165,18 @@ export default function ApplyPage() {
   const [form, setForm] = useState(emptyForm);
   const [photoUploading, setPhotoUploading] = useState(false);
   const [photoToCrop, setPhotoToCrop] = useState<File | null>(null);
+  // Set when continuing from the school profile modal (?ready=1) or after accepting here.
+  const [entranceNoticeAccepted, setEntranceNoticeAccepted] = useState(false);
+
+  useEffect(() => {
+    try {
+      if (new URLSearchParams(window.location.search).get('ready') === '1') {
+        setEntranceNoticeAccepted(true);
+      }
+    } catch {
+      /* ignore */
+    }
+  }, []);
 
   useEffect(() => {
     void fetch(`${API}/public/institutions/${encodeURIComponent(slug)}`)
@@ -337,6 +351,7 @@ export default function ApplyPage() {
   const test = school.entranceTest as { title: string; description?: string | null; questions: Question[] } | null;
   const applyImage = skins[institutionTypeToSkin(school.institution.type)].applyImage;
   const isEarlyYears = school.institution.type === 'nursery' || school.institution.type === 'primary';
+  const needsEntranceNotice = Boolean(test) && !entranceNoticeAccepted && step === 'apply';
 
   return (
     <div className="relative min-h-screen">
@@ -388,7 +403,51 @@ export default function ApplyPage() {
           <p className="mb-6 rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-400">{error}</p>
         ) : null}
 
-        {step === 'apply' ? (
+        {needsEntranceNotice && test ? (
+          <div
+            className="fixed inset-0 z-50 flex items-end justify-center bg-black/55 p-4 sm:items-center"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="apply-entrance-notice-title"
+          >
+            <div className="w-full max-w-md overflow-hidden rounded-2xl border border-line bg-card shadow-[0_24px_80px_-24px_rgb(0_0_0/0.65)]">
+              <div className="h-1.5 bg-gradient-to-r from-accent via-accent-soft to-ok" aria-hidden />
+              <div className="p-6">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-accent-soft">
+                  Before you apply
+                </p>
+                <h2 id="apply-entrance-notice-title" className="mt-2 text-xl font-bold text-foreground">
+                  Entrance test required
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  Applicants for{' '}
+                  <span className="font-semibold text-foreground">{school.institution.name}</span> must
+                  sit for an entrance test as part of the application process. After you submit your
+                  details, you will take the test online before your application is complete.
+                </p>
+                <p className="mt-3 text-sm font-semibold text-accent-soft">{test.title}</p>
+                <div className="mt-6 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+                  <button
+                    type="button"
+                    className="btn-ghost"
+                    onClick={() => router.push(`/schools/${school.institution.slug}`)}
+                  >
+                    Go back
+                  </button>
+                  <button
+                    type="button"
+                    className="btn-primary"
+                    onClick={() => setEntranceNoticeAccepted(true)}
+                  >
+                    Continue to application
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : null}
+
+        {step === 'apply' && !needsEntranceNotice ? (
           <form className="space-y-6" onSubmit={(event) => void submitApply(event)}>
             <SectionCard
               title="Student nationality"
@@ -759,23 +818,30 @@ export default function ApplyPage() {
 
         {step === 'test' && test ? (
           <form className="space-y-4" onSubmit={(event) => void submitTest(event)}>
-            {test.description ? <p className="text-muted">{test.description}</p> : null}
+            {test.description ? (
+              <RichTextHtml html={test.description} className="text-sm text-muted" />
+            ) : null}
             {test.questions.map((question, index) => (
               <fieldset key={question.id} className="glass-card p-5">
-                <legend className="px-1 text-sm font-bold">
-                  {index + 1}. {question.prompt}
-                </legend>
+                <legend className="sr-only">Question {index + 1}</legend>
+                <div className="flex gap-2 text-sm font-bold text-foreground">
+                  <span className="shrink-0">{index + 1}.</span>
+                  <RichTextHtml html={question.prompt} className="min-w-0 flex-1 font-bold" />
+                </div>
                 <div className="mt-3 space-y-2">
                   {question.options.map((option, optionIndex) => (
-                    <label key={`${question.id}-${optionIndex}`} className="flex items-center gap-2 text-sm text-muted">
+                    <label
+                      key={`${question.id}-${optionIndex}`}
+                      className="flex items-start gap-2 text-sm text-muted"
+                    >
                       <input
                         type="radio"
                         name={question.id}
                         checked={answers[question.id] === optionIndex}
                         onChange={() => setAnswers((current) => ({ ...current, [question.id]: optionIndex }))}
-                        className="h-4 w-4 accent-[rgb(var(--accent))]"
+                        className="mt-1 h-4 w-4 shrink-0 accent-[rgb(var(--accent))]"
                       />
-                      {option}
+                      <RichTextHtml html={option} as="span" className="min-w-0 flex-1 text-muted" />
                     </label>
                   ))}
                 </div>
