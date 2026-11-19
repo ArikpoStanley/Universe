@@ -195,12 +195,20 @@ body {
 
 .field {
   width: 100%;
+  min-height: 2.75rem;
   background: rgb(var(--surface));
   border: 1px solid rgb(var(--line));
   border-radius: 0.75rem;
   padding: 0.8rem 1rem;
   color: rgb(var(--foreground));
+  font-size: 1rem; /* avoids iOS zoom on focus */
   transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
 }
 .field:focus {
   border-color: rgb(var(--accent));

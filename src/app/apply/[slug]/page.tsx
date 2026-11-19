@@ -45,11 +45,11 @@ function SectionCard({
       className="overflow-hidden rounded-2xl border border-line/80 bg-card/90 shadow-[0_18px_50px_-28px_rgb(var(--accent)/0.55)] backdrop-blur-xl"
     >
       <legend className="sr-only">{title}</legend>
-      <div className="border-b border-line/70 bg-accent/10 px-5 py-4 md:px-6">
+      <div className="border-b border-line/70 bg-accent/10 px-4 py-3.5 sm:px-5 sm:py-4 md:px-6">
         <h2 className="text-base font-bold text-foreground md:text-lg">{title}</h2>
         <p className="mt-1 text-sm text-muted">{description}</p>
       </div>
-      <div className="space-y-4 p-5 md:p-6">{children}</div>
+      <div className="space-y-4 p-4 sm:p-5 md:p-6">{children}</div>
     </motion.fieldset>
   );
 }
@@ -398,21 +398,21 @@ export default function ApplyPage() {
         </div>
       </div>
 
-      <main className="relative mx-auto max-w-5xl px-5 pb-24 md:px-10 lg:px-14">
+      <main className="relative mx-auto max-w-5xl px-4 pb-24 sm:px-5 md:px-10 lg:px-14">
         {error ? (
           <p className="mb-6 rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-400">{error}</p>
         ) : null}
 
         {needsEntranceNotice && test ? (
           <div
-            className="fixed inset-0 z-50 flex items-end justify-center bg-black/55 p-4 sm:items-center"
+            className="fixed inset-0 z-50 flex items-end justify-center bg-black/55 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:items-center sm:p-4"
             role="dialog"
             aria-modal="true"
             aria-labelledby="apply-entrance-notice-title"
           >
-            <div className="w-full max-w-md overflow-hidden rounded-2xl border border-line bg-card shadow-[0_24px_80px_-24px_rgb(0_0_0/0.65)]">
+            <div className="max-h-[90dvh] w-full max-w-md overflow-y-auto overflow-x-hidden rounded-2xl border border-line bg-card shadow-[0_24px_80px_-24px_rgb(0_0_0/0.65)]">
               <div className="h-1.5 bg-gradient-to-r from-accent via-accent-soft to-ok" aria-hidden />
-              <div className="p-6">
+              <div className="p-5 sm:p-6">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-accent-soft">
                   Before you apply
                 </p>
@@ -429,14 +429,14 @@ export default function ApplyPage() {
                 <div className="mt-6 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
                   <button
                     type="button"
-                    className="btn-ghost"
+                    className="btn-ghost min-h-11 w-full sm:w-auto"
                     onClick={() => router.push(`/schools/${school.institution.slug}`)}
                   >
                     Go back
                   </button>
                   <button
                     type="button"
-                    className="btn-primary"
+                    className="btn-primary min-h-11 w-full sm:w-auto"
                     onClick={() => setEntranceNoticeAccepted(true)}
                   >
                     Continue to application
@@ -486,7 +486,7 @@ export default function ApplyPage() {
               description="Identity and personal details used for the student record and portal account."
               delay={0.1}
             >
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
                 <div className="grid h-28 w-[88px] shrink-0 place-items-center overflow-hidden rounded-2xl border border-line bg-surface text-xs text-muted">
                   {form.photoUrl ? (
                     // eslint-disable-next-line @next/next/no-img-element
@@ -495,10 +495,10 @@ export default function ApplyPage() {
                     'No photo'
                   )}
                 </div>
-                <div className="space-y-1.5">
+                <div className="min-w-0 flex-1 space-y-1.5">
                   <p className="text-sm font-semibold text-foreground">Passport photograph</p>
                   <p className="text-xs text-muted">A clear, recent face photo (JPG, PNG or WebP, up to 3 MB).</p>
-                  <label className="btn-ghost inline-flex cursor-pointer items-center text-sm">
+                  <label className="btn-ghost inline-flex min-h-11 cursor-pointer items-center text-sm">
                     {photoUploading ? 'Uploading…' : form.photoUrl ? 'Change photo' : 'Upload photo'}
                     <input
                       type="file"
@@ -806,10 +806,10 @@ export default function ApplyPage() {
             </SectionCard>
 
             <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
-              <a href={`/schools/${school.institution.slug}`} className="btn-ghost">
+              <a href={`/schools/${school.institution.slug}`} className="btn-ghost min-h-11 w-full text-center sm:w-auto">
                 Cancel
               </a>
-              <button type="submit" className="btn-primary min-w-[180px]" disabled={saving}>
+              <button type="submit" className="btn-primary min-h-11 w-full sm:min-w-[180px] sm:w-auto" disabled={saving}>
                 {saving ? 'Submitting…' : 'Submit application'}
               </button>
             </div>

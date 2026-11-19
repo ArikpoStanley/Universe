@@ -111,7 +111,7 @@ export function SchoolProfile({ data }: { data: PublicInstitutionDetail }) {
       <section className="relative mx-auto max-w-site px-5 py-12 md:px-10 lg:px-14">
         <WaveBackdrop intensity="subtle" />
         <div className="relative grid gap-8 lg:grid-cols-3">
-          <div className="space-y-10 lg:col-span-2">
+          <div className="order-2 space-y-10 lg:order-1 lg:col-span-2">
             <div>
               <h2 className="text-xl font-bold">About this institution</h2>
               <div className="mt-4 space-y-3">
@@ -172,18 +172,18 @@ export function SchoolProfile({ data }: { data: PublicInstitutionDetail }) {
             ) : null}
           </div>
 
-          <aside>
-            <div className="sticky top-24 overflow-hidden rounded-2xl border border-line bg-card/95 shadow-[0_20px_50px_-28px_rgb(var(--accent)/0.55)] backdrop-blur-xl">
+          <aside className="order-1 lg:order-2">
+            <div className="overflow-hidden rounded-2xl border border-line bg-card/95 shadow-[0_20px_50px_-28px_rgb(var(--accent)/0.55)] backdrop-blur-xl lg:sticky lg:top-24">
               <div
-                className="h-28 bg-gradient-to-br from-accent/40 via-accent-soft/20 to-ok/15"
+                className="hidden h-28 bg-gradient-to-br from-accent/40 via-accent-soft/20 to-ok/15 sm:block"
                 aria-hidden
               />
-              <div className="p-6">
+              <div className="p-5 sm:p-6">
                 <h3 className="text-lg font-bold">Apply for admission</h3>
                 <p className="mt-2 text-sm text-muted">
                   Complete the full student + guardian application for {institution.name}.
                 </p>
-                <button type="button" onClick={startApply} className="btn-primary mt-5 w-full">
+                <button type="button" onClick={startApply} className="btn-primary mt-5 w-full min-h-11">
                   Apply now →
                 </button>
                 <p className="mt-4 text-center text-xs text-muted">Free · no account needed to apply</p>
@@ -195,14 +195,14 @@ export function SchoolProfile({ data }: { data: PublicInstitutionDetail }) {
 
       {entranceNoticeOpen && entranceTest ? (
         <div
-          className="fixed inset-0 z-50 flex items-end justify-center bg-black/55 p-4 sm:items-center"
+          className="fixed inset-0 z-50 flex items-end justify-center bg-black/55 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:items-center sm:p-4"
           role="dialog"
           aria-modal="true"
           aria-labelledby="entrance-notice-title"
         >
-          <div className="w-full max-w-md overflow-hidden rounded-2xl border border-line bg-card shadow-[0_24px_80px_-24px_rgb(0_0_0/0.65)]">
+          <div className="max-h-[90dvh] w-full max-w-md overflow-y-auto overflow-x-hidden rounded-2xl border border-line bg-card shadow-[0_24px_80px_-24px_rgb(0_0_0/0.65)]">
             <div className="h-1.5 bg-gradient-to-r from-accent via-accent-soft to-ok" aria-hidden />
-            <div className="p-6">
+            <div className="p-5 sm:p-6">
               <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-accent-soft">
                 Before you apply
               </p>
@@ -221,14 +221,14 @@ export function SchoolProfile({ data }: { data: PublicInstitutionDetail }) {
               <div className="mt-6 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
                 <button
                   type="button"
-                  className="btn-ghost"
+                  className="btn-ghost min-h-11 w-full sm:w-auto"
                   onClick={() => setEntranceNoticeOpen(false)}
                 >
                   Go back
                 </button>
                 <button
                   type="button"
-                  className="btn-primary"
+                  className="btn-primary min-h-11 w-full sm:w-auto"
                   onClick={() => router.push(`/apply/${institution.slug}?ready=1`)}
                 >
                   Continue to application
